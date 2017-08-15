@@ -1,0 +1,14 @@
+
+\.idea/
+
+\.git_old/
+
+__pycache__/
+
+*.pyc
+
+wind_datasets/
+
+studies_results_12dir_old/
+
+results/
