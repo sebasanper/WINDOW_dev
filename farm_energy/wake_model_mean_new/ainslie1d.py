@@ -37,7 +37,7 @@ def ainslie(Ct, u0, distance_parallel, distance_perpendicular, I0):
     return answer
 
 
-ainslie = Memoize(ainslie)
+# ainslie = Memoize(ainslie)
     # Code to calculate average wake deficit in all area of the rotor ###############
 
     # Define function to integrate.

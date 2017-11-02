@@ -1,12 +1,31 @@
 # central_platform = [[2000.0, 1000.0]]
 central_platform = [[429500, 6147600]]
-number_turbines_per_cable = [5, 9]
-NT = 8
+number_turbines_per_cable = [5, 7]
+NT = 80
 
+
+class Cost1:
+    def __init__(self, value, currency, year):
+        global value_year
+        # Inflation and exchange rate {'Currency Code': [Average inflation rate, Exchange rate to Euro]}
+        self.conversion = {'USD': [2.57, 0.89],
+                           'GBP': [2.55, 1.27],
+                           'DKK': [1.84, 0.13],
+                           'SEK': [2.03, 0.11],
+                           'NOK': [1.95, 0.11],
+                           'Euro': [2.16, 1.0]}
+
+        inflation_rate = self.conversion[currency][0]
+        exchange_rate = self.conversion[currency][1]
+
+        self.ref_value = value
+        self.currency = currency
+        self.ref_year = year
+        self.value = value * ((1.0 + (inflation_rate / 100.0)) ** (value_year - year)) * exchange_rate
 
 def read_cablelist():
     cables_info = []
-    with open("/home/sebasanper/PycharmProjects/owf_MDAO/costs/investment_costs/BOS_cost/cable_cost/cable_list.dat",
+    with open("/home/sebasanper/PycharmProjects/WINDOW-dev/costs/investment_costs/BOS_cost/cable_cost/cable_list.dat",
               "r") as cables:
         next(cables)
         for line in cables:

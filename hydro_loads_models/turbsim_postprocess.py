@@ -14,7 +14,7 @@ from numpy import std, average
 time = []
 centre = []
 wind_file = \
-    '/home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/turbsim_test_run/TurbSim.u'
+    '/home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/turbsim_test_run/TurbSim.u'
 length = sum(1 for line in open(wind_file)) / 15
 mat = [[[0 for _ in range(13)] for __ in range(13)] for ___ in range(length)]
 

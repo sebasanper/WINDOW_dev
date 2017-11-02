@@ -107,7 +107,7 @@ class Workflow:
             # print " === Wind direction = " + str(self.wind_directions[i])
             # if self.print_output is True: print self.wind_speeds_probabilities[i]
             self.aero_energy_one_angle, self.powers_one_angle = energy_one_angle(turbine_coordinates, self.wind_speeds[i], self.wind_speeds_probabilities[i], self.wind_directions[i], self.freestream_turbulence, self.wake_mean_model, self.power_model, self.power_lookup_file, self.thrust_coefficient_model, self.thrust_lookup_file, self.wake_merging_model)
-
+            print self.powers_one_angle, self.wind_directions[i]
             # if self.print_output is True: print self.aero_energy_one_angle
             # if self.print_output is True: print self.powers_one_angle, max(self.powers_one_angle)
             # if self.print_output is True: print turbine_coordinates, self.wind_speeds[i], self.wind_directions[i], self.freestream_turbulence[0], Jensen, self.thrust_coefficient_model, self.wake_turbulence_model
@@ -212,8 +212,10 @@ class Workflow:
         self.thrust_calls = thrust_coefficient2.count()
         power.reset()
         thrust_coefficient.reset()
-        ainslie.reset()
-        ainslie_full.reset()
+        power2.reset()
+        thrust_coefficient2.reset()
+        # ainslie.reset()
+        # ainslie_full.reset()
         determine_if_in_wake.reset()
         wake_radius.reset()
         wake_deficit.reset()
@@ -248,7 +250,7 @@ if __name__ == '__main__':
     # @profile
     def exe():
         start = time()
-        workflow1 = Workflow(MeanWind, "/home/sebasanper/PycharmProjects/owf_MDAO/site_conditions/wind_conditions/weibull_windrose.dat", frandsen2, None, Flat, farm_support_cost, None, oandm, cable_optimiser, infield_efficiency, thrust_coefficient, "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", Jensen, root_sum_square, power, "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat", aep_average, other_costs, total_costs, LPC)
+        workflow1 = Workflow(MeanWind, "/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/wind_conditions/weibull_windrose.dat", frandsen2, None, Flat, farm_support_cost, None, oandm, cable_optimiser, infield_efficiency, thrust_coefficient, "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", Jensen, root_sum_square, power, "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat", aep_average, other_costs, total_costs, LPC)
         # workflow1.windrose.nbins = 15
         workflow1.print_output = True
         print workflow1.run("layout_creator/random_layout1.dat")
@@ -261,9 +263,9 @@ if __name__ == '__main__':
     weibullmodels = [MeanWind, WeibullWindBins]
     # b
     windrosemodels = [
-        "/home/sebasanper/PycharmProjects/owf_MDAO/site_conditions/wind_conditions/weibull_windrose_12unique.dat",
-        "/home/sebasanper/PycharmProjects/owf_MDAO/site_conditions/wind_conditions/weibull_windrose_12sameWeibull.dat",
-        "/home/sebasanper/PycharmProjects/owf_MDAO/site_conditions/wind_conditions/weibull_windrose_12identical.dat"]
+        "/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/wind_conditions/weibull_windrose_12unique.dat",
+        "/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/wind_conditions/weibull_windrose_12sameWeibull.dat",
+        "/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/wind_conditions/weibull_windrose_12identical.dat"]
     # c
     turbmodels = ["ConstantTurbulence", frandsen2, danish_recommendation, frandsen, larsen_turbulence, Quarton]
     # d
@@ -271,9 +273,9 @@ if __name__ == '__main__':
     # e
     mergingmodels = [root_sum_square, maximum, multiplied, summed]
     # f
-    thrustmodels = ["/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantThrust.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/NREL_5MW_C_T_new.txt", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_ct.dat"]
+    thrustmodels = ["/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantThrust.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/NREL_5MW_C_T_new.txt", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_ct.dat"]
     # g
-    powermodels = ["/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantPower.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_power.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_power.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/powercurve.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat"]
+    powermodels = ["/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantPower.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_power.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_power.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/powercurve.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat"]
     # h
     depthmodels = [Flat, Gaussian, Plane, Rough]
     # j

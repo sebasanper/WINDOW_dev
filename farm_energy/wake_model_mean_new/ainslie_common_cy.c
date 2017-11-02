@@ -631,7 +631,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx",
+  "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx",
 };
 
 /*--- Type declarations ---*/
@@ -789,7 +789,7 @@ static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_test;
 
-/* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":1
+/* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":1
  * cdef double b(double deficit, double ct):  # Wake width measure             # <<<<<<<<<<<<<<
  *     if deficit <= 0.0:
  *         deficit = 0.0000000000001
@@ -803,7 +803,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   double __pyx_t_3;
   __Pyx_RefNannySetupContext("b", 0);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":2
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":2
  * cdef double b(double deficit, double ct):  # Wake width measure
  *     if deficit <= 0.0:             # <<<<<<<<<<<<<<
  *         deficit = 0.0000000000001
@@ -812,7 +812,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   __pyx_t_1 = ((__pyx_v_deficit <= 0.0) != 0);
   if (__pyx_t_1) {
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":3
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":3
  * cdef double b(double deficit, double ct):  # Wake width measure
  *     if deficit <= 0.0:
  *         deficit = 0.0000000000001             # <<<<<<<<<<<<<<
@@ -821,7 +821,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
  */
     __pyx_v_deficit = 0.0000000000001;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":2
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":2
  * cdef double b(double deficit, double ct):  # Wake width measure
  *     if deficit <= 0.0:             # <<<<<<<<<<<<<<
  *         deficit = 0.0000000000001
@@ -829,7 +829,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
  */
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":5
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":5
  *         deficit = 0.0000000000001
  *         # print "deficit negativo"
  *     if 1.0 - 0.5 * deficit < 0.0:             # <<<<<<<<<<<<<<
@@ -840,7 +840,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   if (__pyx_t_1) {
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":8
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":8
  *         # print deficit, "deficit negativo"
  *         pass
  *     return (3.56 * ct / (8.0 * deficit * (1.0 - 0.5 * deficit))) ** 0.5             # <<<<<<<<<<<<<<
@@ -856,7 +856,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   __pyx_r = pow((__pyx_t_2 / __pyx_t_3), 0.5);
   goto __pyx_L0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":1
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":1
  * cdef double b(double deficit, double ct):  # Wake width measure             # <<<<<<<<<<<<<<
  *     if deficit <= 0.0:
  *         deficit = 0.0000000000001
@@ -871,7 +871,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   return __pyx_r;
 }
 
-/* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":12
+/* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":12
  * 
  * 
  * cdef double F(double x):  # Factor for near and far wake             # <<<<<<<<<<<<<<
@@ -885,7 +885,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("F", 0);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":13
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":13
  * 
  * cdef double F(double x):  # Factor for near and far wake
  *     if x >= 5.5:             # <<<<<<<<<<<<<<
@@ -895,7 +895,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   __pyx_t_1 = ((__pyx_v_x >= 5.5) != 0);
   if (__pyx_t_1) {
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":14
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":14
  * cdef double F(double x):  # Factor for near and far wake
  *     if x >= 5.5:
  *         return 1.0             # <<<<<<<<<<<<<<
@@ -905,7 +905,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
     __pyx_r = 1.0;
     goto __pyx_L0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":13
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":13
  * 
  * cdef double F(double x):  # Factor for near and far wake
  *     if x >= 5.5:             # <<<<<<<<<<<<<<
@@ -914,7 +914,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
  */
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":15
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":15
  *     if x >= 5.5:
  *         return 1.0
  *     if x < 5.5:             # <<<<<<<<<<<<<<
@@ -924,7 +924,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   __pyx_t_1 = ((__pyx_v_x < 5.5) != 0);
   if (__pyx_t_1) {
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":16
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":16
  *         return 1.0
  *     if x < 5.5:
  *         if x >= 4.5:             # <<<<<<<<<<<<<<
@@ -934,7 +934,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
     __pyx_t_1 = ((__pyx_v_x >= 4.5) != 0);
     if (__pyx_t_1) {
 
-      /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":17
+      /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":17
  *     if x < 5.5:
  *         if x >= 4.5:
  *             return 0.65 + ((x - 4.5) / 23.32) ** (1.0 / 3.0)             # <<<<<<<<<<<<<<
@@ -944,7 +944,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
       __pyx_r = (0.65 + pow(((__pyx_v_x - 4.5) / 23.32), (1.0 / 3.0)));
       goto __pyx_L0;
 
-      /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":16
+      /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":16
  *         return 1.0
  *     if x < 5.5:
  *         if x >= 4.5:             # <<<<<<<<<<<<<<
@@ -953,7 +953,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
  */
     }
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":19
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":19
  *             return 0.65 + ((x - 4.5) / 23.32) ** (1.0 / 3.0)
  *         else:
  *             return 0.65 - ((- x + 4.5) / 23.32) ** (1.0 / 3.0)             # <<<<<<<<<<<<<<
@@ -965,7 +965,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
       goto __pyx_L0;
     }
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":15
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":15
  *     if x >= 5.5:
  *         return 1.0
  *     if x < 5.5:             # <<<<<<<<<<<<<<
@@ -974,7 +974,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
  */
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":12
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":12
  * 
  * 
  * cdef double F(double x):  # Factor for near and far wake             # <<<<<<<<<<<<<<
@@ -989,7 +989,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   return __pyx_r;
 }
 
-/* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":23
+/* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":23
  * 
  * 
  * cdef double E(double x1, double Ud, double Dm, double u0, double i0, double ct):  # Eddy viscosity term             # <<<<<<<<<<<<<<
@@ -1012,7 +1012,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   PyObject *__pyx_t_8 = NULL;
   __Pyx_RefNannySetupContext("E", 0);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":24
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":24
  * 
  * cdef double E(double x1, double Ud, double Dm, double u0, double i0, double ct):  # Eddy viscosity term
  *     cdef double karman = 0.41  # von Karman constant             # <<<<<<<<<<<<<<
@@ -1021,7 +1021,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
  */
   __pyx_v_karman = 0.41;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":25
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":25
  * cdef double E(double x1, double Ud, double Dm, double u0, double i0, double ct):  # Eddy viscosity term
  *     cdef double karman = 0.41  # von Karman constant
  *     if 1.0 - 0.5 * Dm < 0.0:             # <<<<<<<<<<<<<<
@@ -1031,7 +1031,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   __pyx_t_1 = (((1.0 - (0.5 * __pyx_v_Dm)) < 0.0) != 0);
   if (__pyx_t_1) {
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":26
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":26
  *     cdef double karman = 0.41  # von Karman constant
  *     if 1.0 - 0.5 * Dm < 0.0:
  *         print x1, Ud, Dm, u0, i0, ct             # <<<<<<<<<<<<<<
@@ -1073,7 +1073,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
     if (__Pyx_Print(0, __pyx_t_8, 1) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":25
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":25
  * cdef double E(double x1, double Ud, double Dm, double u0, double i0, double ct):  # Eddy viscosity term
  *     cdef double karman = 0.41  # von Karman constant
  *     if 1.0 - 0.5 * Dm < 0.0:             # <<<<<<<<<<<<<<
@@ -1082,7 +1082,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
  */
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":28
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":28
  *         print x1, Ud, Dm, u0, i0, ct
  *         pass
  *     eddy = F(x1) * ((0.015 * b(Dm, ct) * (u0 - Ud)) + (karman ** 2.0) * i0)             # <<<<<<<<<<<<<<
@@ -1091,7 +1091,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
  */
   __pyx_v_eddy = (__pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mean_new_17ainslie_common_cy_F(__pyx_v_x1) * (((0.015 * __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mean_new_17ainslie_common_cy_b(__pyx_v_Dm, __pyx_v_ct)) * (__pyx_v_u0 - __pyx_v_Ud)) + (pow(__pyx_v_karman, 2.0) * __pyx_v_i0)));
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":29
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":29
  *         pass
  *     eddy = F(x1) * ((0.015 * b(Dm, ct) * (u0 - Ud)) + (karman ** 2.0) * i0)
  *     return eddy             # <<<<<<<<<<<<<<
@@ -1100,7 +1100,7 @@ static double __pyx_f_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model_mea
   __pyx_r = __pyx_v_eddy;
   goto __pyx_L0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":23
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":23
  * 
  * 
  * cdef double E(double x1, double Ud, double Dm, double u0, double i0, double ct):  # Eddy viscosity term             # <<<<<<<<<<<<<<
@@ -1264,7 +1264,7 @@ PyMODINIT_FUNC PyInit_ainslie_common_cy(void)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":1
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie_common_cy.pyx":1
  * cdef double b(double deficit, double ct):  # Wake width measure             # <<<<<<<<<<<<<<
  *     if deficit <= 0.0:
  *         deficit = 0.0000000000001

@@ -55,12 +55,12 @@ WARNING:   A coherent turbulence time step file cannot be generated with the IEC
 
 You have requested that the following file(s) be generated:
 
-   /home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/turbsim_test_run/TurbSim.dat (formatted turbulence-parameter file)
-   /home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/turbsim_test_run/TurbSim.bts (AeroDyn/TurbSim full-field wind file)
-   /home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/turbsim_test_run/TurbSim.wnd (AeroDyn/BLADED full-field wnd file)
-   /home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/turbsim_test_run/TurbSim.u (formatted full-field U-component file)
-   /home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/turbsim_test_run/TurbSim.v (formatted full-field V-component file)
-   /home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/turbsim_test_run/TurbSim.w (formatted full-field W-component file)
+   /home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/turbsim_test_run/TurbSim.dat (formatted turbulence-parameter file)
+   /home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/turbsim_test_run/TurbSim.bts (AeroDyn/TurbSim full-field wind file)
+   /home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/turbsim_test_run/TurbSim.wnd (AeroDyn/BLADED full-field wnd file)
+   /home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/turbsim_test_run/TurbSim.u (formatted full-field U-component file)
+   /home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/turbsim_test_run/TurbSim.v (formatted full-field V-component file)
+   /home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/turbsim_test_run/TurbSim.w (formatted full-field W-component file)
 
 
 Turbulence Simulation Scaling Parameter Summary:

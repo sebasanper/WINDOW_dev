@@ -9,25 +9,25 @@ def callturbsim(mean_wind_speed, turbulence_intensity):
     ts.ts_exe = "/home/sebasanper/Downloads/turbsim/turbsim/TurbSim"
 
     # abs path
-    ts.ts_dir = "/home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/"
+    ts.ts_dir = "/home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/"
     ts.ts_file = "TurbSim.inp"
 
     # relative path
     #    ts.ts_dir = "TurbSimTest"
     #    ts.ts_file = "turbsim_template.inp"
 
-    ts.run_dir = "/home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/turbsim_test_run"
+    ts.run_dir = "/home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/turbsim_test_run"
     ts.set_dict({"URef": mean_wind_speed, "AnalysisTime": 600, "UsableTime": 100, "IECturbc": turbulence_intensity})
     ts.execute()
 
-    with open('/home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/turbsim_test_run/TurbSim.sum', 'r') as files:
+    with open('/home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/turbsim_test_run/TurbSim.sum', 'r') as files:
         filedata = files.read()
 
     # Replace the target string
     filedata = filedata.replace('87.700', '87.600')
 
     # Write the file out again
-    with open('/home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/turbsim_test_run/TurbSim.sum', 'w') as files:
+    with open('/home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/turbsim_test_run/TurbSim.sum', 'w') as files:
         files.write(filedata)
 
 
@@ -39,7 +39,7 @@ def callfast():
     fstInst = runFAST_v8()
 
     # Define various members of the FAST instance. Can use relative locations.
-    fstInst.fst_exe = "/home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/bin/FAST_glin64"
+    fstInst.fst_exe = "/home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/bin/FAST_glin64"
     fstInst.fst_dir = "input_FAST"
     fstInst.fst_file = "Test18_.fst"
     fstInst.run_dir = "FAST_run"

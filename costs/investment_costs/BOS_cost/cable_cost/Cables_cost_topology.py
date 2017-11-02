@@ -1,5 +1,5 @@
 # -----------------------------------------Input Parameters------------------------------------------------------------------
-from turbine_description import *
+from turbine_description import rated_current
 
 
 def cable_design(WT_List):
@@ -17,6 +17,7 @@ def cable_design(WT_List):
     for number in number_turbines_per_cable:
         for cable in cables_info:
             if rated_current * number <= cable[1]:
+                print number, cable[2], rated_current
                 Cable_List.append([number, cable[2] + 365.0])
                 break
     # print Cable_List

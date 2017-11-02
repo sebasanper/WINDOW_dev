@@ -28,9 +28,9 @@ from statistics import mode
 wakemodels = [constantwake, Jensen, Larsen, Ainslie1D, Ainslie2D]
 # b - 2
 windrosemodels = [
-    "/home/sebasanper/PycharmProjects/owf_MDAO/site_conditions/wind_conditions/weibull_windrose_12unique.dat",
-    "/home/sebasanper/PycharmProjects/owf_MDAO/site_conditions/wind_conditions/weibull_windrose_12sameWeibull.dat",
-    "/home/sebasanper/PycharmProjects/owf_MDAO/site_conditions/wind_conditions/weibull_windrose_12identical.dat"]
+    "/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/wind_conditions/weibull_windrose_12unique.dat",
+    "/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/wind_conditions/weibull_windrose_12sameWeibull.dat",
+    "/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/wind_conditions/weibull_windrose_12identical.dat"]
 # c - 3
 turbmodels = ["ConstantTurbulence", frandsen2, danish_recommendation, frandsen, larsen_turbulence, Quarton]
 # d - 4
@@ -38,9 +38,9 @@ cablemodels = ["ConstantCable", cable_optimiser, radial_cable, random_cable]
 # e - 5
 mergingmodels = [root_sum_square, maximum, multiplied, summed]
 # f - 6
-thrustmodels = ["/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantThrust.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/NREL_5MW_C_T_new.txt", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_ct.dat"]
+thrustmodels = ["/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantThrust.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/NREL_5MW_C_T_new.txt", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_ct.dat"]
 # g - 7
-powermodels = ["/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantPower.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_power.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_power.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/powercurve.dat", "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat"]
+powermodels = ["/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantPower.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_power.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_power.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/powercurve.dat", "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat"]
 # h - 8
 depthmodels = [Flat, Gaussian, Plane, Rough]
 # i - 9

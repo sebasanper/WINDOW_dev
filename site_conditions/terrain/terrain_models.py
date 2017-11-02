@@ -1,5 +1,4 @@
-from numpy import exp
-from math import sqrt
+from numpy import exp, sqrt
 
 
 def distance(x0, y0, x, y):
@@ -55,8 +54,7 @@ class Rough:
         self.coordinates_x = []
         self.coordinates_y = []
         self.depths = []
-        # with open("/home/sebasanper/PycharmProjects/owf_MDAO/site_conditions/terrain/bathymetry.dat", "r") as bathymetry_file:
-        with open("/home/sebasanper/Downloads/bathymetry.dat", "r") as bathymetry_file:
+        with open("/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/terrain/bathymetry.dat", "r") as bathymetry_file:
             for line in bathymetry_file:
                 cols = line.split()
                 self.coordinates_x.append(float(cols[0]))

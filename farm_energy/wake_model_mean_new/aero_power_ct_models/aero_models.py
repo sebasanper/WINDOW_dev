@@ -1,7 +1,7 @@
 from farm_energy.wake_model_mean_new.aero_power_ct_models.util import interpolate
 from numpy import pi
 from memoize import Memoize
-from turbine_description_5MW import cutout_wind_speed, cutin_wind_speed, rotor_radius, wind_speed_at_max_thrust as rated_wind, rated_power
+from turbine_description import cutout_wind_speed, cutin_wind_speed, rotor_radius, wind_speed_at_max_thrust as rated_wind, rated_power
 
 
 class AeroLookup:
@@ -37,7 +37,7 @@ class AeroLookup:
 
 
 def power_coefficient(wind_speed, rated, r, cutin=cutin_wind_speed, cutout=cutout_wind_speed):
-    table_cp = AeroLookup("/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat")
+    table_cp = AeroLookup("/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat")
     if wind_speed < cutin:
         return 0.0
     elif wind_speed <= rated:
@@ -56,7 +56,7 @@ from memoize import countcalls
 def power2(wind_speed, power_lookup_file, cutin=cutin_wind_speed, cutout=cutout_wind_speed, rated=rated_wind, r=rotor_radius):
     table_power = AeroLookup(power_lookup_file)
     # print "iuno"
-    if power_lookup_file == "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat":
+    if power_lookup_file == "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat":
         if wind_speed < cutin:
             return 0.0
         elif wind_speed <= rated:
@@ -80,7 +80,7 @@ power = Memoize(power2)
 
 
 def thrust_nrel2(wind_speed, r=rotor_radius):
-    table_thrust = AeroLookup("/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_ct.dat")
+    table_thrust = AeroLookup("/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_ct.dat")
     if wind_speed < table_thrust.x[0]:
         T = table_thrust.y[0]
     elif wind_speed > table_thrust.x[-1]:
@@ -111,7 +111,7 @@ def thrust_coefficient2(wind_speed, lookup_file):
 thrust_coefficient = Memoize(thrust_coefficient2)
 
 
-def power_v80(u0):
+def power_v80(u0, file):
     if u0 < 4.0:
         return 0.0
     elif u0 <= 10.0:

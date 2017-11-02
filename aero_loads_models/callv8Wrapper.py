@@ -25,7 +25,7 @@ def pyWrapper():
     fstInst = runFAST_v8()
 
     # Define various members of the FAST instance. Can use relative locations.
-    fstInst.fst_exe = "/home/sebasanper/PycharmProjects/owf_MDAO/aero_loads_models/bin/FAST_glin64"
+    fstInst.fst_exe = "/home/sebasanper/PycharmProjects/WINDOW-dev/aero_loads_models/bin/FAST_glin64"
     fstInst.fst_dir = "input_FAST"
     fstInst.fst_file = "Test18_.fst"
     fstInst.run_dir = "FAST_run"

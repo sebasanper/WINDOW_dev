@@ -631,7 +631,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "PycharmProjects/owf_MDAO/cython/primes.pyx",
+  "PycharmProjects/WINDOW-dev/cython/primes.pyx",
 };
 
 /*--- Type declarations ---*/
@@ -773,7 +773,7 @@ static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_primes[] = "primes";
 static const char __pyx_k_result[] = "result";
 static const char __pyx_k_PycharmProjects_owf_MDAO_cython[] = "PycharmProjects.owf_MDAO.cython.primes";
-static const char __pyx_k_home_sebasanper_PycharmProjects[] = "/home/sebasanper/PycharmProjects/owf_MDAO/cython/primes.pyx";
+static const char __pyx_k_home_sebasanper_PycharmProjects[] = "/home/sebasanper/PycharmProjects/WINDOW-dev/cython/primes.pyx";
 static PyObject *__pyx_n_s_PycharmProjects_owf_MDAO_cython;
 static PyObject *__pyx_kp_s_home_sebasanper_PycharmProjects;
 static PyObject *__pyx_n_s_i;
@@ -789,7 +789,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 
-/* "PycharmProjects/owf_MDAO/cython/primes.pyx":1
+/* "PycharmProjects/WINDOW-dev/cython/primes.pyx":1
  * def primes(int kmax):             # <<<<<<<<<<<<<<
  *     cdef int n, k, i
  *     cdef int p[1000]
@@ -833,7 +833,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
   int __pyx_t_4;
   __Pyx_RefNannySetupContext("primes", 0);
 
-  /* "PycharmProjects/owf_MDAO/cython/primes.pyx":4
+  /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":4
  *     cdef int n, k, i
  *     cdef int p[1000]
  *     result = []             # <<<<<<<<<<<<<<
@@ -845,7 +845,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
   __pyx_v_result = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "PycharmProjects/owf_MDAO/cython/primes.pyx":5
+  /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":5
  *     cdef int p[1000]
  *     result = []
  *     if kmax > 1000:             # <<<<<<<<<<<<<<
@@ -855,7 +855,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
   __pyx_t_2 = ((__pyx_v_kmax > 0x3E8) != 0);
   if (__pyx_t_2) {
 
-    /* "PycharmProjects/owf_MDAO/cython/primes.pyx":6
+    /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":6
  *     result = []
  *     if kmax > 1000:
  *         kmax = 1000             # <<<<<<<<<<<<<<
@@ -864,7 +864,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
  */
     __pyx_v_kmax = 0x3E8;
 
-    /* "PycharmProjects/owf_MDAO/cython/primes.pyx":5
+    /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":5
  *     cdef int p[1000]
  *     result = []
  *     if kmax > 1000:             # <<<<<<<<<<<<<<
@@ -873,7 +873,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
  */
   }
 
-  /* "PycharmProjects/owf_MDAO/cython/primes.pyx":7
+  /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":7
  *     if kmax > 1000:
  *         kmax = 1000
  *     k = 0             # <<<<<<<<<<<<<<
@@ -882,7 +882,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
  */
   __pyx_v_k = 0;
 
-  /* "PycharmProjects/owf_MDAO/cython/primes.pyx":8
+  /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":8
  *         kmax = 1000
  *     k = 0
  *     n = 2             # <<<<<<<<<<<<<<
@@ -891,7 +891,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
  */
   __pyx_v_n = 2;
 
-  /* "PycharmProjects/owf_MDAO/cython/primes.pyx":9
+  /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":9
  *     k = 0
  *     n = 2
  *     while k < kmax:             # <<<<<<<<<<<<<<
@@ -902,7 +902,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
     __pyx_t_2 = ((__pyx_v_k < __pyx_v_kmax) != 0);
     if (!__pyx_t_2) break;
 
-    /* "PycharmProjects/owf_MDAO/cython/primes.pyx":10
+    /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":10
  *     n = 2
  *     while k < kmax:
  *         i = 0             # <<<<<<<<<<<<<<
@@ -911,7 +911,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
  */
     __pyx_v_i = 0;
 
-    /* "PycharmProjects/owf_MDAO/cython/primes.pyx":11
+    /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":11
  *     while k < kmax:
  *         i = 0
  *         while i < k and n % p[i] != 0:             # <<<<<<<<<<<<<<
@@ -934,7 +934,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
       __pyx_L8_bool_binop_done:;
       if (!__pyx_t_2) break;
 
-      /* "PycharmProjects/owf_MDAO/cython/primes.pyx":12
+      /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":12
  *         i = 0
  *         while i < k and n % p[i] != 0:
  *             i = i + 1             # <<<<<<<<<<<<<<
@@ -944,7 +944,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
       __pyx_v_i = (__pyx_v_i + 1);
     }
 
-    /* "PycharmProjects/owf_MDAO/cython/primes.pyx":13
+    /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":13
  *         while i < k and n % p[i] != 0:
  *             i = i + 1
  *         if i == k:             # <<<<<<<<<<<<<<
@@ -954,7 +954,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
     __pyx_t_2 = ((__pyx_v_i == __pyx_v_k) != 0);
     if (__pyx_t_2) {
 
-      /* "PycharmProjects/owf_MDAO/cython/primes.pyx":14
+      /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":14
  *             i = i + 1
  *         if i == k:
  *             p[k] = n             # <<<<<<<<<<<<<<
@@ -963,7 +963,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
  */
       (__pyx_v_p[__pyx_v_k]) = __pyx_v_n;
 
-      /* "PycharmProjects/owf_MDAO/cython/primes.pyx":15
+      /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":15
  *         if i == k:
  *             p[k] = n
  *             k = k + 1             # <<<<<<<<<<<<<<
@@ -972,7 +972,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
  */
       __pyx_v_k = (__pyx_v_k + 1);
 
-      /* "PycharmProjects/owf_MDAO/cython/primes.pyx":16
+      /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":16
  *             p[k] = n
  *             k = k + 1
  *             result.append(n)             # <<<<<<<<<<<<<<
@@ -984,7 +984,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
       __pyx_t_4 = __Pyx_PyList_Append(__pyx_v_result, __pyx_t_1); if (unlikely(__pyx_t_4 == -1)) __PYX_ERR(0, 16, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "PycharmProjects/owf_MDAO/cython/primes.pyx":13
+      /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":13
  *         while i < k and n % p[i] != 0:
  *             i = i + 1
  *         if i == k:             # <<<<<<<<<<<<<<
@@ -993,7 +993,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
  */
     }
 
-    /* "PycharmProjects/owf_MDAO/cython/primes.pyx":17
+    /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":17
  *             k = k + 1
  *             result.append(n)
  *         n = n + 1             # <<<<<<<<<<<<<<
@@ -1002,7 +1002,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
     __pyx_v_n = (__pyx_v_n + 1);
   }
 
-  /* "PycharmProjects/owf_MDAO/cython/primes.pyx":18
+  /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":18
  *             result.append(n)
  *         n = n + 1
  *     return result             # <<<<<<<<<<<<<<
@@ -1012,7 +1012,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_6cython_6primes_primes(CYT
   __pyx_r = __pyx_v_result;
   goto __pyx_L0;
 
-  /* "PycharmProjects/owf_MDAO/cython/primes.pyx":1
+  /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":1
  * def primes(int kmax):             # <<<<<<<<<<<<<<
  *     cdef int n, k, i
  *     cdef int p[1000]
@@ -1074,7 +1074,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "PycharmProjects/owf_MDAO/cython/primes.pyx":1
+  /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":1
  * def primes(int kmax):             # <<<<<<<<<<<<<<
  *     cdef int n, k, i
  *     cdef int p[1000]
@@ -1189,7 +1189,7 @@ PyMODINIT_FUNC PyInit_primes(void)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "PycharmProjects/owf_MDAO/cython/primes.pyx":1
+  /* "PycharmProjects/WINDOW-dev/cython/primes.pyx":1
  * def primes(int kmax):             # <<<<<<<<<<<<<<
  *     cdef int n, k, i
  *     cdef int p[1000]

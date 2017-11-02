@@ -631,7 +631,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx",
+  "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx",
 };
 
 /*--- Type declarations ---*/
@@ -936,7 +936,7 @@ static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_append[] = "append";
 static const char __pyx_k_thomas[] = "thomas";
-static const char __pyx_k_home_sebasanper_PycharmProjects[] = "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx";
+static const char __pyx_k_home_sebasanper_PycharmProjects[] = "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx";
 static const char __pyx_k_PycharmProjects_owf_MDAO_farm_en[] = "PycharmProjects.owf_MDAO.farm_energy.wake_model_mean_new.thomas_algorithm_cy";
 static PyObject *__pyx_n_s_PycharmProjects_owf_MDAO_farm_en;
 static PyObject *__pyx_n_s__4;
@@ -977,7 +977,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 static PyObject *__pyx_codeobj__2;
 
-/* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":4
+/* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":4
  * 
  * 
  * def thomas(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -1088,7 +1088,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   PyObject *__pyx_t_11 = NULL;
   __Pyx_RefNannySetupContext("thomas", 0);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":17
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":17
  *     # Finding the size of the matrix and determine n
  *     cdef int n, i, j
  *     n = len(b)             # <<<<<<<<<<<<<<
@@ -1098,7 +1098,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_t_1 = PyObject_Length(__pyx_v_b); if (unlikely(__pyx_t_1 == -1)) __PYX_ERR(0, 17, __pyx_L1_error)
   __pyx_v_n = __pyx_t_1;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":20
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":20
  *     # print n # Used for debugging
  *     # Test the size of a and c
  *     if len(a) != n - 1:             # <<<<<<<<<<<<<<
@@ -1109,7 +1109,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_t_2 = ((__pyx_t_1 != (__pyx_v_n - 1)) != 0);
   if (__pyx_t_2) {
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":22
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":22
  *     if len(a) != n - 1:
  *         # print 'Wrong index size for a.\n A should have an index of', n - 1, '\n Your a has ', len(a)
  *         exit()             # <<<<<<<<<<<<<<
@@ -1120,7 +1120,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":20
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":20
  *     # print n # Used for debugging
  *     # Test the size of a and c
  *     if len(a) != n - 1:             # <<<<<<<<<<<<<<
@@ -1129,7 +1129,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":23
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":23
  *         # print 'Wrong index size for a.\n A should have an index of', n - 1, '\n Your a has ', len(a)
  *         exit()
  *     if len(c) != n - 1:             # <<<<<<<<<<<<<<
@@ -1140,7 +1140,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_t_2 = ((__pyx_t_1 != (__pyx_v_n - 1)) != 0);
   if (__pyx_t_2) {
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":25
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":25
  *     if len(c) != n - 1:
  *         # print 'Wrong index size for c.\n C should have an index of', n - 1, '\n Your c has', len(c)
  *         exit()             # <<<<<<<<<<<<<<
@@ -1151,7 +1151,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":23
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":23
  *         # print 'Wrong index size for a.\n A should have an index of', n - 1, '\n Your a has ', len(a)
  *         exit()
  *     if len(c) != n - 1:             # <<<<<<<<<<<<<<
@@ -1160,7 +1160,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":28
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":28
  * 
  *     # Converting to float and appending 0.0 to c
  *     for i in range(0, len(a)):             # <<<<<<<<<<<<<<
@@ -1171,7 +1171,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_1; __pyx_t_4+=1) {
     __pyx_v_i = __pyx_t_4;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":29
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":29
  *     # Converting to float and appending 0.0 to c
  *     for i in range(0, len(a)):
  *         a[i] = float(a[i])             # <<<<<<<<<<<<<<
@@ -1187,7 +1187,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":30
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":30
  *     for i in range(0, len(a)):
  *         a[i] = float(a[i])
  *     for i in range(0, len(b)):             # <<<<<<<<<<<<<<
@@ -1198,7 +1198,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_1; __pyx_t_4+=1) {
     __pyx_v_i = __pyx_t_4;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":31
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":31
  *         a[i] = float(a[i])
  *     for i in range(0, len(b)):
  *         b[i] = float(b[i])             # <<<<<<<<<<<<<<
@@ -1214,7 +1214,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":32
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":32
  *     for i in range(0, len(b)):
  *         b[i] = float(b[i])
  *     for i in range(0, len(c)):             # <<<<<<<<<<<<<<
@@ -1225,7 +1225,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_1; __pyx_t_4+=1) {
     __pyx_v_i = __pyx_t_4;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":33
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":33
  *         b[i] = float(b[i])
  *     for i in range(0, len(c)):
  *         c[i] = float(c[i])             # <<<<<<<<<<<<<<
@@ -1241,7 +1241,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":34
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":34
  *     for i in range(0, len(c)):
  *         c[i] = float(c[i])
  *     for i in range(0, len(d)):             # <<<<<<<<<<<<<<
@@ -1252,7 +1252,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_1; __pyx_t_4+=1) {
     __pyx_v_i = __pyx_t_4;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":35
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":35
  *         c[i] = float(c[i])
  *     for i in range(0, len(d)):
  *         d[i] = float(d[i])             # <<<<<<<<<<<<<<
@@ -1268,7 +1268,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":36
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":36
  *     for i in range(0, len(d)):
  *         d[i] = float(d[i])
  *     c.append(0.0)  # Hack to make the function to work             # <<<<<<<<<<<<<<
@@ -1277,7 +1277,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   __pyx_t_6 = __Pyx_PyObject_Append(__pyx_v_c, __pyx_float_0_0); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 36, __pyx_L1_error)
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":39
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":39
  * 
  *     # Calculate p and q
  *     p = []             # <<<<<<<<<<<<<<
@@ -1289,7 +1289,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_v_p = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":40
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":40
  *     # Calculate p and q
  *     p = []
  *     q = []             # <<<<<<<<<<<<<<
@@ -1301,7 +1301,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_v_q = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":41
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":41
  *     p = []
  *     q = []
  *     p.append(c[0] / b[0])             # <<<<<<<<<<<<<<
@@ -1319,7 +1319,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_p, __pyx_t_7); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":42
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":42
  *     q = []
  *     p.append(c[0] / b[0])
  *     q.append(d[0] / b[0])             # <<<<<<<<<<<<<<
@@ -1337,7 +1337,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_q, __pyx_t_3); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":43
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":43
  *     p.append(c[0] / b[0])
  *     q.append(d[0] / b[0])
  *     for j in range(1, n):             # <<<<<<<<<<<<<<
@@ -1348,7 +1348,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_4; __pyx_t_8+=1) {
     __pyx_v_j = __pyx_t_8;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":47
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":47
  *         # print j, b[j], c[j], p[j - 1]
  *         # print
  *         pj = c[j] / (b[j] - a[j - 1] * p[j - 1])             # <<<<<<<<<<<<<<
@@ -1380,7 +1380,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_XDECREF_SET(__pyx_v_pj, __pyx_t_11);
     __pyx_t_11 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":48
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":48
  *         # print
  *         pj = c[j] / (b[j] - a[j - 1] * p[j - 1])
  *         qj = (d[j] - a[j - 1] * q[j - 1]) / (b[j] - a[j - 1] * p[j - 1])             # <<<<<<<<<<<<<<
@@ -1426,7 +1426,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_XDECREF_SET(__pyx_v_qj, __pyx_t_7);
     __pyx_t_7 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":49
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":49
  *         pj = c[j] / (b[j] - a[j - 1] * p[j - 1])
  *         qj = (d[j] - a[j - 1] * q[j - 1]) / (b[j] - a[j - 1] * p[j - 1])
  *         p.append(pj)             # <<<<<<<<<<<<<<
@@ -1435,7 +1435,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
     __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_p, __pyx_v_pj); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 49, __pyx_L1_error)
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":50
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":50
  *         qj = (d[j] - a[j - 1] * q[j - 1]) / (b[j] - a[j - 1] * p[j - 1])
  *         p.append(pj)
  *         q.append(qj)             # <<<<<<<<<<<<<<
@@ -1445,7 +1445,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_q, __pyx_v_qj); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 50, __pyx_L1_error)
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":54
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":54
  * 
  *     # Back sub
  *     x = [q[n - 1]]             # <<<<<<<<<<<<<<
@@ -1463,7 +1463,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_v_x = ((PyObject*)__pyx_t_10);
   __pyx_t_10 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":55
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":55
  *     # Back sub
  *     x = [q[n - 1]]
  *     for j in range(n - 2, -1, -1):             # <<<<<<<<<<<<<<
@@ -1473,7 +1473,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   for (__pyx_t_4 = (__pyx_v_n - 2); __pyx_t_4 > -1L; __pyx_t_4-=1) {
     __pyx_v_j = __pyx_t_4;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":56
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":56
  *     x = [q[n - 1]]
  *     for j in range(n - 2, -1, -1):
  *         xj = q[j] - p[j] * x[0]  # Value holder             # <<<<<<<<<<<<<<
@@ -1497,7 +1497,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_XDECREF_SET(__pyx_v_xj, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":57
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":57
  *     for j in range(n - 2, -1, -1):
  *         xj = q[j] - p[j] * x[0]  # Value holder
  *         x.insert(0, xj)  # Building the list backwards             # <<<<<<<<<<<<<<
@@ -1507,7 +1507,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __pyx_t_6 = PyList_Insert(__pyx_v_x, 0, __pyx_v_xj); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 57, __pyx_L1_error)
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":60
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":60
  * 
  *     # Return the value
  *     return x             # <<<<<<<<<<<<<<
@@ -1519,7 +1519,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_r = __pyx_v_x;
   goto __pyx_L0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":4
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":4
  * 
  * 
  * def thomas(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -1608,7 +1608,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":4
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":4
  * 
  * 
  * def thomas(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -1620,7 +1620,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple_);
   __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(4, 0, 13, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_sebasanper_PycharmProjects, __pyx_n_s_thomas, 4, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 4, __pyx_L1_error)
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":63
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":63
  * 
  * if __name__ == '__main__':
  *     a = [1.0 for _ in range(30)]             # <<<<<<<<<<<<<<
@@ -1631,7 +1631,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":64
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":64
  * if __name__ == '__main__':
  *     a = [1.0 for _ in range(30)]
  *     b = [2.0 for _ in range(31)]             # <<<<<<<<<<<<<<
@@ -1642,7 +1642,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":66
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":66
  *     b = [2.0 for _ in range(31)]
  *     c = a
  *     d = [x for x in range(1, 17)] + [(16 - x) for x in range(1, 16)]             # <<<<<<<<<<<<<<
@@ -1780,7 +1780,7 @@ PyMODINIT_FUNC PyInit_thomas_algorithm_cy(void)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":4
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":4
  * 
  * 
  * def thomas(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -1792,7 +1792,7 @@ PyMODINIT_FUNC PyInit_thomas_algorithm_cy(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_thomas, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":62
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":62
  *     return x
  * 
  * if __name__ == '__main__':             # <<<<<<<<<<<<<<
@@ -1805,7 +1805,7 @@ PyMODINIT_FUNC PyInit_thomas_algorithm_cy(void)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":63
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":63
  * 
  * if __name__ == '__main__':
  *     a = [1.0 for _ in range(30)]             # <<<<<<<<<<<<<<
@@ -1864,7 +1864,7 @@ PyMODINIT_FUNC PyInit_thomas_algorithm_cy(void)
     if (PyDict_SetItem(__pyx_d, __pyx_n_s_a, __pyx_t_1) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":64
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":64
  * if __name__ == '__main__':
  *     a = [1.0 for _ in range(30)]
  *     b = [2.0 for _ in range(31)]             # <<<<<<<<<<<<<<
@@ -1923,7 +1923,7 @@ PyMODINIT_FUNC PyInit_thomas_algorithm_cy(void)
     if (PyDict_SetItem(__pyx_d, __pyx_n_s_b, __pyx_t_1) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":65
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":65
  *     a = [1.0 for _ in range(30)]
  *     b = [2.0 for _ in range(31)]
  *     c = a             # <<<<<<<<<<<<<<
@@ -1935,7 +1935,7 @@ PyMODINIT_FUNC PyInit_thomas_algorithm_cy(void)
     if (PyDict_SetItem(__pyx_d, __pyx_n_s_c, __pyx_t_1) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":66
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":66
  *     b = [2.0 for _ in range(31)]
  *     c = a
  *     d = [x for x in range(1, 17)] + [(16 - x) for x in range(1, 16)]             # <<<<<<<<<<<<<<
@@ -2056,7 +2056,7 @@ PyMODINIT_FUNC PyInit_thomas_algorithm_cy(void)
     if (PyDict_SetItem(__pyx_d, __pyx_n_s_d, __pyx_t_7) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":67
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":67
  *     c = a
  *     d = [x for x in range(1, 17)] + [(16 - x) for x in range(1, 16)]
  *     x = thomas(a, b, c, d)             # <<<<<<<<<<<<<<
@@ -2134,7 +2134,7 @@ PyMODINIT_FUNC PyInit_thomas_algorithm_cy(void)
     if (PyDict_SetItem(__pyx_d, __pyx_n_s_x, __pyx_t_7) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":62
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":62
  *     return x
  * 
  * if __name__ == '__main__':             # <<<<<<<<<<<<<<
@@ -2143,7 +2143,7 @@ PyMODINIT_FUNC PyInit_thomas_algorithm_cy(void)
  */
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":1
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/thomas_algorithm_cy.pyx":1
  * # from memoize import Memoize2             # <<<<<<<<<<<<<<
  * 
  * 

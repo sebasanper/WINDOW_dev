@@ -634,7 +634,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx",
+  "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx",
 };
 
 /*--- Type declarations ---*/
@@ -973,7 +973,7 @@ static const char __pyx_k_distance_parallel[] = "distance_parallel";
 static const char __pyx_k_turbine_description[] = "turbine_description";
 static const char __pyx_k_distance_perpendicular[] = "distance_perpendicular";
 static const char __pyx_k_farm_energy_wake_model_mean_new[] = "farm_energy.wake_model_mean_new.thomas_algorithm_cy";
-static const char __pyx_k_home_sebasanper_PycharmProjects[] = "/home/sebasanper/PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx";
+static const char __pyx_k_home_sebasanper_PycharmProjects[] = "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx";
 static const char __pyx_k_PycharmProjects_owf_MDAO_farm_en[] = "PycharmProjects.owf_MDAO.farm_energy.wake_model_mean_new.ainslie2d_cy";
 static const char __pyx_k_farm_energy_wake_model_mean_new_2[] = "farm_energy.wake_model_mean_new.ainslie_common_cy";
 static PyObject *__pyx_n_s_;
@@ -1034,7 +1034,7 @@ static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_tuple__4;
 static PyObject *__pyx_codeobj__3;
 
-/* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":8
+/* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":8
  * 
  * 
  * def ainslie_full(double ct, double u0, double distance_parallel, double distance_perpendicular, double i0):             # <<<<<<<<<<<<<<
@@ -1178,7 +1178,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   Py_ssize_t __pyx_t_24;
   __Pyx_RefNannySetupContext("ainslie_full", 0);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":13
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":13
  *     cdef int ni, nj, g, j, i
  *     cdef double k, h, Dmi
  *     di = 2.0             # <<<<<<<<<<<<<<
@@ -1187,7 +1187,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   __pyx_v_di = 2.0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":14
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":14
  *     cdef double k, h, Dmi
  *     di = 2.0
  *     dj = distance_parallel             # <<<<<<<<<<<<<<
@@ -1196,7 +1196,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   __pyx_v_dj = __pyx_v_distance_parallel;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":17
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":17
  *     # ni = int(di * 80)
  *     # nj = int(dj * 80)
  *     ni = 100             # <<<<<<<<<<<<<<
@@ -1205,7 +1205,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   __pyx_v_ni = 0x64;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":18
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":18
  *     # nj = int(dj * 80)
  *     ni = 100
  *     nj = 100             # <<<<<<<<<<<<<<
@@ -1214,7 +1214,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   __pyx_v_nj = 0x64;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":19
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":19
  *     ni = 100
  *     nj = 100
  *     k = dj / float(nj)             # <<<<<<<<<<<<<<
@@ -1227,7 +1227,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   }
   __pyx_v_k = (__pyx_v_dj / ((double)__pyx_v_nj));
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":20
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":20
  *     nj = 100
  *     k = dj / float(nj)
  *     h = di / float(ni)             # <<<<<<<<<<<<<<
@@ -1240,7 +1240,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   }
   __pyx_v_h = (__pyx_v_di / ((double)__pyx_v_ni));
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":22
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":22
  *     h = di / float(ni)
  * 
  *     nj += 1             # <<<<<<<<<<<<<<
@@ -1249,7 +1249,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   __pyx_v_nj = (__pyx_v_nj + 1);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":23
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":23
  * 
  *     nj += 1
  *     ni += 1             # <<<<<<<<<<<<<<
@@ -1258,7 +1258,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   __pyx_v_ni = (__pyx_v_ni + 1);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":24
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":24
  *     nj += 1
  *     ni += 1
  *     Dmi = ct - 0.05 - (16.0 * ct - 0.5) * i0 / 10.0             # <<<<<<<<<<<<<<
@@ -1267,7 +1267,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   __pyx_v_Dmi = ((__pyx_v_ct - 0.05) - ((((16.0 * __pyx_v_ct) - 0.5) * __pyx_v_i0) / 10.0));
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":25
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":25
  *     ni += 1
  *     Dmi = ct - 0.05 - (16.0 * ct - 0.5) * i0 / 10.0
  *     if Dmi < 0.0:             # <<<<<<<<<<<<<<
@@ -1277,7 +1277,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_t_1 = ((__pyx_v_Dmi < 0.0) != 0);
   if (__pyx_t_1) {
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":26
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":26
  *     Dmi = ct - 0.05 - (16.0 * ct - 0.5) * i0 / 10.0
  *     if Dmi < 0.0:
  *         Dmi = 0.00000000001             # <<<<<<<<<<<<<<
@@ -1286,7 +1286,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
     __pyx_v_Dmi = 0.00000000001;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":25
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":25
  *     ni += 1
  *     Dmi = ct - 0.05 - (16.0 * ct - 0.5) * i0 / 10.0
  *     if Dmi < 0.0:             # <<<<<<<<<<<<<<
@@ -1295,7 +1295,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":28
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":28
  *         Dmi = 0.00000000001
  * 
  *     u = [0.0 for _ in range(ni)]             # <<<<<<<<<<<<<<
@@ -1312,7 +1312,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_v_u = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":29
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":29
  * 
  *     u = [0.0 for _ in range(ni)]
  *     v = [0.0 for _ in range(ni)]             # <<<<<<<<<<<<<<
@@ -1329,7 +1329,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_v_v = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":31
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":31
  *     v = [0.0 for _ in range(ni)]
  * 
  *     for g in range(ni):             # <<<<<<<<<<<<<<
@@ -1340,7 +1340,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_g = __pyx_t_4;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":32
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":32
  * 
  *     for g in range(ni):
  *         u[g] = u0 * (1.0 - Dmi * exp(- 3.56 * float(g * h) ** 2.0 / b(Dmi, ct) ** 2.0))             # <<<<<<<<<<<<<<
@@ -1419,7 +1419,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":34
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":34
  *         u[g] = u0 * (1.0 - Dmi * exp(- 3.56 * float(g * h) ** 2.0 / b(Dmi, ct) ** 2.0))
  *     # print u
  *     old_u = u             # <<<<<<<<<<<<<<
@@ -1429,7 +1429,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __Pyx_INCREF(__pyx_v_u);
   __pyx_v_old_u = __pyx_v_u;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":35
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":35
  *     # print u
  *     old_u = u
  *     u_initial = u             # <<<<<<<<<<<<<<
@@ -1439,7 +1439,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __Pyx_INCREF(__pyx_v_u);
   __pyx_v_u_initial = __pyx_v_u;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":36
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":36
  *     old_u = u
  *     u_initial = u
  *     old_v = v             # <<<<<<<<<<<<<<
@@ -1449,7 +1449,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __Pyx_INCREF(__pyx_v_v);
   __pyx_v_old_v = __pyx_v_v;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":37
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":37
  *     u_initial = u
  *     old_v = v
  *     old2_u = u             # <<<<<<<<<<<<<<
@@ -1459,7 +1459,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __Pyx_INCREF(__pyx_v_u);
   __pyx_v_old2_u = __pyx_v_u;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":39
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":39
  *     old2_u = u
  *     # start = time()
  *     for j in range(1, nj):             # <<<<<<<<<<<<<<
@@ -1470,7 +1470,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   for (__pyx_t_4 = 1; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_j = __pyx_t_4;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":41
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":41
  *     for j in range(1, nj):
  *         # start = time()
  *         A = []             # <<<<<<<<<<<<<<
@@ -1482,7 +1482,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_XDECREF_SET(__pyx_v_A, ((PyObject*)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":42
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":42
  *         # start = time()
  *         A = []
  *         B = []             # <<<<<<<<<<<<<<
@@ -1494,7 +1494,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_XDECREF_SET(__pyx_v_B, ((PyObject*)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":43
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":43
  *         A = []
  *         B = []
  *         C = []             # <<<<<<<<<<<<<<
@@ -1506,7 +1506,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_XDECREF_SET(__pyx_v_C, ((PyObject*)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":44
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":44
  *         B = []
  *         C = []
  *         R = []             # <<<<<<<<<<<<<<
@@ -1518,7 +1518,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_XDECREF_SET(__pyx_v_R, ((PyObject*)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":46
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":46
  *         R = []
  * 
  *         i = 0             # <<<<<<<<<<<<<<
@@ -1527,7 +1527,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
     __pyx_v_i = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":48
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":48
  *         i = 0
  * 
  *         A.append(- k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct))             # <<<<<<<<<<<<<<
@@ -1638,7 +1638,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __pyx_t_17 = __Pyx_PyList_Append(__pyx_v_A, __pyx_t_2); if (unlikely(__pyx_t_17 == -1)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":49
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":49
  * 
  *         A.append(- k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct))
  *         B.append(2.0 * (h ** 2.0 * old_u[i] + k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))             # <<<<<<<<<<<<<<
@@ -1764,7 +1764,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __pyx_t_17 = __Pyx_PyList_Append(__pyx_v_B, __pyx_t_16); if (unlikely(__pyx_t_17 == -1)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":50
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":50
  *         A.append(- k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct))
  *         B.append(2.0 * (h ** 2.0 * old_u[i] + k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))
  *         C.append(- k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct))             # <<<<<<<<<<<<<<
@@ -1875,7 +1875,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __pyx_t_17 = __Pyx_PyList_Append(__pyx_v_C, __pyx_t_5); if (unlikely(__pyx_t_17 == -1)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":51
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":51
  *         B.append(2.0 * (h ** 2.0 * old_u[i] + k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))
  *         C.append(- k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct))
  *         R.append(k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (2.0 * old_u[i + 1] - 2.0 * old_u[i]) + 2.0 * h ** 2.0 * old_u[i] ** 2.0)             # <<<<<<<<<<<<<<
@@ -2020,7 +2020,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __pyx_t_17 = __Pyx_PyList_Append(__pyx_v_R, __pyx_t_5); if (unlikely(__pyx_t_17 == -1)) __PYX_ERR(0, 51, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":53
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":53
  *         R.append(k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (2.0 * old_u[i + 1] - 2.0 * old_u[i]) + 2.0 * h ** 2.0 * old_u[i] ** 2.0)
  * 
  *         v[0] = 0.0             # <<<<<<<<<<<<<<
@@ -2029,7 +2029,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
     if (unlikely(__Pyx_SetItemInt(__pyx_v_v, 0, __pyx_float_0_0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1) < 0)) __PYX_ERR(0, 53, __pyx_L1_error)
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":55
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":55
  *         v[0] = 0.0
  *         # print time() - start, "loop out"
  *         for i in range(1, ni):             # <<<<<<<<<<<<<<
@@ -2040,7 +2040,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     for (__pyx_t_20 = 1; __pyx_t_20 < __pyx_t_10; __pyx_t_20+=1) {
       __pyx_v_i = __pyx_t_20;
 
-      /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":58
+      /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":58
  *             # print j, i, j * k, i * h, old_u[i], (u0 - old_u[i]) / u0
  *             #  Uncomment if v is not neglected. Radial velocity.
  *             if j == 1:             # <<<<<<<<<<<<<<
@@ -2050,7 +2050,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
       __pyx_t_1 = ((__pyx_v_j == 1) != 0);
       if (__pyx_t_1) {
 
-        /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":59
+        /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":59
  *             #  Uncomment if v is not neglected. Radial velocity.
  *             if j == 1:
  *                 v[i] = (i * h) / ((i * h) + h) * (old_v[i - 1] - h / k * (old_u[i] - u_initial[i]))             # <<<<<<<<<<<<<<
@@ -2097,7 +2097,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
         if (unlikely(__Pyx_SetItemInt(__pyx_v_v, __pyx_v_i, __pyx_t_18, int, 1, __Pyx_PyInt_From_int, 1, 1, 1) < 0)) __PYX_ERR(0, 59, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
 
-        /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":58
+        /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":58
  *             # print j, i, j * k, i * h, old_u[i], (u0 - old_u[i]) / u0
  *             #  Uncomment if v is not neglected. Radial velocity.
  *             if j == 1:             # <<<<<<<<<<<<<<
@@ -2107,7 +2107,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
         goto __pyx_L14;
       }
 
-      /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":60
+      /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":60
  *             if j == 1:
  *                 v[i] = (i * h) / ((i * h) + h) * (old_v[i - 1] - h / k * (old_u[i] - u_initial[i]))
  *             elif j > 1:             # <<<<<<<<<<<<<<
@@ -2117,7 +2117,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
       __pyx_t_1 = ((__pyx_v_j > 1) != 0);
       if (__pyx_t_1) {
 
-        /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":61
+        /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":61
  *                 v[i] = (i * h) / ((i * h) + h) * (old_v[i - 1] - h / k * (old_u[i] - u_initial[i]))
  *             elif j > 1:
  *                 v[i] = (i * h) / ((i * h) + h) * (old_v[i - 1] - h / k * (old_u[i] - old2_u[i]))             # <<<<<<<<<<<<<<
@@ -2164,7 +2164,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
         if (unlikely(__Pyx_SetItemInt(__pyx_v_v, __pyx_v_i, __pyx_t_13, int, 1, __Pyx_PyInt_From_int, 1, 1, 1) < 0)) __PYX_ERR(0, 61, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
 
-        /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":60
+        /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":60
  *             if j == 1:
  *                 v[i] = (i * h) / ((i * h) + h) * (old_v[i - 1] - h / k * (old_u[i] - u_initial[i]))
  *             elif j > 1:             # <<<<<<<<<<<<<<
@@ -2174,7 +2174,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
       }
       __pyx_L14:;
 
-      /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":63
+      /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":63
  *                 v[i] = (i * h) / ((i * h) + h) * (old_v[i - 1] - h / k * (old_u[i] - old2_u[i]))
  * 
  *             A.append(k * (h * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) - (i * h) * h * v[i] - 2.0 * (i * h) * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))             # <<<<<<<<<<<<<<
@@ -2408,7 +2408,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
       __pyx_t_17 = __Pyx_PyList_Append(__pyx_v_A, __pyx_t_18); if (unlikely(__pyx_t_17 == -1)) __PYX_ERR(0, 63, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
 
-      /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":64
+      /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":64
  * 
  *             A.append(k * (h * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) - (i * h) * h * v[i] - 2.0 * (i * h) * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))
  *             B.append(4.0 * (i * h) * (h ** 2.0 * old_u[i] + k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))             # <<<<<<<<<<<<<<
@@ -2537,7 +2537,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
       __pyx_t_17 = __Pyx_PyList_Append(__pyx_v_B, __pyx_t_15); if (unlikely(__pyx_t_17 == -1)) __PYX_ERR(0, 64, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
 
-      /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":65
+      /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":65
  *             A.append(k * (h * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) - (i * h) * h * v[i] - 2.0 * (i * h) * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))
  *             B.append(4.0 * (i * h) * (h ** 2.0 * old_u[i] + k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))
  *             C.append(k * ((i * h) * h * v[i] - 2.0 * (i * h) * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) - h * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))             # <<<<<<<<<<<<<<
@@ -2771,7 +2771,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
       __pyx_t_17 = __Pyx_PyList_Append(__pyx_v_C, __pyx_t_18); if (unlikely(__pyx_t_17 == -1)) __PYX_ERR(0, 65, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
 
-      /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":66
+      /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":66
  *             B.append(4.0 * (i * h) * (h ** 2.0 * old_u[i] + k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))
  *             C.append(k * ((i * h) * h * v[i] - 2.0 * (i * h) * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) - h * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))
  *             if i < ni - 1:             # <<<<<<<<<<<<<<
@@ -2781,7 +2781,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
       __pyx_t_1 = ((__pyx_v_i < (__pyx_v_ni - 1)) != 0);
       if (__pyx_t_1) {
 
-        /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":67
+        /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":67
  *             C.append(k * ((i * h) * h * v[i] - 2.0 * (i * h) * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) - h * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))
  *             if i < ni - 1:
  *                 R.append(h * k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (old_u[i + 1] - old_u[i - 1]) + 2.0 * k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (i * h) * (old_u[i + 1] - 2.0 * old_u[i] + old_u[i - 1]) - (i * h) * h * k * old_v[i] * (old_u[i + 1] - old_u[i - 1]) + 4.0 * (i * h) * h ** 2.0 * old_u[i] ** 2.0)             # <<<<<<<<<<<<<<
@@ -3081,7 +3081,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
         __pyx_t_17 = __Pyx_PyList_Append(__pyx_v_R, __pyx_t_5); if (unlikely(__pyx_t_17 == -1)) __PYX_ERR(0, 67, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":66
+        /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":66
  *             B.append(4.0 * (i * h) * (h ** 2.0 * old_u[i] + k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))
  *             C.append(k * ((i * h) * h * v[i] - 2.0 * (i * h) * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) - h * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct)))
  *             if i < ni - 1:             # <<<<<<<<<<<<<<
@@ -3091,7 +3091,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
         goto __pyx_L15;
       }
 
-      /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":68
+      /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":68
  *             if i < ni - 1:
  *                 R.append(h * k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (old_u[i + 1] - old_u[i - 1]) + 2.0 * k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (i * h) * (old_u[i + 1] - 2.0 * old_u[i] + old_u[i - 1]) - (i * h) * h * k * old_v[i] * (old_u[i + 1] - old_u[i - 1]) + 4.0 * (i * h) * h ** 2.0 * old_u[i] ** 2.0)
  *             elif i == ni - 1:             # <<<<<<<<<<<<<<
@@ -3101,7 +3101,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
       __pyx_t_1 = ((__pyx_v_i == (__pyx_v_ni - 1)) != 0);
       if (__pyx_t_1) {
 
-        /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":69
+        /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":69
  *                 R.append(h * k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (old_u[i + 1] - old_u[i - 1]) + 2.0 * k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (i * h) * (old_u[i + 1] - 2.0 * old_u[i] + old_u[i - 1]) - (i * h) * h * k * old_v[i] * (old_u[i + 1] - old_u[i - 1]) + 4.0 * (i * h) * h ** 2.0 * old_u[i] ** 2.0)
  *             elif i == ni - 1:
  *                 R.append(h * k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (u0 - old_u[i - 1]) + 2.0 * k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (i * h) * (u0 - 2.0 * old_u[i] + old_u[i - 1]) - (i * h) * h * k * old_v[i] * (u0 - old_u[i - 1]) + 4.0 * (i * h) * h ** 2.0 * old_u[i] ** 2.0)             # <<<<<<<<<<<<<<
@@ -3398,7 +3398,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
         __pyx_t_17 = __Pyx_PyList_Append(__pyx_v_R, __pyx_t_8); if (unlikely(__pyx_t_17 == -1)) __PYX_ERR(0, 69, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-        /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":68
+        /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":68
  *             if i < ni - 1:
  *                 R.append(h * k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (old_u[i + 1] - old_u[i - 1]) + 2.0 * k * E(j * k, old_u[i], (u0 - old_u[i]) / u0, u0, i0, ct) * (i * h) * (old_u[i + 1] - 2.0 * old_u[i] + old_u[i - 1]) - (i * h) * h * k * old_v[i] * (old_u[i + 1] - old_u[i - 1]) + 4.0 * (i * h) * h ** 2.0 * old_u[i] ** 2.0)
  *             elif i == ni - 1:             # <<<<<<<<<<<<<<
@@ -3409,7 +3409,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
       __pyx_L15:;
     }
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":72
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":72
  *         # print time() - start
  * 
  *         C[0] += A[0]             # <<<<<<<<<<<<<<
@@ -3428,7 +3428,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     if (unlikely(__Pyx_SetItemInt(__pyx_v_C, __pyx_t_24, __pyx_t_15, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 1) < 0)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":73
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":73
  * 
  *         C[0] += A[0]
  *         del A[0]             # <<<<<<<<<<<<<<
@@ -3437,7 +3437,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
     if (unlikely(__Pyx_DelItemInt(__pyx_v_A, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1) < 0)) __PYX_ERR(0, 73, __pyx_L1_error)
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":74
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":74
  *         C[0] += A[0]
  *         del A[0]
  *         R[-1] -= C[-1] * u0             # <<<<<<<<<<<<<<
@@ -3462,7 +3462,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     if (unlikely(__Pyx_SetItemInt(__pyx_v_R, __pyx_t_24, __pyx_t_8, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 1) < 0)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":75
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":75
  *         del A[0]
  *         R[-1] -= C[-1] * u0
  *         del C[-1]             # <<<<<<<<<<<<<<
@@ -3471,7 +3471,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
  */
     if (unlikely(__Pyx_DelItemInt(__pyx_v_C, -1L, long, 1, __Pyx_PyInt_From_long, 1, 1, 1) < 0)) __PYX_ERR(0, 75, __pyx_L1_error)
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":77
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":77
  *         del C[-1]
  *         # start3 = time()
  *         old2_u = old_u             # <<<<<<<<<<<<<<
@@ -3481,7 +3481,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_INCREF(__pyx_v_old_u);
     __Pyx_DECREF_SET(__pyx_v_old2_u, __pyx_v_old_u);
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":78
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":78
  *         # start3 = time()
  *         old2_u = old_u
  *         old_u = thomas(A, B, C, R)             # <<<<<<<<<<<<<<
@@ -3544,7 +3544,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_DECREF_SET(__pyx_v_old_u, __pyx_t_8);
     __pyx_t_8 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":80
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":80
  *         old_u = thomas(A, B, C, R)
  *         # print old_u
  *         old_v = v             # <<<<<<<<<<<<<<
@@ -3555,7 +3555,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
     __Pyx_DECREF_SET(__pyx_v_old_v, __pyx_v_v);
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":98
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":98
  *     # U = U0 - sqrt((1.0 / A) * simpson_integrate2D(G, 0.0, 0.5, 5, 0.0, 2.0 * pi, 10))
  *     # return 1.0 - old_u[int(round(distance_perpendicular * rotor_diameter, 0))] / u0
  *     return 1.0 - old_u[int(distance_perpendicular * ni / di)] / u0             # <<<<<<<<<<<<<<
@@ -3586,7 +3586,7 @@ static PyObject *__pyx_pf_15PycharmProjects_8owf_MDAO_11farm_energy_19wake_model
   __pyx_t_8 = 0;
   goto __pyx_L0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":8
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":8
  * 
  * 
  * def ainslie_full(double ct, double u0, double distance_parallel, double distance_perpendicular, double i0):             # <<<<<<<<<<<<<<
@@ -3708,7 +3708,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":8
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":8
  * 
  * 
  * def ainslie_full(double ct, double u0, double distance_parallel, double distance_perpendicular, double i0):             # <<<<<<<<<<<<<<
@@ -3720,7 +3720,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__2);
   __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(5, 0, 26, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_sebasanper_PycharmProjects, __pyx_n_s_ainslie_full, 8, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 8, __pyx_L1_error)
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":120
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":120
  *     # print larsen(8.5, 0.79, 560.0, 0.0, 0.08)
  *     # print ainslie_full(0.28025, -30.7274355682, 2.30063219336, 23.625, 0.11, 0.0537295322098)
  *     print ainslie_full(0.537295322098, 10.0, 14.0125, 0.3, 0.11)             # <<<<<<<<<<<<<<
@@ -3844,7 +3844,7 @@ PyMODINIT_FUNC PyInit_ainslie2d_cy(void)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":2
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":2
  * from libc.math cimport exp
  * from farm_energy.wake_model_mean_new.thomas_algorithm_cy import thomas             # <<<<<<<<<<<<<<
  * from turbine_description import rotor_radius
@@ -3864,7 +3864,7 @@ PyMODINIT_FUNC PyInit_ainslie2d_cy(void)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":3
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":3
  * from libc.math cimport exp
  * from farm_energy.wake_model_mean_new.thomas_algorithm_cy import thomas
  * from turbine_description import rotor_radius             # <<<<<<<<<<<<<<
@@ -3885,7 +3885,7 @@ PyMODINIT_FUNC PyInit_ainslie2d_cy(void)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":4
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":4
  * from farm_energy.wake_model_mean_new.thomas_algorithm_cy import thomas
  * from turbine_description import rotor_radius
  * from farm_energy.wake_model_mean_new.ainslie_common_cy import b, E             # <<<<<<<<<<<<<<
@@ -3913,7 +3913,7 @@ PyMODINIT_FUNC PyInit_ainslie2d_cy(void)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":5
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":5
  * from turbine_description import rotor_radius
  * from farm_energy.wake_model_mean_new.ainslie_common_cy import b, E
  * rotor_diameter = 2.0 * rotor_radius             # <<<<<<<<<<<<<<
@@ -3928,7 +3928,7 @@ PyMODINIT_FUNC PyInit_ainslie2d_cy(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_rotor_diameter, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":8
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":8
  * 
  * 
  * def ainslie_full(double ct, double u0, double distance_parallel, double distance_perpendicular, double i0):             # <<<<<<<<<<<<<<
@@ -3940,7 +3940,7 @@ PyMODINIT_FUNC PyInit_ainslie2d_cy(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_ainslie_full, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":105
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":105
  *     # velocity.close()
  * 
  * if __name__ == '__main__':             # <<<<<<<<<<<<<<
@@ -3953,7 +3953,7 @@ PyMODINIT_FUNC PyInit_ainslie2d_cy(void)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":120
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":120
  *     # print larsen(8.5, 0.79, 560.0, 0.0, 0.08)
  *     # print ainslie_full(0.28025, -30.7274355682, 2.30063219336, 23.625, 0.11, 0.0537295322098)
  *     print ainslie_full(0.537295322098, 10.0, 14.0125, 0.3, 0.11)             # <<<<<<<<<<<<<<
@@ -3966,7 +3966,7 @@ PyMODINIT_FUNC PyInit_ainslie2d_cy(void)
     if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":105
+    /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":105
  *     # velocity.close()
  * 
  * if __name__ == '__main__':             # <<<<<<<<<<<<<<
@@ -3975,7 +3975,7 @@ PyMODINIT_FUNC PyInit_ainslie2d_cy(void)
  */
   }
 
-  /* "PycharmProjects/owf_MDAO/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":1
+  /* "PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/ainslie2d_cy.pyx":1
  * from libc.math cimport exp             # <<<<<<<<<<<<<<
  * from farm_energy.wake_model_mean_new.thomas_algorithm_cy import thomas
  * from turbine_description import rotor_radius

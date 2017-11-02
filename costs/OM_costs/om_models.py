@@ -10,5 +10,6 @@ def oandm(aep, aeroloads, hydroloads, layout):
 def oandm2(aep):
     return Cost1(0.0283, "USD", 2013) * aep
 
+
 if __name__ == '__main__':
     print oandm2(672000000)

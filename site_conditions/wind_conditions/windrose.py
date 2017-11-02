@@ -158,12 +158,12 @@ class WeibullWindBins(object):
 
 if __name__ == '__main__':
     # print(seb.speed_probabilities(range(3, 26)))
-    # bas = WeibullWindBins("/home/sebasanper/PycharmProjects/owf_MDAO/site_conditions/wind_conditions/weibull_windrose_12unique.dat", 30.0, 30.0)
+    # bas = WeibullWindBins("/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/wind_conditions/weibull_windrose_12unique.dat", 30.0, 30.0)
     # bas.nbins = 5
     # print bas.get_wind_speeds()
     # print bas.speed_probabilities()
 
-    expected = MeanWind("/home/sebasanper/PycharmProjects/owf_MDAO/site_conditions/wind_conditions/weibull_windrose_12unique.dat")
+    expected = MeanWind("/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/wind_conditions/weibull_windrose_12unique.dat")
     expected.real_angle = 30.0
     expected.artificial_angle = 15.0
     expected.adapt_directions()

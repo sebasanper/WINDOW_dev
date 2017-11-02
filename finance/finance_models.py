@@ -1,12 +1,13 @@
 from farm_description import operational_lifetime, i as rate
 
+
 def COE(total_costs, aep):
     return total_costs / aep
 
 
 def LPC(investment, oandm, decommissioning, aep, electrical_efficiency):
     annuity = 1.0 / rate * (1.0 - 1.0 / (1.0 + rate) ** operational_lifetime)
-    lpc_previous = (investment * 100.0) / (annuity * (aep / 1000.0)) + oandm * 100.0 / (aep / 1000.0) + decommissioning * 100.0 * (1.0 + 0.075) ** (- 20.0) / (annuity * (aep / 1000.0))
+    lpc_previous = (investment * 100.0) / (annuity * (aep / 1000.0)) + oandm * 100.0 / (aep / 1000.0) + decommissioning * 100.0 * (1.0 + 0.075) ** (- operational_lifetime) / (annuity * (aep / 1000.0))
     # print "investment contribution  %"
     # print ((investment * 100.0) / (annuity * (aep / 1000.0))) / lpc_previous * 100.0
     # print "O&M contribution  %"

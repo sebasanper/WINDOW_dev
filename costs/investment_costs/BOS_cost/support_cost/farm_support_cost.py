@@ -7,6 +7,7 @@ def farm_support_cost(depths, turbulences):
     # print turbulences
     for i in range(len(depths)):
         single_cost = design_support(depths[i], turbulences[i])
+        print single_cost
         total_cost += single_cost
 
     return total_cost
