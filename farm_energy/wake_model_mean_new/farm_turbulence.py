@@ -7,4 +7,4 @@ U_inf = 8.5
 I0 = 0.08
 angle = 180.0
 
-print turbulence_one_angle(layout, U_inf, angle, I0, Jensen, v80)
+# print turbulence_one_angle(layout, U_inf, angle, I0, Jensen, v80)

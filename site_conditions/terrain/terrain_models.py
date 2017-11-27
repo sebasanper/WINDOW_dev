@@ -81,9 +81,9 @@ if __name__ == '__main__':
     place1 = [[0, 2100.000000, 11251.000000]]
     place2 = [[0, 260.000000, 9251.000000]]
     place3 = [[0, 4260.000000, 13251.000000]]
-    print depth(place1, Flat(minx, maxx, miny, maxy))
-    print depth(place1, Gaussian(minx, maxx, miny, maxy))
-    print depth(place2, Gaussian(minx, maxx, miny, maxy))
-    print depth(place3, Gaussian(minx, maxx, miny, maxy))
-    print depth(place1, Plane(minx, maxx, miny, maxy))
-    print depth(place1, Rough(minx, maxx, miny, maxy))
+    print( depth(place1, Flat(minx, maxx, miny, maxy)))
+    print (depth(place1, Gaussian(minx, maxx, miny, maxy)))
+    print (depth(place2, Gaussian(minx, maxx, miny, maxy)))
+    print (depth(place3, Gaussian(minx, maxx, miny, maxy)))
+    print (depth(place1, Plane(minx, maxx, miny, maxy)))
+    print (depth(place1, Rough(minx, maxx, miny, maxy)))

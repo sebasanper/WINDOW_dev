@@ -93,7 +93,7 @@ if __name__ == '__main__':
     ct_upstream = 0.79
     downstream_turbines = [[1, 500.0, 0.0], [2, 1000.0, 0.0], [3, 1500.0, 0.0], [4, 2000.0, 0.0], [5, 2500.0, 0.0], [6, 1000.0, 0.0], [7, 1500.0, 0.0], [8, 2000.0, 0.0], [9, 2500.0, 0.0], [10, 1000.0, 0.0], [11, 1500.0, 0.0], [12, 2000.0, 0.0], [13, 2500.0, 0.0], [14, 1000.0, 0.0], [15, 1500.0, 0.0], [16, 2000.0, 0.0], [17, 2500.0, 0.0], [18, 1000.0, 0.0], [19, 1500.0, 0.0], [20, 2000.0, 0.0], [21, 2500.0, 0.0]]
 
-    print LarsenEffects(upstream, ct_upstream, downstream_turbines, 180.0, 8.5, 0.08)
+    # print LarsenEffects(upstream, ct_upstream, downstream_turbines, 180.0, 8.5, 0.08)
     #
     # print LarsenEffects(upstream, ct_upstream, downstream_turbines, 180.0, 8.5, 0.08)
     #

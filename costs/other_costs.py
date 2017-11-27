@@ -53,4 +53,4 @@ def other_costs(depth_central_platform, number_turbines, infield_length):
 
 
 if __name__ == '__main__':
-    print total_costs(20.0, 5, 230000)
+    print (total_costs(20.0, 5, 230000))

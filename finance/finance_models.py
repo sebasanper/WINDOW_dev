@@ -18,4 +18,5 @@ def LPC(investment, oandm, decommissioning, aep, electrical_efficiency):
 
 
 if __name__ == '__main__':
-    print LPC(337000000, 10752000, 44000000, 672000000000, 0.95)
+    # print LPC(337000000, 10752000, 44000000, 672000000000, 0.95)
+    pass

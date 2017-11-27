@@ -50,4 +50,5 @@ def electrical_procurement_costs():
     return electrical_total_costs
 
 if __name__ == '__main__':
-    print electrical_procurement_costs()
+    # print electrical_procurement_costs()
+    pass

@@ -49,10 +49,10 @@ def random_cable(layout):
     layout = [[item[0] + 1, item[1], item[2]] for item in layout]
     layout.insert(0, [0, central_platform[0][0], central_platform[0][1]])
 
-    quantity = range(1, len(layout))
+    quantity = list(range(1, len(layout)))
 
     routes = []
-    for route in range(len(layout) / number_turbines_per_cable[0]):
+    for route in range(len(layout) // number_turbines_per_cable[0]):
         routes.append([])
         first_turbine = random.choice(quantity)
         routes[-1].append([0, first_turbine])
@@ -86,6 +86,6 @@ if __name__ == '__main__':
     l = radial_cable([[0, 500.0, 0.0], [1, 1000.0, 0.0], [2, 1500.0, 0.0], [3, 2000.0, 0.0], [4, 2500.0, 0.0], [5, 3000.0, 0.0], [6, 3500.0, 0.0], [7, 4000.0, 0.0]])
     m = cable_optimiser([[0, 500.0, 0.0], [1, 1000.0, 0.0], [2, 1500.0, 0.0], [3, 2000.0, 0.0], [4, 2500.0, 0.0], [5, 3000.0, 0.0], [6, 3500.0, 0.0], [7, 4000.0, 0.0]])
     n = random_cable([[0, 500.0, 0.0], [1, 1000.0, 0.0], [2, 1500.0, 0.0], [3, 2000.0, 0.0], [4, 2500.0, 0.0], [5, 3000.0, 0.0], [6, 3500.0, 0.0], [7, 4000.0, 0.0]])
-    print l
-    print m
-    print n
+    # print l
+    # print m
+    # print n

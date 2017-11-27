@@ -34,4 +34,4 @@ def decommissioning_costs(infield_cable_length):
     return total_decommissioning_costs
 
 if __name__ == '__main__':
-    print decommissioning_costs(800000)
+    print( decommissioning_costs(800000))

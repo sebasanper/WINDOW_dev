@@ -119,5 +119,5 @@ if __name__ == '__main__':
     # for x in range(560):
     #     print wake_deficit(8.5, 0.79, x*10.0, 0.0, 0.1)
     # print c1(0.9886650102240304, 0.11)
-    print determine_if_in_wake_larsen(5000.0, 0.0, 4000.0, 0.0, 0.9886650102240304, 180.0, 0.11)
+    # print determine_if_in_wake_larsen(5000.0, 0.0, 4000.0, 0.0, 0.9886650102240304, 180.0, 0.11)
     pass

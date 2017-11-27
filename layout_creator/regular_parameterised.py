@@ -48,12 +48,11 @@ def square_layout(dx, dy, dh, n_rows, n_columns, area, angle):
                 layout[i][j] = [layout[i][j - 1][0] + dh, layout[i][j - 1][1] + dy]
 
     for i in range(n_rows):
-
         for j in range(n_columns):
 
             layout[i][j] = [layout[i][j][0] * (cos(angle)) - layout[i][j][1] * sin(angle), layout[i][j][0] * (sin(angle)) + layout[i][j][1] * cos(angle)]
 
-    with open("regular_3x5_rotated2.dat", "w") as regular_file:
+    with open("regular_3x5_rotated2_dh0.dat", "w") as regular_file:
         for i in range(n_rows):
             for j in range(n_columns):
                 regular_file.write("{0}\t{1}\n".format(layout[i][j][0], layout[i][j][1]))
@@ -62,4 +61,4 @@ def square_layout(dx, dy, dh, n_rows, n_columns, area, angle):
 
 if __name__ == '__main__':
     area1 = AreaGiven()
-    print square_layout(882.0, 450.0, 441.0, 5, 3, area1, 60.0)
+    print square_layout(882.0, 450.0, 441.0, 5, 3, area1, 45.0)

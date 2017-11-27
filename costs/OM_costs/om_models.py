@@ -12,4 +12,5 @@ def oandm2(aep):
 
 
 if __name__ == '__main__':
-    print oandm2(672000000)
+    # print oandm2(672000000)
+    pass

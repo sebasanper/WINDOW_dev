@@ -8,7 +8,7 @@ from functools import reduce
 from joblib import Parallel, delayed
 # from pareto_epsilon import eps_sort
 from math import sqrt, sin
-# from dynamic_weights2 import dynamic_weights
+from dynamic_weights2 import dynamic_weights
 import call_workflow_once as wf
 fitness = wf.score_median_workflow
 style.use('ggplot')
@@ -188,7 +188,7 @@ def eliminate(list_, to_be_deleted):
 
 
 def fitness_function(sample, fitness_functions):
-    return [fitness_function(sample) for fitness_function in fitness_functions]
+    return [fitness(sample) for fitness in fitness_functions]
 
 
 class PSOCategorical:
@@ -322,10 +322,10 @@ class PSOCategorical:
         start = time()
         self.initialise_categorical_positions()
         self.initialise_categorical_velocities()
-        self.n_iterations = 200
+        self.n_iterations = 20
         self.n_samples = 5
         self.archive_size = 200
-        # weights_all = dynamic_weights(self.n_iterations, self.n_iterations / 20)
+        weights_all = dynamic_weights(self.n_iterations, self.n_iterations / 20)
         for iteration in range(self.n_iterations):
             print("iteration:", iteration)
             # print(len(self.archive))
@@ -335,16 +335,16 @@ class PSOCategorical:
             #         break
             # if iteration % 500 == 0:
             #     history = deepcopy(self.archive)
-            # weights = [weights_all[i][iteration] for i in range(self.n_functions)]
+            weights = [weights_all[i][iteration] for i in range(self.n_functions)]
             # weights = [1.0, 0.0, 0.0]
             self.calculate_new_velocities()
             self.update_position()
             # weight1 = copysign(1.0, sin(10.0 * 2.0 * pi * iteration / self.n_iterations))
             # if weight1 < 1:
             #     weight1 = 0.0
-            weight1 = abs(sin(5.0 * 2.0 * pi * iteration / self.n_iterations))
-            weight2 = 1.0 - weight1
-            weights = [weight1, weight2, 0.0]
+            # weight1 = abs(sin(5.0 * 2.0 * pi * iteration / self.n_iterations))
+            # weight2 = 1.0 - weight1
+            # weights = [weight1, weight2, 0.0]
             # if iteration % 25 == 0:
             #     weights = generate_weights(self.n_functions)
             self.samples = [self.representative_sample(position) for position in self.positions_categorical]
@@ -366,7 +366,7 @@ class PSOCategorical:
             ax.scatter([item[0][0] for item in self.archive], [item[0][1] for item in self.archive])
             plt.pause(0.01)
 
-        with open("MOPSO_owfmdao_results2.dat", "w", 1) as out:
+        with open("MOPSO_owfmdao_results3.dat", "w", 1) as out:
             for item in self.archive:
                 out.write("{} {} {} {}\n".format(item[0][0], item[0][1], item[0][2], item[1]))
         print(time() - start, "seconds")

@@ -13,4 +13,5 @@ def rna_costs():
     return total_rna_cost
 
 if __name__ == '__main__':
-    print rna_costs()
+    # print rna_costs()
+    pass

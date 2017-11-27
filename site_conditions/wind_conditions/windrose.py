@@ -42,7 +42,7 @@ class MeanWind(object):
         self.new_weibull_shape2 = []
         self.new_weibull_scale2 = []
 
-        n = int(self.new_direction[1] - self.new_direction[0]) / int(self.artificial_angle)
+        n = int(self.new_direction[1] - self.new_direction[0]) // int(self.artificial_angle)
         for i in range(len(self.new_direction)):
             for j in range(n):
                 self.new_direction2.append(self.new_direction[i] + self.artificial_angle * j)
@@ -168,6 +168,6 @@ if __name__ == '__main__':
     expected.artificial_angle = 15.0
     expected.adapt_directions()
 
-    print expected.expected_wind_speeds
-    print expected.new_weibull_scale2
-    print expected.new_weibull_shape2
+    print (expected.expected_wind_speeds)
+    print (expected.new_weibull_scale2)
+    print (expected.new_weibull_shape2)

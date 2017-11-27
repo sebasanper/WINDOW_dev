@@ -29,4 +29,5 @@ def auxiliary_procurement(depth_central_platform):
     return total_auxiliary_procurement
 
 if __name__ == '__main__':
-    print auxiliary_procurement(25)
+    # print auxiliary_procurement(25)
+    pass

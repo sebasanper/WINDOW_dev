@@ -27,4 +27,5 @@ def rna_installation_costs():
     return total_rna_installation
 
 if __name__ == '__main__':
-    print rna_installation_costs()
+    # print rna_installation_costs()
+    pass

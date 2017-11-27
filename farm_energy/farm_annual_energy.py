@@ -42,4 +42,4 @@ if __name__ == '__main__':
     speed_prob = [[100.0], [100.0], [100.0], [100.0]]
     turbulences = [0.08]
 
-    print energy_all_directions_parallel(layout, directions, probabilities_dir, wind_speeds, speed_prob, turbulences, Larsen, power_v80, v80, root_sum_square)
+    # print energy_all_directions_parallel(layout, directions, probabilities_dir, wind_speeds, speed_prob, turbulences, Larsen, power_v80, v80, root_sum_square)

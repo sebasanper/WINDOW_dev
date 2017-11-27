@@ -17,4 +17,5 @@ def auxiliary_installation_costs():
     return total_aux_installation
 
 if __name__ == '__main__':
-    print auxiliary_installation_costs()
+    # print auxiliary_installation_costs()
+    pass

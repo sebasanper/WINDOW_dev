@@ -230,16 +230,16 @@ def run():
     investment_costs = inv_project_development_engineering + inv_procurement_turbines_purchase + inv_procurement_turbines_warranty + suma + inv_procurement_support_structures_boat_landing + inv_procurement_auxiliary_measuring_tower + inv_procurement_auxiliary_onshore_premises + inv_procurement_auxiliary_offshore_platform + inv_installation_turbines_onshore_transport + inv_installation_turbines_offshore_works + inv_installation_auxiliary_harbour + inv_installation_auxiliary_measuring_tower + inv_procurement_electrical_system_transmission_cable + inv_procurement_electrical_system_shunt_reactor + inv_procurement_electrical_system_transformer + inv_procurement_electrical_system_infield_cable + inv_installation_electrical_system_transmission_cable + inv_installation_electrical_system_dune_crossing  # + inv_installation_electrical_system_infield_cable
 
     total_investment_costs = investment_costs * (management_percentage / 100.0 + 1.0)
-    print "The total Investment costs are", round(total_investment_costs / 10 ** 6, 3), MEuro
+    # print "The total Investment costs are", round(total_investment_costs / 10 ** 6, 3), MEuro
     # -------------------------- O&M COSTS --------------------------------
     # total_operation_maintenance_costs = 6.0/100.0 * investment_costs
     total_operation_maintenance_costs = 0.0238 * 628773403.489
     # total_operation_maintenance_costs = 11701551.2237  # This is the average value from the 1st generation
 
     # print "LPC"+str(total_operation_maintenance_costs)
-    print "The total O&M costs are", round(total_operation_maintenance_costs / 10 ** 6, 3), MEuro
+    # print "The total O&M costs are", round(total_operation_maintenance_costs / 10 ** 6, 3), MEuro
     # print "The total decommissioning costs for the support structures is:", sum1/10**6,MEuro
-    print "The total cost of the support structures is:", round((suma + sum1) / 10 ** 6, 3), MEuro
+    # print "The total cost of the support structures is:", round((suma + sum1) / 10 ** 6, 3), MEuro
     # print "Support structure costs:",(sum + sum1)/10**6
     decommissioning_removal_turbines = turbine_removal_factor * inv_installation_turbines_offshore_works
     decommissioning_removal_site_clearance = NT * site_clearance_per_turbine.value
@@ -254,6 +254,6 @@ def run():
 
     total_decommissioning_costs = decommissioning_costs * (management_percentage / 100.0 + 1.0)
 
-    print "The total Decommissioning costs are", round(total_decommissioning_costs / 10 ** 6, 3), MEuro
+    # print "The total Decommissioning costs are", round(total_decommissioning_costs / 10 ** 6, 3), MEuro
 
 run()

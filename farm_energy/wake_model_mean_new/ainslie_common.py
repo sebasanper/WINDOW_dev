@@ -27,7 +27,7 @@ def F(x):  # Factor for near and far wake
 
 def E(x1, Ud, Dm, u0, i0, ct):  # Eddy viscosity term
     if 1.0 - 0.5 * Dm < 0.0:
-        print x1, Ud, Dm, u0, i0, ct
+        # print x1, Ud, Dm, u0, i0, ct
         pass
     eddy = F(x1) * ((0.015 * b(Dm, ct) * (u0 - Ud)) + (karman ** 2.0) * i0)
     return eddy

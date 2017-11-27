@@ -17,7 +17,7 @@ def cable_design(WT_List):
     for number in number_turbines_per_cable:
         for cable in cables_info:
             if rated_current * number <= cable[1]:
-                print number, cable[2], rated_current
+                # print number, cable[2], rated_current
                 Cable_List.append([number, cable[2] + 365.0])
                 break
     # print Cable_List
@@ -866,4 +866,4 @@ if __name__ == '__main__':
             WT_List.append([i, float(col[0]), float(col[1])])
             i += 1
     name = "sebastian"
-    print cable_design(WT_List)
+    # print cable_design(WT_List)

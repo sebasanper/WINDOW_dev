@@ -128,4 +128,4 @@ if __name__ == '__main__':
     table1 = AeroLookup("./nrel_cp.dat")
     # for v in range(1, 50):
     #     print v / 2.0, power_coefficient(v / 2.0, 64.0), thrust(v / 2.0, 64.0)
-    print power_coefficient(25.0)
+    # print power_coefficient(25.0)
