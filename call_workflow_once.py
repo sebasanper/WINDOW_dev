@@ -50,7 +50,7 @@ farm_support_cost_models = ["ConstantSupport", farm_support_cost]
 
 
 def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
-    print("called")
+    # print("called")
     real_angle = 30.0
     b = 0  # Fixed
     g = f  # Turbine model
@@ -70,12 +70,11 @@ def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
     workflow1.run(layout)
     power2.reset()
     thrust_coefficient2.reset()
-    print (workflow1.finance, layout[4][1])
     return workflow1.finance
 
 
 def call_workflow_once(nbins, artif_angle, a, c, d, e, f, j):
-    print("called")
+    # print("called")
     real_angle = 30.0
     b = 0  # Fixed
     g = f  # Turbine model
@@ -107,6 +106,7 @@ def reject_outliers(data, m=5.189):
 
 
 def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
+    print("called")
     aeps = []
     finances = []
     runtimes = []
@@ -147,10 +147,14 @@ def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
         if abs(lcoe[i] - lcoe[0]) <= 0.0001:
             sens = 1.0 / float(i)
             break
-    with open("random_sampling.dat", "a", 1) as out:
-        out.write("{} {} {} {} {} {} {} {} {} {} {} {}\n".format(nbins, artif_angle, a, c, d, e, f, j, np.mean(finances), stddev_finance, np.mean(runtimes, sens)))
+    with open("random_sampling_casa.dat", "a") as out:
+        out.write("{} {} {} {} {} {} {} {} {} {} {} {}\n".format(nbins, artif_angle, a, c, d, e, f, j, np.mean(finances), stddev_finance, np.mean(runtimes), sens))
 
     # return np.mean(finances), stddev_finance, np.mean(runtimes), stddev_time, mode(n_power_calls), mode(n_thrust_calls), sens
+
+def main():
+    Parallel(n_jobs=-2)(delayed(results_median_workflow)(choice(list(range(11))) + 2, [1.0, 5.0, 15.0, 30.0][choice(list(range(4)))], choice(list(range(4))), choice(list(range(6))), choice(list(range(4))),
+                       choice(list(range(4))), choice(list(range(4))), choice(list(range(2)))) for _ in range(5))
 
 if __name__ == '__main__':
 
@@ -165,7 +169,4 @@ if __name__ == '__main__':
 
     # [list(range(23)), list(range(6)), list(range(4)), list(range(6)), list(range(4)),
     #                        list(range(4)), list(range(4)), list(range(2))]
-
-
-    Parallel(n_jobs=-2)(delayed(results_median_workflow)([choice(list(range(23))), choice(list(range(6))), choice(list(range(4))), choice(list(range(6))), choice(list(range(4))),
-                           choice(list(range(4))), choice(list(range(4))), choice(list(range(2)))]) for _ in range(5))
+    main()
