@@ -59,7 +59,7 @@ def energy_one_angle(original_layout, freestream_wind_speeds, probabilities_spee
             weighted_individuals[turb] += individual_powers[turb] * probabilities_speed[speed] / 100.0
         farm_power = sum(individual_powers)
         energy += farm_power * probabilities_speed[speed] / 100.0 * 8760.0
-        print speed, farm_power, probabilities_speed[speed], energy
+        # print speed, farm_power, probabilities_speed[speed], energy
         # print freestream_wind_speeds[speed], wind_speeds_array_original, individual_powers
     return energy, weighted_individuals
 
