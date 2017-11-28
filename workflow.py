@@ -104,13 +104,13 @@ class Workflow:
 
         if self.print_output is True: print( "=== CALCULATING ENERGY, TURBULENCE PER WIND DIRECTION ===")
         for i in range(len(self.wind_directions)):
-            # print " === Wind direction = " + str(self.wind_directions[i])
-            # if self.print_output is True: print self.wind_speeds_probabilities[i]
+            print " === Wind direction = " + str(self.wind_directions[i])
+            if self.print_output is True: print self.wind_speeds_probabilities[i], self.wind_speeds[i]
             self.aero_energy_one_angle, self.powers_one_angle = energy_one_angle(turbine_coordinates, self.wind_speeds[i], self.wind_speeds_probabilities[i], self.wind_directions[i], self.freestream_turbulence, self.wake_mean_model, self.power_model, self.power_lookup_file, self.thrust_coefficient_model, self.thrust_lookup_file, self.wake_merging_model)
-            # print( self.powers_one_angle, self.wind_directions[i])
-            # if self.print_output is True: print self.aero_energy_one_angle
+            print( self.powers_one_angle, self.wind_directions[i])
+            if self.print_output is True: print self.aero_energy_one_angle
             # if self.print_output is True: print self.powers_one_angle, max(self.powers_one_angle)
-            # if self.print_output is True: print turbine_coordinates, self.wind_speeds[i], self.wind_directions[i], self.freestream_turbulence[0], Jensen, self.thrust_coefficient_model, self.wake_turbulence_model
+            if self.print_output is True: print turbine_coordinates, self.wind_speeds[i], self.wind_directions[i], self.freestream_turbulence[0]
             if self.wake_turbulence_model != "ConstantTurbulence":
                 self.turbulences = max_turbulence_one_angle(turbine_coordinates, self.wind_speeds[i], self.wind_directions[i], self.freestream_turbulence, Jensen, self.thrust_coefficient_model, self.thrust_lookup_file, self.wake_turbulence_model)
             if self.cable_topology_model != "ConstantCable":

@@ -92,7 +92,7 @@ def call_workflow_once(nbins, artif_angle, a, c, d, e, f, j):
     workflow1.windrose.nbins = nbins
     workflow1.windrose.artificial_angle = artif_angle
     workflow1.windrose.real_angle = real_angle
-    # workflow1.print_output = True
+    workflow1.print_output = True
     workflow1.run(layout_input_file)
     power2.reset()
     thrust_coefficient2.reset()
@@ -162,6 +162,6 @@ if __name__ == '__main__':
     start = time()
     layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
     # print(call_workflow_layout(layout, 15, 30.0, a, c, d, e, f, j))
-    print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
-    print(time() - start, "seconds")
-    # print(call_workflow_once(15, 30.0, a, c, d, e, f, j))
+    # print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
+    # print(time() - start, "seconds")
+    print(call_workflow_once(2, 30.0, 3, 2 ,1, 0, 2 ,1))

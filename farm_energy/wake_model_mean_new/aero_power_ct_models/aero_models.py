@@ -37,7 +37,7 @@ class AeroLookup:
 
 
 def power_coefficient(wind_speed, rated, r, cutin=cutin_wind_speed, cutout=cutout_wind_speed):
-    table_cp = AeroLookup("/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat")
+    table_cp = AeroLookup("farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat")
     if wind_speed < cutin:
         return 0.0
     elif wind_speed <= rated:
@@ -56,7 +56,7 @@ from memoize import countcalls
 def power2(wind_speed, power_lookup_file, cutin=cutin_wind_speed, cutout=cutout_wind_speed, rated=rated_wind, r=rotor_radius):
     table_power = AeroLookup(power_lookup_file)
     # print "iuno"
-    if power_lookup_file == "/home/sebasanper/PycharmProjects/WINDOW-dev/farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat":
+    if power_lookup_file == "farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat":
         if wind_speed < cutin:
             return 0.0
         elif wind_speed <= rated:
