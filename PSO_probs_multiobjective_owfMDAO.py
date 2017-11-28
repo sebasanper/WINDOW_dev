@@ -1,6 +1,6 @@
 import numpy as np
 from matplotlib import pyplot as plt, style
-# from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.mplot3d import Axes3D
 from random import randint, random
 from copy import deepcopy
 from statistics import mode, mean, StatisticsError
@@ -174,7 +174,7 @@ class PSOCategorical:
         self.n_samples = 1
         self.n_particles = n_particles
         self.scaling_factor = scaling_factor
-        self.categories = [list(range(23)), list(range(6)), list(range(5)), list(range(6)), list(range(4)),
+        self.categories = [list(range(23)), list(range(6)), list(range(4)), list(range(6)), list(range(4)),
                            list(range(4)), list(range(4)), list(range(2))]
         self.positions_categorical = [[[0 for _ in var] for var in self.categories] for _ in range(self.n_particles)]
         self.velocities_categorical = [[[0 for _ in var] for var in self.categories] for _ in range(self.n_particles)]
@@ -289,7 +289,9 @@ class PSOCategorical:
 
     def run(self):
         plt.ion()
-        fig, ax = plt.subplots()
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        # fig, ax = plt.subplots()
         from time import time
         from math import sin, pi, copysign
         start = time()
@@ -321,20 +323,13 @@ class PSOCategorical:
             # if iteration % 25 == 0:
             #     weights = generate_weights(self.n_functions)
             self.samples = [self.representative_sample(position) for position in self.positions_categorical]
-            print("arroz0")
-            # self.fitness = Parallel(n_jobs=-2)(delayed(criteria)(sample) for sample in self.samples)
-            self.fitness = [criteria(sample) for sample in self.samples]
-            print("arroz1")
+            self.fitness = Parallel(n_jobs=-2)(delayed(criteria)(sample) for sample in self.samples)
+            # self.fitness = [criteria(sample) for sample in self.samples]
             self.fitness_and_samples = list(zip(self.fitness, self.samples))
-            print("arroz2")
             self.old_swarm = deepcopy(self.fitness_and_samples)
 
-            print("arroz3")
             for particle in range(self.n_particles):
-                print("arroz3a")
                 self.obj_function[particle] = sum([weights[i] * self.fitness[particle][i] for i in range(self.n_functions)])
-
-            print("arroz4")
 
             self.update_archive(self.fitness_and_samples)
             for particle in range(self.n_particles):
@@ -345,7 +340,7 @@ class PSOCategorical:
                     self.update_global_best(self.positions_categorical[particle], self.samples[particle])
 
             plt.cla()
-            ax.scatter([item[0][0] for item in self.archive], [item[0][1] for item in self.archive])
+            ax.scatter([item[0][0] for item in self.archive], [item[0][1] for item in self.archive], [item[0][2] for item in self.archive])
             plt.pause(0.01)
 
         with open("MOPSO_owfmdao_results4.dat", "w", 1) as out:

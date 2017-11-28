@@ -18,7 +18,6 @@ from farm_energy.wake_model_mean_new.downstream_effects import JensenEffects as 
 from farm_energy.wake_model_mean_new.wake_overlap import root_sum_square, maximum, multiplied, summed
 from farm_energy.wake_model_mean_new.aero_power_ct_models.aero_models import power, thrust_coefficient, power2, thrust_coefficient2
 
-from time import time
 from random import randint, choice
 import numpy as np
 from statistics import mode, stdev
@@ -88,7 +87,7 @@ def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
     n_power_calls = []
     n_thrust_calls = []
 
-    for _ in range(2):
+    for _ in range(5):
         results = call_workflow_once(nbins, artif_angle, a, c, d, e, f, j)
         time = results[1]
         power_calls = results[2]
@@ -112,6 +111,8 @@ def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
     return np.mean(finances), stddev_finance, np.mean(runtimes), stddev_time, mode(n_power_calls), mode(n_thrust_calls)
 
 if __name__ == '__main__':
+
+    from time import time
     a = 1
     c = 1
     d = 1
@@ -119,6 +120,6 @@ if __name__ == '__main__':
     f = 3
     j = 1
     start = time()
-    print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
+    print(results_median_workflow(11, 5, 1, 5, 0, 3, 1, 1))
     print(time() - start, "seconds")
-    print(call_workflow_once(15, 30.0, a, c, d, e, f, j))
+    # print(call_workflow_once(15, 30.0, a, c, d, e, f, j))
