@@ -1,5 +1,5 @@
-# central_platform = [[1000.0, 1000.0]]
-central_platform = [[585000.0, 5809000.0]]
+central_platform = [[1000.0, 1000.0]]
+# central_platform = [[585000.0, 5809000.0]]
 number_turbines_per_cable = [3]
 NT = 9
 
