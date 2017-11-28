@@ -26,7 +26,7 @@ class Cost1:
 
 def read_cablelist():
     cables_info = []
-    with open("/home/sebasanper/PycharmProjects/WINDOW-dev/costs/investment_costs/BOS_cost/cable_cost/cable_list.dat",
+    with open("costs/investment_costs/BOS_cost/cable_cost/cable_list.dat",
               "r") as cables:
         next(cables)
         for line in cables:

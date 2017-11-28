@@ -54,7 +54,7 @@ class Rough:
         self.coordinates_x = []
         self.coordinates_y = []
         self.depths = []
-        with open("/home/sebasanper/PycharmProjects/WINDOW-dev/site_conditions/terrain/bathymetry.dat", "r") as bathymetry_file:
+        with open("site_conditions/terrain/bathymetry.dat", "r") as bathymetry_file:
             for line in bathymetry_file:
                 cols = line.split()
                 self.coordinates_x.append(float(cols[0]))

@@ -86,7 +86,7 @@ class SupportDesigners(Designers):
         self.properties.nr_segments = int(
             round((self.design_variables.tower.length / self.max_length_tower_segment) + 0.5, 0))
         self.properties.segment_length = self.design_variables.tower.length / self.properties.nr_segments
-        self.design_variables.tower.wall_thickness = range(self.properties.nr_segments)
+        self.design_variables.tower.wall_thickness = list(range(self.properties.nr_segments))
 
         # Determine monopile diameter (from loads and resistance with fixed D:t relation)
         # self.support_team.domain_top.display.optimising = 'Tower length - Monopile diameter'
@@ -296,7 +296,7 @@ class SupportDesigners(Designers):
         loads_hydro = self.support_team.hydrodynamic_analysts.get_loads(wave_height, wave_number, height)
         loads_gravity = self.support_team.gravity_analysts.get_loads(height)
 
-        loads_safety = range(6)
+        loads_safety = list(range(6))
         for i in range(6):
             loads_safety[i] = self.partial_safety_loads * (loads_rna[i] + loads_aero[i] + loads_hydro[i])
             if i == 4 and loads_gravity[i] < 0.0:

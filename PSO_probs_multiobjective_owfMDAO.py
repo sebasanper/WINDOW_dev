@@ -10,7 +10,7 @@ from joblib import Parallel, delayed
 from math import sqrt, sin
 from dynamic_weights2 import dynamic_weights
 import call_workflow_once as wf
-fitness = wf.score_median_workflow
+fitness = wf.results_median_workflow
 style.use('ggplot')
 
 
@@ -43,16 +43,7 @@ style.use('ggplot')
 
 
 def function1(x):
-    x = [10, 30, 30.0] + x
     lcoe, time, power_calls, thrust_calls = fitness(x)
-    if x[9] == 1:  # Time for FAST
-        time += power_calls * 120.0
-    elif x[9] == 2:  # Time for WindSim
-        time += power_calls * 0.032
-    elif x[9] == 4:  # Time for WT_Perf
-        time += power_calls * 1.712
-    else:  # Time for powercurve or constant.
-        pass
     if x[8] == 1:  # Time for WindSim
         time += thrust_calls * 0.032
     elif x[8] == 2:  # Time for WT_Perf
@@ -61,14 +52,16 @@ def function1(x):
         time += thrust_calls * 120.0
     else:  # Time for powercurve or constant.
         pass
-    return time
+
+    error = abs(lcoe - 7.89829164727)
+
+    return error, dev_lcoe, time, dev_time, power_calls, thrust_calls
 # function1 = memoize(function1)
 
 
 def function2(x):
     x = [10, 30, 30.0] + x
     lcoe, time, power_calls, thrust_calls = fitness(x)
-    lcoe = abs(lcoe - 7.89829164727)
     return lcoe
 
 

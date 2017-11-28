@@ -21,16 +21,16 @@ from farm_energy.wake_model_mean_new.aero_power_ct_models.aero_models import pow
 from time import time
 from random import randint, choice
 import numpy as np
-from statistics import mode
+from statistics import mode, stdev
 
 
 # a - 1
 wakemodels = [constantwake, Jensen, Larsen, Ainslie1D, Ainslie2D]
 # b - 2
 windrosemodels = [
-    "site_conditions/wind_conditions/weibull_windrose_12unique.dat",
-    "site_conditions/wind_conditions/weibull_windrose_12sameWeibull.dat",
-    "site_conditions/wind_conditions/weibull_windrose_12identical.dat"]
+    "site_conditions/wind_conditions/weibull_windrose_12unique.dat"]#,
+    # "site_conditions/wind_conditions/weibull_windrose_12sameWeibull.dat",
+    # "site_conditions/wind_conditions/weibull_windrose_12identical.dat"]
 # c - 3
 turbmodels = ["ConstantTurbulence", frandsen2, danish_recommendation, frandsen, larsen_turbulence, Quarton]
 # d - 4
@@ -40,7 +40,7 @@ mergingmodels = [root_sum_square, maximum, multiplied, summed]
 # f - 6
 thrustmodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantThrust.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/NREL_5MW_C_T_new.txt", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_ct.dat"]
 # g - 7
-powermodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantPower.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_power.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_power.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/powercurve.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat"]
+powermodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantPower.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_power.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_power.dat"]#, "farm_energy/wake_model_mean_new/aero_power_ct_models/powercurve.dat"]
 # h - 8
 depthmodels = [Flat, Gaussian, Plane, Rough]
 # i - 9
@@ -49,9 +49,16 @@ weibullmodels = [MeanWind, WeibullWindBins]
 farm_support_cost_models = ["ConstantSupport", farm_support_cost]
 
 
-def call_workflow_once(nbins, real_angle, artif_angle, a, b, c, d, e, f, g, h, i, j):
+def call_workflow_once(nbins, artif_angle, a, c, d, e, f, j):
+    real_angle = 30.0
+    b = 0  # Fixed
+    g = f  # Turbine model
+    h = 3  # Fixed
+    i = 1  # Fixed
+
     workflow1 = Workflow(weibullmodels[i], windrosemodels[b], turbmodels[c], None, depthmodels[h], farm_support_cost_models[j], None, oandm, cablemodels[d], infield_efficiency, thrust_coefficient, thrustmodels[f], wakemodels[a], mergingmodels[e], power, powermodels[g], aep_average, other_costs, total_costs, LPC)
-    layout_input_file = "coords3x3.dat"
+    # layout_input_file = "coords3x3.dat"
+    layout_input_file = "horns_rev_5MW_layout.dat"
     # nbins = randint(2, 25)
     # real_angle = choice([30.0, 60.0, 90.0, 120.0, 180.0])
     # artif_angle = 400.0
@@ -63,31 +70,17 @@ def call_workflow_once(nbins, real_angle, artif_angle, a, b, c, d, e, f, g, h, i
     workflow1.run(layout_input_file)
     power2.reset()
     thrust_coefficient2.reset()
-    return workflow1.aep, workflow1.finance, workflow1.runtime, workflow1.power_calls, workflow1.thrust_calls
+    return workflow1.finance, workflow1.runtime, workflow1.power_calls, workflow1.thrust_calls
 
 
 def reject_outliers(data, m=5.189):
     d = np.abs(data - np.median(data))
     mdev = np.median(d)
-    s = d/mdev if mdev else 0.
+    s = d/mdev if mdev else 0.0
     return data[s<m]
 
 
-def score_median_workflow(combination):
-    nbins = combination[0]
-    real_angle = combination[1]
-    artif_angle = combination[2]
-    a = combination[3]
-    b = combination[4]
-    c = combination[5]
-    d = combination[6]
-    e = combination[7]
-    f = combination[8]
-    g = combination[9]
-    h = combination[10]
-    i = combination[11]
-    j = combination[12]
-
+def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
     aeps = []
     finances = []
     runtimes = []
@@ -95,26 +88,33 @@ def score_median_workflow(combination):
     n_thrust_calls = []
 
     for _ in range(5):
-        results = call_workflow_once(nbins, real_angle, artif_angle, a, b, c, d, e, f, g, h, i, j)
-        aeps.append(results[0])
-        finances.append(results[1])
-        runtimes.append(results[2])
-        n_power_calls.append(results[3])
-        n_thrust_calls.append(results[4])
+        results = call_workflow_once(nbins, artif_angle, a, c, d, e, f, j)
+        time = results[1]
+        power_calls = results[2]
+        if f == 3:  # Time for FAST
+            time += power_calls * 120.0
+        elif f == 1:  # Time for WindSim
+            time += power_calls * 0.032
+        elif f == 2:  # Time for WT_Perf
+            time += power_calls * 1.712
+        else:  # Time for powercurve or constant.
+            pass
+        finances.append(results[0])
+        runtimes.append(time)
+        print (time, power_calls)
+        n_power_calls.append(power_calls)
+        n_thrust_calls.append(results[3])
+    stddev_finance = stdev(finances)
     runtimes = reject_outliers(np.array(runtimes))
+    stddev_time = stdev(runtimes)
 
-    # return np.mean(aeps), np.mean(finances), np.mean(runtimes), mode(n_power_calls), mode(n_thrust_calls)
-    return np.mean(finances), np.mean(runtimes), mode(n_power_calls), mode(n_thrust_calls)
+    return np.mean(finances), stddev_finance, np.mean(runtimes), stddev_time, mode(n_power_calls), mode(n_thrust_calls)
 
 if __name__ == '__main__':
-    a = 2
-    b = 0
-    c = 3
-    d = 3
-    e = 2
-    f = 0
-    g = 2
-    h = 2
-    i = 0
-    j = 0
-    print(score_median_workflow([3, 30.0, 30.0, a, b, c, d, e, f, g, h, i, j]))
+    a = 1
+    c = 1
+    d = 1
+    e = 0
+    f = 3
+    j = 1
+    print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
