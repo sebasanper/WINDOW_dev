@@ -57,8 +57,8 @@ def call_workflow_once(nbins, artif_angle, a, c, d, e, f, j):
     i = 1  # Fixed
 
     workflow1 = Workflow(weibullmodels[i], windrosemodels[b], turbmodels[c], None, depthmodels[h], farm_support_cost_models[j], None, oandm, cablemodels[d], infield_efficiency, thrust_coefficient, thrustmodels[f], wakemodels[a], mergingmodels[e], power, powermodels[g], aep_average, other_costs, total_costs, LPC)
-    # layout_input_file = "coords3x3.dat"
-    layout_input_file = "horns_rev_5MW_layout.dat"
+    layout_input_file = "coords3x3.dat"
+    # layout_input_file = "horns_rev_5MW_layout.dat"
     # nbins = randint(2, 25)
     # real_angle = choice([30.0, 60.0, 90.0, 120.0, 180.0])
     # artif_angle = 400.0
@@ -117,4 +117,6 @@ if __name__ == '__main__':
     e = 0
     f = 3
     j = 1
+    start = time()
     print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
+    print(time() - start, "seconds")
