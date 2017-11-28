@@ -42,35 +42,13 @@ style.use('ggplot')
 #     return foo
 
 
-def function1(x):
-    lcoe, time, power_calls, thrust_calls = fitness(x)
-    if x[8] == 1:  # Time for WindSim
-        time += thrust_calls * 0.032
-    elif x[8] == 2:  # Time for WT_Perf
-        time += thrust_calls * 1.712
-    elif x[8] == 3:  # Time for FAST
-        time += thrust_calls * 120.0
-    else:  # Time for powercurve or constant.
-        pass
+def functions(x):
+    lcoe, time, power_calls, thrust_calls = fitness(tuple(x))
 
     error = abs(lcoe - 7.89829164727)
 
     return error, dev_lcoe, time, dev_time, power_calls, thrust_calls
 # function1 = memoize(function1)
-
-
-def function2(x):
-    x = [10, 30, 30.0] + x
-    lcoe, time, power_calls, thrust_calls = fitness(x)
-    return lcoe
-
-
-def function3(x):
-    return 1.0 / len(x) * sum([item ** 2.0 for item in x])
-
-
-def function4(x):
-    return 0.0
 
 
 def mode_custom(x):

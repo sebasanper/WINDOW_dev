@@ -101,7 +101,7 @@ def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
             pass
         finances.append(results[0])
         runtimes.append(time)
-        print (time, power_calls)
+        # print (time, power_calls)
         n_power_calls.append(power_calls)
         n_thrust_calls.append(results[3])
     stddev_finance = stdev(finances)
@@ -120,3 +120,4 @@ if __name__ == '__main__':
     start = time()
     print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
     print(time() - start, "seconds")
+    print(call_workflow_once(15, 30.0, a, c, d, e, f, j))
