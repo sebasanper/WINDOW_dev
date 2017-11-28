@@ -1,4 +1,5 @@
 from workflow import Workflow
+from workflow_for_optimisation import Workflow as Workflow_for_opt
 from joblib import Parallel, delayed
 
 from site_conditions.wind_conditions.windrose import MeanWind, WeibullWindBins
@@ -48,6 +49,31 @@ weibullmodels = [MeanWind, WeibullWindBins]
 farm_support_cost_models = ["ConstantSupport", farm_support_cost]
 
 
+def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
+    print("called")
+    real_angle = 30.0
+    b = 0  # Fixed
+    g = f  # Turbine model
+    h = 3  # Fixed
+    i = 1  # Fixed
+
+    workflow1 = Workflow_for_opt(weibullmodels[i], windrosemodels[b], turbmodels[c], None, depthmodels[h], farm_support_cost_models[j], None, oandm, cablemodels[d], infield_efficiency, thrust_coefficient, thrustmodels[f], wakemodels[a], mergingmodels[e], power, powermodels[g], aep_average, other_costs, total_costs, LPC)
+    # layout_input_file = "horns_rev_5MW_layout.dat"
+    # nbins = randint(2, 25)
+    # real_angle = choice([30.0, 60.0, 90.0, 120.0, 180.0])
+    # artif_angle = 400.0
+
+    workflow1.windrose.nbins = nbins
+    workflow1.windrose.artificial_angle = artif_angle
+    workflow1.windrose.real_angle = real_angle
+    # workflow1.print_output = True
+    workflow1.run(layout)
+    power2.reset()
+    thrust_coefficient2.reset()
+    print (workflow1.finance, layout[4][1])
+    return workflow1.finance
+
+
 def call_workflow_once(nbins, artif_angle, a, c, d, e, f, j):
     print("called")
     real_angle = 30.0
@@ -64,7 +90,7 @@ def call_workflow_once(nbins, artif_angle, a, c, d, e, f, j):
     # artif_angle = 400.0
 
     workflow1.windrose.nbins = nbins
-    workflow1.windrose.artificial_angle = 30.0#artif_angle
+    workflow1.windrose.artificial_angle = artif_angle
     workflow1.windrose.real_angle = real_angle
     # workflow1.print_output = True
     workflow1.run(layout_input_file)
@@ -108,7 +134,21 @@ def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
     runtimes = reject_outliers(np.array(runtimes))
     stddev_time = stdev(runtimes)
 
-    return np.mean(finances), stddev_finance, np.mean(runtimes), stddev_time, mode(n_power_calls), mode(n_thrust_calls)
+    lcoe = []
+    sens = 1.0
+    layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
+    lcoe.append(call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j))
+    for i in range(1, 11):
+        layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
+        layout[4][0] += 1.0 / float(i)
+        layout[4][1] += 1.0 / float(i)        
+        lcoe.append(call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j))
+    for i in range(1, len(lcoe)):
+        if abs(lcoe[i] - lcoe[0]) <= 0.0001:
+            sens = 1.0 / float(i)
+            break
+
+    return np.mean(finances), stddev_finance, np.mean(runtimes), stddev_time, mode(n_power_calls), mode(n_thrust_calls), sens
 
 if __name__ == '__main__':
 
@@ -120,6 +160,8 @@ if __name__ == '__main__':
     f = 3
     j = 1
     start = time()
-    print(results_median_workflow(11, 5, 1, 5, 0, 3, 1, 1))
+    layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
+    # print(call_workflow_layout(layout, 15, 30.0, a, c, d, e, f, j))
+    print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
     print(time() - start, "seconds")
     # print(call_workflow_once(15, 30.0, a, c, d, e, f, j))
