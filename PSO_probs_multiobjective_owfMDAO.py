@@ -321,11 +321,20 @@ class PSOCategorical:
             # if iteration % 25 == 0:
             #     weights = generate_weights(self.n_functions)
             self.samples = [self.representative_sample(position) for position in self.positions_categorical]
-            self.fitness = Parallel(n_jobs=-2)(delayed(criteria)(sample) for sample in self.samples)
+            print("arroz0")
+            # self.fitness = Parallel(n_jobs=-2)(delayed(criteria)(sample) for sample in self.samples)
+            self.fitness = [criteria(sample) for sample in self.samples]
+            print("arroz1")
             self.fitness_and_samples = list(zip(self.fitness, self.samples))
+            print("arroz2")
             self.old_swarm = deepcopy(self.fitness_and_samples)
+
+            print("arroz3")
             for particle in range(self.n_particles):
+                print("arroz3a")
                 self.obj_function[particle] = sum([weights[i] * self.fitness[particle][i] for i in range(self.n_functions)])
+
+            print("arroz4")
 
             self.update_archive(self.fitness_and_samples)
             for particle in range(self.n_particles):

@@ -50,6 +50,7 @@ farm_support_cost_models = ["ConstantSupport", farm_support_cost]
 
 
 def call_workflow_once(nbins, artif_angle, a, c, d, e, f, j):
+    print("called")
     real_angle = 30.0
     b = 0  # Fixed
     g = f  # Turbine model
@@ -64,7 +65,7 @@ def call_workflow_once(nbins, artif_angle, a, c, d, e, f, j):
     # artif_angle = 400.0
 
     workflow1.windrose.nbins = nbins
-    workflow1.windrose.artificial_angle = artif_angle
+    workflow1.windrose.artificial_angle = 30.0#artif_angle
     workflow1.windrose.real_angle = real_angle
     # workflow1.print_output = True
     workflow1.run(layout_input_file)
