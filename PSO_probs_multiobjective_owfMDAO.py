@@ -42,12 +42,14 @@ style.use('ggplot')
 #     return foo
 
 
-def functions(x):
-    lcoe, time, power_calls, thrust_calls = fitness(tuple(x))
+def criteria(x):
+    n_bins = x[0] + 2
+    angles = [1.0, 2.0, 5.0, 10.0, 15.0, 30.0][x[1]]
+    lcoe, stddev_finance, time, stddev_time, n_power_calls, n_thrust_calls = fitness(n_bins, angles, x[2], x[3], x[4], x[5], x[6], x[7])
 
     error = abs(lcoe - 7.89829164727)
 
-    return error, dev_lcoe, time, dev_time, power_calls, thrust_calls
+    return [error, time, stddev_finance]
 # function1 = memoize(function1)
 
 
@@ -164,7 +166,7 @@ def fitness_function(sample, fitness_functions):
 
 class PSOCategorical:
     def __init__(self, n_particles, scaling_factor):
-        self.n_functions = 2
+        self.n_functions = 3
         self.weight_local = 1.49618
         self.weight_global = 1.49618
         self.inertia_weight = 0.729
@@ -172,8 +174,8 @@ class PSOCategorical:
         self.n_samples = 1
         self.n_particles = n_particles
         self.scaling_factor = scaling_factor
-        self.categories = [list(range(3)), list(range(3)), list(range(6)), list(range(4)), list(range(4)),
-                           list(range(4)), list(range(5)), list(range(4)), list(range(2)), list(range(2))]
+        self.categories = [list(range(23)), list(range(6)), list(range(5)), list(range(6)), list(range(4)),
+                           list(range(4)), list(range(4)), list(range(2))]
         self.positions_categorical = [[[0 for _ in var] for var in self.categories] for _ in range(self.n_particles)]
         self.velocities_categorical = [[[0 for _ in var] for var in self.categories] for _ in range(self.n_particles)]
         self.local_best_fitness = [999999.9 for _ in range(self.n_particles)]
@@ -184,7 +186,7 @@ class PSOCategorical:
         self.fitness = [[999999.9 for _ in range(self.n_functions)] for _ in range(self.n_particles)]
         self.obj_function = [0.0 for _ in range(self.n_particles)]
         self.archive = []
-        self.archive_size = 10
+        self.archive_size = 20
         self.old_swarm = []
         self.fitness_and_samples = list(zip(self.fitness, self.samples))
 
@@ -294,9 +296,9 @@ class PSOCategorical:
         self.initialise_categorical_positions()
         self.initialise_categorical_velocities()
         self.n_iterations = 20
-        self.n_samples = 5
-        self.archive_size = 200
-        weights_all = dynamic_weights(self.n_iterations, self.n_iterations / 20)
+        self.n_samples = 1
+        self.archive_size = 20
+        weights_all = dynamic_weights(self.n_iterations, 4)
         for iteration in range(self.n_iterations):
             print("iteration:", iteration)
             # print(len(self.archive))
@@ -319,7 +321,7 @@ class PSOCategorical:
             # if iteration % 25 == 0:
             #     weights = generate_weights(self.n_functions)
             self.samples = [self.representative_sample(position) for position in self.positions_categorical]
-            self.fitness = Parallel(n_jobs=-2)(delayed(fitness_function)(sample, [function1, function2, function4]) for sample in self.samples)
+            self.fitness = Parallel(n_jobs=-2)(delayed(criteria)(sample) for sample in self.samples)
             self.fitness_and_samples = list(zip(self.fitness, self.samples))
             self.old_swarm = deepcopy(self.fitness_and_samples)
             for particle in range(self.n_particles):
@@ -337,12 +339,13 @@ class PSOCategorical:
             ax.scatter([item[0][0] for item in self.archive], [item[0][1] for item in self.archive])
             plt.pause(0.01)
 
-        with open("MOPSO_owfmdao_results3.dat", "w", 1) as out:
+        with open("MOPSO_owfmdao_results4.dat", "w", 1) as out:
             for item in self.archive:
                 out.write("{} {} {} {}\n".format(item[0][0], item[0][1], item[0][2], item[1]))
         print(time() - start, "seconds")
         while True:
             plt.pause(0.05)
 
-opt = PSOCategorical(20, 0.1)
-opt.run()
+if __name__ == '__main__':
+    opt = PSOCategorical(20, 0.1)
+    opt.run()
