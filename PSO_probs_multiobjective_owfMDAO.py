@@ -43,8 +43,8 @@ style.use('ggplot')
 
 
 def criteria(x):
-    n_bins = x[0] + 2
-    angles = [1.0, 2.0, 5.0, 10.0, 15.0, 30.0][x[1]]
+    n_bins = x[0] + 3
+    angles = [1.0, 5.0, 15.0, 30.0][x[1]]
     lcoe, stddev_finance, time, stddev_time, n_power_calls, n_thrust_calls = fitness(n_bins, angles, x[2], x[3], x[4], x[5], x[6], x[7])
 
     error = abs(lcoe - 7.89829164727)
@@ -170,11 +170,9 @@ class PSOCategorical:
         self.weight_local = 1.49618
         self.weight_global = 1.49618
         self.inertia_weight = 0.729
-        self.n_iterations = 1
-        self.n_samples = 1
         self.n_particles = n_particles
         self.scaling_factor = scaling_factor
-        self.categories = [list(range(23)), list(range(6)), list(range(4)), list(range(6)), list(range(4)),
+        self.categories = [list(range(11)), list(range(4)), list(range(4)), list(range(6)), list(range(4)),
                            list(range(4)), list(range(4)), list(range(2))]
         self.positions_categorical = [[[0 for _ in var] for var in self.categories] for _ in range(self.n_particles)]
         self.velocities_categorical = [[[0 for _ in var] for var in self.categories] for _ in range(self.n_particles)]
@@ -288,17 +286,17 @@ class PSOCategorical:
                                                                        + turbulence
 
     def run(self):
-        plt.ion()
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')
+        # plt.ion()
+        # fig = plt.figure()
+        # ax = fig.add_subplot(111, projection='3d')
         # fig, ax = plt.subplots()
         from time import time
         from math import sin, pi, copysign
         start = time()
         self.initialise_categorical_positions()
         self.initialise_categorical_velocities()
-        self.n_iterations = 20
-        self.n_samples = 1
+        self.n_iterations = 48
+        self.n_samples = 3
         self.archive_size = 20
         weights_all = dynamic_weights(self.n_iterations, 4)
         for iteration in range(self.n_iterations):
@@ -339,16 +337,17 @@ class PSOCategorical:
                 if self.obj_function[particle] < self.global_best_fitness:
                     self.update_global_best(self.positions_categorical[particle], self.samples[particle])
 
-            plt.cla()
-            ax.scatter([item[0][0] for item in self.archive], [item[0][1] for item in self.archive], [item[0][2] for item in self.archive])
-            plt.pause(0.01)
+            # plt.cla()
+            # ax.scatter([item[0][0] for item in self.archive], [item[0][1] for item in self.archive], [item[0][2] for item in self.archive])
+            # plt.pause(0.01)
 
-        with open("MOPSO_owfmdao_results4.dat", "w", 1) as out:
-            for item in self.archive:
-                out.write("{} {} {} {}\n".format(item[0][0], item[0][1], item[0][2], item[1]))
-        print(time() - start, "seconds")
-        while True:
-            plt.pause(0.05)
+            with open("MOPSOC_28nov.dat", "a", 1) as out:
+                for item in self.archive:
+                    out.write("{} {} {} {}\n".format(item[0][0], item[0][1], item[0][2], item[1]))
+                out.write("\n")
+            print(time() - start, "seconds")
+            # while True:
+            #     plt.pause(0.05)
 
 if __name__ == '__main__':
     opt = PSOCategorical(20, 0.1)
