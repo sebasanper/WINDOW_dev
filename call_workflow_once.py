@@ -134,23 +134,23 @@ def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
     runtimes = reject_outliers(np.array(runtimes))
     stddev_time = stdev(runtimes)
 
-    lcoe = []
-    sens = 1.0
-    layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
-    lcoe.append(call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j))
-    for i in range(1, 11):
-        layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
-        layout[4][0] += 1.0 / float(i)
-        layout[4][1] += 1.0 / float(i)        
-        lcoe.append(call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j))
-    for i in range(1, len(lcoe)):
-        if abs(lcoe[i] - lcoe[0]) <= 0.0001:
-            sens = 1.0 / float(i)
-            break
-    with open("random_sampling_casa.dat", "a") as out:
-        out.write("{} {} {} {} {} {} {} {} {} {} {} {}\n".format(nbins, artif_angle, a, c, d, e, f, j, np.mean(finances), stddev_finance, np.mean(runtimes), sens))
+    # lcoe = []
+    # sens = 1.0
+    # layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
+    # lcoe.append(call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j))
+    # for i in range(1, 11):
+    #     layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
+    #     layout[4][0] += 1.0 / float(i)
+    #     layout[4][1] += 1.0 / float(i)        
+    #     lcoe.append(call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j))
+    # for i in range(1, len(lcoe)):
+    #     if abs(lcoe[i] - lcoe[0]) <= 0.0001:
+    #         sens = 1.0 / float(i)
+    #         break
+    with open("mopsoc_sampling.dat", "a") as out:
+        out.write("{} {} {} {} {} {} {} {} {} {} {}\n".format(nbins, artif_angle, a, c, d, e, f, j, np.mean(finances), stddev_finance, np.mean(runtimes)))
 
-    # return np.mean(finances), stddev_finance, np.mean(runtimes), stddev_time, mode(n_power_calls), mode(n_thrust_calls), sens
+    return np.mean(finances), stddev_finance, np.mean(runtimes), stddev_time, mode(n_power_calls), mode(n_thrust_calls)#, sens
 
 def main():
     Parallel(n_jobs=-2)(delayed(results_median_workflow)(choice(list(range(11))) + 2, [1.0, 5.0, 15.0, 30.0][choice(list(range(4)))], choice(list(range(4))), choice(list(range(6))), choice(list(range(4))),
