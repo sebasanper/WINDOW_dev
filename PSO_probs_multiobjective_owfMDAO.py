@@ -344,7 +344,7 @@ class PSOCategorical:
             with open("MOPSOC_28nov.dat", "a", 1) as out:
                 for item in self.archive:
                     out.write("{} {} {} {}\n".format(item[0][0], item[0][1], item[0][2], item[1]))
-                out.write("\n")
+                out.write("\n\n")
             print(time() - start, "seconds")
             # while True:
             #     plt.pause(0.05)
