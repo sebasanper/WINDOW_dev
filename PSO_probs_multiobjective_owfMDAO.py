@@ -49,7 +49,7 @@ def criteria(x):
 
     error = abs(lcoe - 7.89829164727)
 
-    return [error, time, stddev_finance]
+    return [error, time]
 # function1 = memoize(function1)
 
 
@@ -166,7 +166,7 @@ def fitness_function(sample, fitness_functions):
 
 class PSOCategorical:
     def __init__(self, n_particles, scaling_factor):
-        self.n_functions = 3
+        self.n_functions = 2
         self.weight_local = 1.49618
         self.weight_global = 1.49618
         self.inertia_weight = 0.729
@@ -341,9 +341,9 @@ class PSOCategorical:
             # ax.scatter([item[0][0] for item in self.archive], [item[0][1] for item in self.archive], [item[0][2] for item in self.archive])
             # plt.pause(0.01)
 
-            with open("MOPSOC_28nov.dat", "a", 1) as out:
+            with open("MOPSOC_29nov_2crit.dat", "a", 1) as out:
                 for item in self.archive:
-                    out.write("{} {} {} {}\n".format(item[0][0], item[0][1], item[0][2], item[1]))
+                    out.write("{} {} {}\n".format(item[0][0], item[0][1], item[1]))
                 out.write("\n\n")
             print(time() - start, "seconds")
             # while True:
