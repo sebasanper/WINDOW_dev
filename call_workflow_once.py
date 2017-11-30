@@ -102,7 +102,11 @@ def reject_outliers(data, m=5.189):
     d = np.abs(data - np.median(data))
     mdev = np.median(d)
     s = d/mdev if mdev else 0.0
-    return data[s<m]
+    try:
+        good = data[s<m]
+    except IndexError:
+        good = data
+    return good
 
 
 def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
@@ -165,8 +169,8 @@ if __name__ == '__main__':
     # print(call_workflow_layout(layout, 15, 30.0, a, c, d, e, f, j))
     # print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
     # print(time() - start, "seconds")
-    # print(call_workflow_once(2, 30.0, 3, 2 ,1, 0, 2 ,1))
+    print(call_workflow_once(25, 1.0, 3, 4 ,1, 0, 3 ,1))
 
     # [list(range(23)), list(range(6)), list(range(4)), list(range(6)), list(range(4)),
     #                        list(range(4)), list(range(4)), list(range(2))]
-    main()
+    # main()

@@ -47,7 +47,7 @@ def criteria(x):
     angles = [1.0, 5.0, 15.0, 30.0][x[1]]
     lcoe, stddev_finance, time, stddev_time, n_power_calls, n_thrust_calls = fitness(n_bins, angles, x[2], x[3], x[4], x[5], x[6], x[7])
 
-    error = abs(lcoe - 7.89829164727)
+    error = abs(lcoe - 8.6200480173078038)
 
     return [error, time, stddev_finance]
 # function1 = memoize(function1)
@@ -341,7 +341,7 @@ class PSOCategorical:
             # ax.scatter([item[0][0] for item in self.archive], [item[0][1] for item in self.archive], [item[0][2] for item in self.archive])
             # plt.pause(0.01)
 
-            with open("MOPSOC_28nov.dat", "a", 1) as out:
+            with open("new_MOPSOC_lap.dat", "a", 1) as out:
                 for item in self.archive:
                     out.write("{} {} {} {}\n".format(item[0][0], item[0][1], item[0][2], item[1]))
                 out.write("\n\n")

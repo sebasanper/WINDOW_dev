@@ -1,8 +1,10 @@
+import numpy as np
+
 central_platform = [[1000.0, 1000.0]]
 # central_platform = [[585000.0, 5809000.0]]
 number_turbines_per_cable = [3]
 NT = 9
-
+areas = np.array([[[0, 0], [1600, 0.0], [1600.0, 1600.0], [0.0, 1600.0]]])
 
 class Cost1:
     def __init__(self, value, currency, year):
