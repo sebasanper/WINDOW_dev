@@ -151,8 +151,8 @@ def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
     #     if abs(lcoe[i] - lcoe[0]) <= 0.0001:
     #         sens = 1.0 / float(i)
     #         break
-    with open("mopsoc_sampling.dat", "a") as out:
-        out.write("{} {} {} {} {} {} {} {} {} {} {}\n".format(nbins, artif_angle, a, c, d, e, f, j, np.mean(finances), stddev_finance, np.mean(runtimes)))
+    # with open("mopsoc_sampling.dat", "a") as out:
+    #     out.write("{} {} {} {} {} {} {} {} {} {} {}\n".format(nbins, artif_angle, a, c, d, e, f, j, np.mean(finances), stddev_finance, np.mean(runtimes)))
 
     return np.mean(finances), stddev_finance, np.mean(runtimes), stddev_time, mode(n_power_calls), mode(n_thrust_calls)#, sens
 
@@ -169,7 +169,7 @@ if __name__ == '__main__':
     # print(call_workflow_layout(layout, 15, 30.0, a, c, d, e, f, j))
     # print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
     # print(time() - start, "seconds")
-    print(call_workflow_once(25, 1.0, 3, 4 ,1, 0, 3 ,1))
+    print(call_workflow_once(4, 30.0, 1, 4 ,1, 0, 3 ,1))
 
     # [list(range(23)), list(range(6)), list(range(4)), list(range(6)), list(range(4)),
     #                        list(range(4)), list(range(4)), list(range(2))]

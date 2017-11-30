@@ -172,7 +172,7 @@ class PSOCategorical:
         self.inertia_weight = 0.729
         self.n_particles = n_particles
         self.scaling_factor = scaling_factor
-        self.categories = [list(range(11)), list(range(4)), list(range(4)), list(range(6)), list(range(4)),
+        self.categories = [list(range(11)), list(range(4)), list(range(1, 4)), list(range(6)), list(range(4)),
                            list(range(4)), list(range(4)), list(range(2))]
         self.positions_categorical = [[[0 for _ in var] for var in self.categories] for _ in range(self.n_particles)]
         self.velocities_categorical = [[[0 for _ in var] for var in self.categories] for _ in range(self.n_particles)]
