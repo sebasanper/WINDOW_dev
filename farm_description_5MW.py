@@ -59,8 +59,6 @@ V_rated_voltage = [22000, 33000, 45000, 66000, 132000, 220000]  # Rated voltage 
 rv = 1  # User can pick each time one rated voltage. 0 represents the first place in a Python list
 
 power_factor = 1.0  # cos angle
-inflationrate = 1.18  # average inflation rate
-exchangerate = 0.11  # exchange rate of SEK to Euros
 
 # cost constants
 Ap_init = [0.284, 0.411, 0.516, 0.688, 1.971, 3.181]  # must be multiplied by 10**6
