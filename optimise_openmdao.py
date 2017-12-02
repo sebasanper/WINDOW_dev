@@ -9,8 +9,8 @@ prob = Problem()
 model = prob.model = LCOE()
 # prob.driver = pyOptSparseDriver()
 prob.driver = ScipyOptimizer()
-prob.driver.options['optimizer'] = 'COBYLA'#"Powell"#COBYLA, Powell works, COBYLA works, Nelder-Mead works but violates constraints, own PSO works, 
-prob.driver.options['maxiter'] = 100
+prob.driver.options['optimizer'] = 'SLSQP'#"Powell"#COBYLA, Powell works, COBYLA works, Nelder-Mead works but violates constraints, own PSO works, 
+prob.driver.options['maxiter'] = 300
 
 model.add_design_var('indep2.layout', lower=np.array([[484000.0, 5.715e6] for _ in range(NT)]), upper=np.array([[504000.0, 5.74e6] for _ in range(NT)]))#, scaler=1.0/1600.0)
 model.add_objective('analysis.lcoe')
@@ -20,6 +20,8 @@ model.add_constraint('constraint_boundary.magnitude_violations', upper=0.00001)
 prob.set_solver_print(level=5)
 				
 prob.setup()
+print(prob['indep2.layout'])
+print(prob['analysis.lcoe'])
 prob.run_driver()
 
 print(prob['indep2.layout'])
