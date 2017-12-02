@@ -1,10 +1,10 @@
 from openmdao.api import ExplicitComponent
 from transform_quadrilateral import AreaMapping
 from numpy import sqrt
+from input_params import areas, separation_equation_y
 
-n_quadrilaterals = 1
-max_n_turbines = 9
-# separation_value_y = 10000.0
+n_quadrilaterals = 2
+max_n_turbines = 15
 
 class MinDistance(ExplicitComponent):
     def setup(self):
@@ -50,17 +50,17 @@ class WithinBoundaries(ExplicitComponent):
         layout = inputs["layout"]
         squares = []
         for n in range(n_quadrilaterals):
-            square = [[[n, 0.0], [n + 1, 0.0], [n + 1, 1.0], [n, 1.0]]]
+            square = [[1.0 / n_quadrilaterals * n, 0.0], [n * 1.0 / n_quadrilaterals, 1.0], [(n + 1) * 1.0 / n_quadrilaterals, 1.0], [(n + 1) * 1.0 / n_quadrilaterals, 0.0]]
             squares.append(square)
         area = inputs["areas"]
         maps = [AreaMapping(area[n], square[n]) for n in range(n_quadrilaterals)]
         count = 0
         magnitude = 0.0
         for t in layout:
-            # if t[1]:# < separation_value_y:
-            mapped = maps[0].transform_to_rectangle(t[0], t[1])
-            # else:
-            #     mapped = maps[1].transform_to_rectangle(t[0], t[1])
+            if t[1] > separation_equation_y(t[0]):
+                mapped = maps[0].transform_to_rectangle(t[0], t[1])
+            else:
+                mapped = maps[1].transform_to_rectangle(t[0], t[1])
             c, m = self.inarea(mapped)
             count += c
             magnitude += m

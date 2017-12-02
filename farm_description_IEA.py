@@ -1,10 +1,17 @@
 import numpy as np
 
-central_platform = [498000.0, 5731000.0]
-# central_platform = [[585000.0, 5809000.0]]
+central_platform = [[498000.0, 5731000.0]]
 number_turbines_per_cable = [7, 5, 2]
 NT = 15 #74
-areas = np.array([[[0, 0], [1600, 0.0], [1600.0, 1600.0], [0.0, 1600.0]]])
+areas = np.array([[[484178.55, 5732482.8], [500129.9, 5737534.4], [497318.1, 5731880.24], [491858.00, 5725044.75]], [[491858.00, 5725044.75], [497318.1, 5731880.24], [503163.37, 5729155.3], [501266.5, 5715990.05]]])  # Areas need to be defined in clockwise order starting on the "bottom left" corner.
+
+
+def separation_equation_y(x):  # values y greater than f(x) use mapping 1, else mapping 0
+    m = (areas[1][0][1] - areas[1][1][1]) / (areas[1][0][0] - areas[1][1][0])
+    yy = areas[1][0][1]
+    xx = areas[1][0][0]
+    b = yy - m * xx
+    return m * x + b
 
 class Cost1:
     def __init__(self, value, currency, year):
