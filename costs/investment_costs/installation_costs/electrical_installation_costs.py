@@ -1,6 +1,7 @@
 from costs.currency import Cost1
-from farm_description import distance_to_grid
+from farm_description import distance_to_grid, central_platform
 
+N_substations = len(central_platform)
 
 def electrical_installation_costs():
 
@@ -14,7 +15,7 @@ def electrical_installation_costs():
 
     electrical_installation_total = inv_installation_electrical_system_dune_crossing + inv_installation_electrical_system_transmission_cable
 
-    return electrical_installation_total
+    return electrical_installation_total * N_substations
 
 if __name__ == '__main__':
     # print electrical_installation_costs()

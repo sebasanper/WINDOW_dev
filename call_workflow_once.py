@@ -22,7 +22,7 @@ from farm_energy.wake_model_mean_new.aero_power_ct_models.aero_models import pow
 from random import randint, choice
 import numpy as np
 from statistics import mode, stdev
-
+from Hybrid import draw_cables
 
 # a - 1
 wakemodels = [constantwake, Jensen, Larsen, Ainslie1D, Ainslie2D]
@@ -34,7 +34,7 @@ windrosemodels = [
 # c - 3
 turbmodels = ["ConstantTurbulence", frandsen2, danish_recommendation, frandsen, larsen_turbulence, Quarton]
 # d - 4
-cablemodels = ["ConstantCable", cable_optimiser, radial_cable, random_cable]
+cablemodels = ["ConstantCable", cable_optimiser, radial_cable, random_cable, draw_cables]
 # e - 5
 mergingmodels = [root_sum_square, maximum, multiplied, summed]
 # f - 6
@@ -67,9 +67,11 @@ def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
     workflow1.windrose.artificial_angle = artif_angle
     workflow1.windrose.real_angle = real_angle
     # workflow1.print_output = True
+    # workflow1.draw_infield = True
     workflow1.run(layout)
     power2.reset()
     thrust_coefficient2.reset()
+    print workflow1.finance
     return workflow1.finance
 
 

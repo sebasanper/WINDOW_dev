@@ -1,8 +1,8 @@
 from costs.currency import Cost1
-from farm_description import transmission_voltage, grid_coupling_point_voltage, V_rated_voltage, rv, NT, distance_to_grid, rho_copper, rho_xlpe, epsilon_0, epsilon_r, frequency
+from farm_description import transmission_voltage, grid_coupling_point_voltage, V_rated_voltage, rv, NT, distance_to_grid, rho_copper, rho_xlpe, epsilon_0, epsilon_r, frequency, central_platform
 import math
 from turbine_description import generator_voltage, rated_power as P_rated
-
+N_substations = len(central_platform)
 
 def electrical_procurement_costs():
     # Procurement - Electrical system
@@ -24,7 +24,7 @@ def electrical_procurement_costs():
     offshore_transformer_winding_ratio = V_rated_voltage[rv] / transmission_voltage
     turbine_transformer_winding_ratio = voltage_at_turbine / V_rated_voltage[rv]
     transmission_cable_voltage = onshore_transformer_winding_ratio * grid_coupling_point_voltage
-    max_current_at_rated = (NT * P_rated) / (math.sqrt(3.0) * transmission_cable_voltage)
+    max_current_at_rated = (NT/N_substations * P_rated) / (math.sqrt(3.0) * transmission_cable_voltage)
     d_conductor = 33.0e-9 * max_current_at_rated ** 2 + 8.9e-6 * max_current_at_rated + 5.7e-3
     a_conductor = 0.25 * math.pi * d_conductor ** 2
     t_conductor_screen = 1.1 * a_conductor
@@ -41,13 +41,13 @@ def electrical_procurement_costs():
     transmission_cable_capacitance = (2.0 * math.pi * epsilon_0 * epsilon_r / (math.log(d_insulation / d_conductor_screen)))
     power_shunt_reactor_onshore = 1.0 / (2.0 * math.pi ** 2 * frequency ** 2 * transmission_cable_capacitance * transmission_cable_length)
     power_shunt_reactor_offshore = 1.0 / (2.0 * math.pi ** 2 * frequency ** 2 * transmission_cable_capacitance * transmission_cable_length)
-    inv_procurement_electrical_system_transformer = (transformer_coef_A1 * P_rated + transformer_coef_B1) * math.exp(transformer_coef_C1 * turbine_transformer_winding_ratio) * NT + (transformer_coef_A2 * ((NT * P_rated) ** transformer_coef_B2)) * (math.exp(transformer_coef_C1 * offshore_transformer_winding_ratio) + math.exp(transformer_coef_C1 * onshore_transformer_winding_ratio))
+    inv_procurement_electrical_system_transformer = (transformer_coef_A1 * P_rated + transformer_coef_B1) * math.exp(transformer_coef_C1 * turbine_transformer_winding_ratio) * NT / N_substations + (transformer_coef_A2 * ((NT / N_substations * P_rated) ** transformer_coef_B2)) * (math.exp(transformer_coef_C1 * offshore_transformer_winding_ratio) + math.exp(transformer_coef_C1 * onshore_transformer_winding_ratio))
     inv_procurement_electrical_system_transmission_cable = manufacturing_price_pm * transmission_cable_length
     inv_procurement_electrical_system_shunt_reactor = shunt_reactor_coef_a * (power_shunt_reactor_onshore ** shunt_reactor_exp_a + power_shunt_reactor_offshore ** shunt_reactor_exp_a)
 
     electrical_total_costs = inv_procurement_electrical_system_transformer + inv_procurement_electrical_system_transmission_cable + inv_procurement_electrical_system_shunt_reactor
 
-    return electrical_total_costs
+    return electrical_total_costs * N_substations
 
 if __name__ == '__main__':
     # print electrical_procurement_costs()

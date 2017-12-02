@@ -1,8 +1,10 @@
 import numpy as np
 
+# central_platform = [[498000.0, 5731000.0], [490000.0, 5725000.0], [492000.0, 5732000.0]]
 central_platform = [[498000.0, 5731000.0]]
-number_turbines_per_cable = [7, 5, 2]
-NT = 15 #74
+number_turbines_per_cable = [2, 4, 7]
+NT = 74
+n_quadrilaterals = 2
 areas = np.array([[[484178.55, 5732482.8], [500129.9, 5737534.4], [497318.1, 5731880.24], [491858.00, 5725044.75]], [[491858.00, 5725044.75], [497318.1, 5731880.24], [503163.37, 5729155.3], [501266.5, 5715990.05]]])  # Areas need to be defined in clockwise order starting on the "bottom left" corner.
 
 

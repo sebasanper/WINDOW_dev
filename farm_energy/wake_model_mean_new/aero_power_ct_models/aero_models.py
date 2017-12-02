@@ -55,7 +55,6 @@ from memoize import countcalls
 @countcalls
 def power2(wind_speed, power_lookup_file, cutin=cutin_wind_speed, cutout=cutout_wind_speed, rated=rated_wind, r=rotor_radius):
     table_power = AeroLookup(power_lookup_file)
-    # print "iuno"
     if power_lookup_file == "farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat":
         if wind_speed < cutin:
             return 0.0
