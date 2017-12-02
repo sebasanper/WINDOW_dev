@@ -5,6 +5,8 @@ from costs.currency import Cost1
 
 
 def design_support(water_depth, TI):
+    if TI > 1.0:
+        TI = 0.99
     # print water_depth
     dimension_team_support = DimensionTeamSupport()
     dimension_team_support.fsf = TI + 1.0
