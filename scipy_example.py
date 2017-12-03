@@ -27,7 +27,7 @@ def objfunc(x):
     return f
 
 bounds = [(570.0, 2500.0), (570.0, 2500.0), (0.0, 1250.0), (0.0, 180.0)]
-result = differential_evolution(objfunc, bounds)
+result = differential_evolution(objfunc, bounds, popsize=8)
 # initial_guess = [1000.0, 1400.0, 0.0, 30.0]
 # minimizer_kwargs = {"method":"Nelder-Mead"}
 # result = basinhopping(objfunc, initial_guess, minimizer_kwargs=minimizer_kwargs)

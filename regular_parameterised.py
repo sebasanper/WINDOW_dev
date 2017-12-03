@@ -29,12 +29,13 @@ class RegularLayout(ExplicitComponent):
         if count < 74:
             to_add = 74 - count
             final += [[0.0, 0.0] for _ in range(to_add)]
+            reduced = final
         elif count > 74:
             if count % 2 == 0:
                 to_remove1 = to_remove2 = (count - 74) / 2
             else:
                 to_remove1, to_remove2 = (count - 74) / 2, (count - 74) / 2 + 1
-        reduced = final[to_remove1:- to_remove2]
+            reduced = final[to_remove1:- to_remove2]
         print len(reduced), "len reduced"
         # with open("regular_borssele_615.dat", "w") as regular_file:
         #     for i in range(len(reduced)):
