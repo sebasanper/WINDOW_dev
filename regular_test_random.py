@@ -13,7 +13,7 @@ def rotate(turbine1, angle, origin):
     rotated = [turbine[0] * (cos(angle)) - turbine[1] * sin(angle), turbine[0] * (sin(angle)) + turbine[1] * cos(angle)]
     return [rotated[0] + origin[0], rotated[1] + origin[1]]
 
-def regular_layout(dx, dy, dh, areas, angle):
+def regular_layout(dx, dy, dh, areas, angle, print_layout):
     layout_final = []
     centroid_small = centroid(areas)
     # print centroid_small
@@ -77,21 +77,33 @@ def regular_layout(dx, dy, dh, areas, angle):
                 count += 1
             else:
                 extra = 1
-
     print count
-    return layout_final, count
+    if count < 74:
+            to_add = 74 - count
+            layout_final += [[0.0, 0.0] for _ in range(to_add)]
+    elif count > 74:
+        if count % 2 == 0:
+            to_remove1 = to_remove2 = (count - 74) / 2
+        else:
+            to_remove1, to_remove2 = (count - 74) / 2, (count - 74) / 2 + 1
+        reduced = layout_final[to_remove1:- to_remove2]
+    if print_layout == True:
+        with open("layout_draw.dat", "w") as out:
+            for item in reduced:
+                out.write("{} {}\n".format(item[0], item[1]))
+    return reduced, count
 
 
 if __name__ == '__main__':
     from farm_description import areas
     from random import uniform
     # [ 2394.72140817] [ 951.44319218] [ 508.77654122] [ 76.81854513]
-    # print(regular_layout(2394.72140817, 951.44319218, 508.77654122, areas, 76.81854513))
-    with open("regular_borssele_test.dat", "a") as regular_file:
-        for _ in range(10000):
-            sample = [uniform(570.0,2500.0), uniform(570.0,2500.0), uniform(0.0, 1250.0), uniform(0.0, 180.0)]
-            lay, cnt = regular_layout(sample[0], sample[1], sample[2], areas, sample[3])
-            if 74 == cnt:
-                regular_file.write("{} {} {} {} {}\n".format(sample[0], sample[1], sample[2], sample[3], cnt))
-                print cnt, sample
+    print(regular_layout(2394.72140817, 951.44319218, 508.77654122, areas, 76.81854513, True))
+    # with open("regular_borssele_test.dat", "a") as regular_file:
+    #     for _ in range(10000):
+    #         sample = [uniform(570.0,2500.0), uniform(570.0,2500.0), uniform(0.0, 1250.0), uniform(0.0, 180.0)]
+    #         lay, cnt = regular_layout(sample[0], sample[1], sample[2], areas, sample[3])
+    #         if 74 == cnt:
+    #             regular_file.write("{} {} {} {} {}\n".format(sample[0], sample[1], sample[2], sample[3], cnt))
+    #             print cnt, sample
  # 1.090844E+00   1.400479E+03   1.397751E+03  -2.127649E+01
