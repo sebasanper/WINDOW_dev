@@ -93,6 +93,18 @@ if __name__ == '__main__':
     prob['indep2.odd_row_shift_spacing'] = 508.77654122
     prob['indep2.layout_angle'] = 76.81854513
 
+    def read_layout(layout_file):
+        layout_file = open(layout_file, 'r')
+        layout = []
+        i = 0
+        for line in layout_file:
+            columns = line.split()
+            layout.append([float(columns[0]), float(columns[1])])
+            i += 1
+
+        return np.array(layout)
+    prob['indep2.layout'] = read_layout('layout_opt_3.dat')
+
     prob.run_model()
     print(prob["analysis.layout"].tolist())
     print(prob["analysis.lcoe"])
