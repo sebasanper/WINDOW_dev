@@ -44,7 +44,7 @@ import pdb
 # =============================================================================
 #from pyOpt import *
 from pyOpt import Optimization
-from pyOpt import PSQP
+# from pyOpt import PSQP
 # from pyOpt import SLSQP
 from pyOpt import CONMIN
 # from pyOpt import COBYLA
@@ -91,10 +91,10 @@ print opt_prob
 # print opt_prob.solution(1)
 
 # Instantiate Optimizer (COBYLA) & Solve Problem
-# cobyla = COBYLA()
-# cobyla.setOption('IPRINT',0)
-# cobyla(opt_prob)
-# print opt_prob.solution(2)
+cobyla = COBYLA()
+cobyla.setOption('IPRINT',0)
+cobyla(opt_prob)
+print opt_prob.solution(0)
 
 # # Instantiate Optimizer (SOLVOPT) & Solve Problem
 # solvopt = SOLVOPT()
@@ -109,13 +109,13 @@ print opt_prob
 # print opt_prob.solution(2)
 
 # Instantiate Optimizer (NSGA2) & Solve Problem
-nsga2 = NSGA2()
-nsga2.setOption('PrintOut',0)
-nsga2(opt_prob)
-print opt_prob.solution(0)
+# nsga2 = NSGA2()
+# nsga2.setOption('PrintOut',0)
+# nsga2(opt_prob)
+# print opt_prob.solution(0)
 
 # # Instantiate Optimizer (SDPEN) & Solve Problem
 # psqp = PSQP()
 # psqp.setOption('IPRINT',0)
 # psqp(opt_prob,sens_type='FD')
-# print opt_prob.solution(3)
+# print opt_prob.solution(0)
