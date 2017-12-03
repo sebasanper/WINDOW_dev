@@ -54,7 +54,7 @@ class Rough:
         self.coordinates_x = []
         self.coordinates_y = []
         self.depths = []
-        with open("site_conditions/terrain/bathymetry.dat", "r") as bathymetry_file:
+        with open("bathymetry_table.dat", "r") as bathymetry_file:
             for line in bathymetry_file:
                 cols = line.split()
                 self.coordinates_x.append(float(cols[0]))
@@ -62,7 +62,7 @@ class Rough:
                 self.depths.append(float(cols[2]))
         from scipy.interpolate import interp2d
         degree = 'linear'  # 'cubic' 'quintic'
-        self.interpfunction = interp2d(self.coordinates_x, self.coordinates_y, self.depths, kind=degree)
+        self.interpfunction = interp2d(self.coordinates_x[::50], self.coordinates_y[::50], self.depths[::50], kind=degree)
 
     def depth(self, x, y):
         return self.interpfunction(x, y)[0]
@@ -74,16 +74,7 @@ def depth(layout, model_type):
 
 
 if __name__ == '__main__':
-    minx = 260.0
-    maxx = 4260.0
-    miny = 9251.0
-    maxy = 13251.0
-    place1 = [[0, 2100.000000, 11251.000000]]
-    place2 = [[0, 260.000000, 9251.000000]]
-    place3 = [[0, 4260.000000, 13251.000000]]
-    print( depth(place1, Flat(minx, maxx, miny, maxy)))
-    print (depth(place1, Gaussian(minx, maxx, miny, maxy)))
-    print (depth(place2, Gaussian(minx, maxx, miny, maxy)))
-    print (depth(place3, Gaussian(minx, maxx, miny, maxy)))
-    print (depth(place1, Plane(minx, maxx, miny, maxy)))
-    print (depth(place1, Rough(minx, maxx, miny, maxy)))
+    from time import time
+    start = time()
+    print (depth([[0, 496700.0, 5728000.0]], Rough(3, 4, 4, 3)))
+    print time() - start

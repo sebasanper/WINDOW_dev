@@ -30,8 +30,8 @@ class RegularLayout(ExplicitComponent):
             to_add = 74 - count
             final += [[0.0, 0.0] for _ in range(to_add)]
         print len(final)
+        print final
         reduced = [final[i] for i in sorted(sample(range(len(final)), 74))]
-
         # with open("regular_borssele.dat", "w") as regular_file:
         #     for i in range(len(reduced)):
         #         regular_file.write("{} {}\n".format(reduced[i][0], reduced[i][1]))
