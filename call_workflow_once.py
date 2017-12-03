@@ -67,8 +67,8 @@ def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
     workflow1.windrose.nbins = nbins
     workflow1.windrose.artificial_angle = artif_angle
     workflow1.windrose.real_angle = real_angle
-    # workflow1.print_output = True
-    # workflow1.draw_infield = True
+    workflow1.print_output = True
+    workflow1.draw_infield = True
     workflow1.run(new_layout)
     power2.reset()
     thrust_coefficient2.reset()

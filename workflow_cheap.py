@@ -88,10 +88,13 @@ if __name__ == '__main__':
 
     # [ 2394.72140817] [ 951.44319218] [ 508.77654122] [ 76.81854513] Candidate to IEA found ALPSO or NSGA2. 6.15704 LCOE
 #     prob.setup()
-    prob['indep2.downwind_spacing'] = 2100.72140817
-    prob['indep2.crosswind_spacing'] = 951.44319218
-    prob['indep2.odd_row_shift_spacing'] = 508.77654122
-    prob['indep2.layout_angle'] = 76.81854513
+
+# [1212.3432058726044, 1857.2419373594398, 1196.7844285385258, areas, 131.4387661905908] result of Annealing = [ 6.65410628] LCOE
+
+    prob['indep2.downwind_spacing'] = 831.66784899#1330.0#, 1212.3432058726044
+    prob['indep2.crosswind_spacing'] = 949.17351785#1710.0#1857.2419373594398
+    prob['indep2.odd_row_shift_spacing'] = 761.86262376#600.0#1196.7844285385258
+    prob['indep2.layout_angle'] = 19.51659915#80.0#131.4387661905908
 
     def read_layout(layout_file):
         layout_file = open(layout_file, 'r')
@@ -103,7 +106,7 @@ if __name__ == '__main__':
             i += 1
 
         return np.array(layout)
-    prob['indep2.layout'] = read_layout('layout_opt_3.dat')
+    # prob['indep2.layout'] = read_layout('layout_opt_3.dat')
 
     prob.run_model()
     print(prob["analysis.layout"].tolist())
