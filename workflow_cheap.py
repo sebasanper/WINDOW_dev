@@ -36,8 +36,8 @@ class LCOE(Group):
         indep2.add_output("layout", val=np.array([create_random() for _ in range(NT)]))
         indep2.add_output("areas", val=areas)
         indep2.add_output("radius", val=rotor_radius)
-        indep2.add_output("downwind_spacing", val=1400.0)#1330.0)
-        indep2.add_output("crosswind_spacing", val=1400.0)#.0)
+        indep2.add_output("downwind_spacing", val=1900.0)#1330.0)
+        indep2.add_output("crosswind_spacing", val=1900.0)#.0)
         indep2.add_output("odd_row_shift_spacing", val=0.0)
         indep2.add_output("layout_angle", val=80.0)
 
@@ -86,8 +86,13 @@ if __name__ == '__main__':
     # view_model(prob) # Uncomment to view N2 chart.
 #     start = time()
 
-
+    # [ 2394.72140817] [ 951.44319218] [ 508.77654122] [ 76.81854513] Candidate to IEA found ALPSO or NSGA2. 6.15704 LCOE
 #     prob.setup()
+    prob['indep2.downwind_spacing'] = 2100.72140817
+    prob['indep2.crosswind_spacing'] = 951.44319218
+    prob['indep2.odd_row_shift_spacing'] = 508.77654122
+    prob['indep2.layout_angle'] = 76.81854513
+
     prob.run_model()
     print(prob["analysis.layout"].tolist())
     print(prob["analysis.lcoe"])

@@ -23,15 +23,21 @@ class RegularLayout(ExplicitComponent):
         crosswind_spacing = inputs["crosswind_spacing"]
         odd_row_shift_spacing = inputs["odd_row_shift_spacing"]
         layout_angle = inputs["layout_angle"]
-        print downwind_spacing, crosswind_spacing, odd_row_shift_spacing, layout_angle
+        print downwind_spacing, crosswind_spacing, odd_row_shift_spacing, layout_angle, "regular params"
         final, count = regular_layout(downwind_spacing, crosswind_spacing, odd_row_shift_spacing, area, layout_angle)
+        print len(final), "len original"
         if count < 74:
             to_add = 74 - count
             final += [[0.0, 0.0] for _ in range(to_add)]
-        print len(final)
-        print final
-        reduced = [final[i] for i in sorted(sample(range(len(final)), 74))]
-        # with open("regular_borssele.dat", "w") as regular_file:
+            reduced = final
+        elif count > 74:
+            if count % 2 == 0:
+                to_remove1 = to_remove2 = (count - 74) / 2
+            else:
+                to_remove1, to_remove2 = (count - 74) / 2, (count - 74) / 2 + 1
+            reduced = final[to_remove1:- to_remove2]
+        print len(reduced), "len reduced"
+        # with open("regular_borssele_615.dat", "w") as regular_file:
         #     for i in range(len(reduced)):
         #         regular_file.write("{} {}\n".format(reduced[i][0], reduced[i][1]))
         outputs["regular_layout"] = reduced
