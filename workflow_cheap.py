@@ -36,11 +36,11 @@ class LCOE(Group):
         indep2.add_output("layout", val=np.array([create_random() for _ in range(NT)]))
         indep2.add_output("areas", val=areas)
         indep2.add_output("radius", val=rotor_radius)
-        indep2.add_output("downwind_spacing", val=1400.0)#1330.0)
-        indep2.add_output("crosswind_spacing", val=1400.0)#.0)
-        indep2.add_output("odd_row_shift_spacing", val=0.0)
-        indep2.add_output("layout_angle", val=-30.0)
-
+        indep2.add_output("downwind_spacing", val=1.090844)#1330.0)
+        indep2.add_output("crosswind_spacing", val=1.400479E+03)#.0)
+        indep2.add_output("odd_row_shift_spacing", val=1.397751E+03)
+        indep2.add_output("layout_angle", val=-2.127649E+01)
+ # 1.090844E+00   1.400479E+03   1.397751E+03  -2.127649E+01
         self.add_subsystem("regular_layout", RegularLayout())
         self.add_subsystem('constraint_distance', MinDistance())
         self.add_subsystem('constraint_boundary', WithinBoundaries())
