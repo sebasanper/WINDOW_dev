@@ -1,4 +1,4 @@
-from scipy.optimize import rosen, differential_evolution, basinhopping
+from scipy.optimize import rosen, differential_evolution
 from numpy.random import random
 from numpy import sqrt, array
 from copy import deepcopy
@@ -26,10 +26,10 @@ def objfunc(x):
 
     return f
 
-bounds = [(570.0,2500.0), (570.0, 2500.0), (0.0, 1250.0), (0.0, 180.0)]
-# result = differential_evolution(objfunc, bounds)
-initial_guess = [1000.0, 1400.0, 0.0, 30.0]
-minimizer_kwargs = {"method":"Nelder-Mead"}
-result = basinhopping(objfunc, initial_guess, minimizer_kwargs=minimizer_kwargs)
+bounds = [(570.0, 2500.0), (570.0, 2500.0), (0.0, 1250.0), (0.0, 180.0)]
+result = differential_evolution(objfunc, bounds)
+# initial_guess = [1000.0, 1400.0, 0.0, 30.0]
+# minimizer_kwargs = {"method":"Nelder-Mead"}
+# result = basinhopping(objfunc, initial_guess, minimizer_kwargs=minimizer_kwargs)
 print result.x, result.fun
 # (array([1., 1., 1., 1., 1.]), 1.9216496320061384e-19)
