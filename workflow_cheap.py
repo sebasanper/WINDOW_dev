@@ -39,7 +39,7 @@ class LCOE(Group):
         indep2.add_output("downwind_spacing", val=1400.0)#1330.0)
         indep2.add_output("crosswind_spacing", val=1400.0)#.0)
         indep2.add_output("odd_row_shift_spacing", val=0.0)
-        indep2.add_output("layout_angle", val=-30.0)
+        indep2.add_output("layout_angle", val=80.0)
 
         self.add_subsystem("regular_layout", RegularLayout())
         self.add_subsystem('constraint_distance', MinDistance())

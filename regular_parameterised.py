@@ -24,7 +24,6 @@ class RegularLayout(ExplicitComponent):
         odd_row_shift_spacing = inputs["odd_row_shift_spacing"]
         layout_angle = inputs["layout_angle"]
         print downwind_spacing, crosswind_spacing, odd_row_shift_spacing, layout_angle
-
         final, count = regular_layout(downwind_spacing, crosswind_spacing, odd_row_shift_spacing, area, layout_angle)
         if count < 74:
             to_add = 74 - count
@@ -123,4 +122,5 @@ if __name__ == '__main__':
     from farm_description import areas
     # areas = np.array([[[- 2000.0, - 2000.0], [0.0, - 2000.0], [3000.0, - 1000.0], [- 3000.0, 500.0]], [[- 3000.0, - 4000.0], [2000, - 4000.0], [0.0, - 2000.0], [- 2000.0, - 2000.0]]])
     # areas = np.array([[[- 3000.0, - 4000.0], [2000, - 4000.0], [0.0, - 2000.0], [- 2000.0, - 2000.0]]])
-    print(regular_layout(1330.0, 1710.0, 0.0, areas, - 30.0))
+    print(regular_layout(1.090844E+00, 1.400479E+03, 1.397751E+03, areas, -2.127649E+01))
+ # 1.090844E+00   1.400479E+03   1.397751E+03  -2.127649E+01

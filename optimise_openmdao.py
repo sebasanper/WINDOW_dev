@@ -1,7 +1,7 @@
 import numpy as np
 
 from openmdao.api import Problem, ScipyOptimizer
-from openmdao.api import pyOptSparseDriver
+# from openmdao.api import pyOptSparseDriver
 from workflow_cheap import LCOE
 from farm_description import NT
 
