@@ -61,12 +61,8 @@ def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
         # print item
         if item[0] != 0.0:
             new_layout.append(item)
-    # print new_layout
+    print new_layout
     workflow1 = Workflow_for_opt(weibullmodels[i], windrosemodels[b], turbmodels[c], None, depthmodels[h], farm_support_cost_models[j], None, oandm, cablemodels[d], infield_efficiency, thrust_coefficient, thrustmodels[f], wakemodels[a], mergingmodels[e], power, powermodels[g], aep_average, other_costs, total_costs, LPC)
-    # layout_input_file = "horns_rev_5MW_layout.dat"
-    # nbins = randint(2, 25)
-    # real_angle = choice([30.0, 60.0, 90.0, 120.0, 180.0])
-    # artif_angle = 400.0
 
     workflow1.windrose.nbins = nbins
     workflow1.windrose.artificial_angle = artif_angle
@@ -76,6 +72,7 @@ def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
     workflow1.run(new_layout)
     power2.reset()
     thrust_coefficient2.reset()
+    # print layout
     print workflow1.finance, "LCOE"
     return workflow1.finance
 

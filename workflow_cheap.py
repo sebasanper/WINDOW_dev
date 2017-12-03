@@ -51,8 +51,8 @@ class LCOE(Group):
         self.connect("indep2.crosswind_spacing", "regular_layout.crosswind_spacing")
         self.connect("indep2.odd_row_shift_spacing", "regular_layout.odd_row_shift_spacing")
         self.connect("indep2.layout_angle", "regular_layout.layout_angle")
-        self.connect("regular_layout.regular_layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
-        # self.connect("indep2.layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
+        # self.connect("regular_layout.regular_layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
+        self.connect("indep2.layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
         self.connect("indep2.radius", "constraint_distance.turbine_radius")
         self.connect("indep2.areas", "constraint_boundary.areas")
 
