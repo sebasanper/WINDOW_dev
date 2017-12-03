@@ -19,7 +19,7 @@ model.add_design_var('indep2.layout', lower=np.array([[484000.0, 5.715e6] for _ 
 # model.add_design_var("indep2.layout_angle", lower=0.0, upper=180.0)
 model.add_objective('analysis.lcoe')
 model.add_constraint('constraint_distance.magnitude_violations', upper=0.01)
-model.add_constraint('constraint_boundary.magnitude_violations', upper=0.00001)
+model.add_constraint('constraint_boundary.magnitude_violations', upper=0.001)
 
 prob.set_solver_print(level=5)
 
