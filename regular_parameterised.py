@@ -23,6 +23,7 @@ class RegularLayout(ExplicitComponent):
         crosswind_spacing = inputs["crosswind_spacing"]
         odd_row_shift_spacing = inputs["odd_row_shift_spacing"]
         layout_angle = inputs["layout_angle"]
+        print downwind_spacing, crosswind_spacing, odd_row_shift_spacing, layout_angle
 
         final, count = regular_layout(downwind_spacing, crosswind_spacing, odd_row_shift_spacing, area, layout_angle)
         if count < 74:
