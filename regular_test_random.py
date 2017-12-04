@@ -98,7 +98,10 @@ if __name__ == '__main__':
     from farm_description import areas
     from random import uniform
     # [ 2394.72140817] [ 951.44319218] [ 508.77654122] [ 76.81854513]
-    print(regular_layout(2394.72140817, 951.44319218, 508.77654122, areas, 76.81854513, True))
+
+    # [  854.77482677  2130.96378044   479.15059769   158.44208913] 6.77467530312
+    # [1212.3432058726044, 1857.2419373594398, 1196.7844285385258, 131.4387661905908] [ 6.65410628] LCOE
+    print(regular_layout(831.66784899, 949.17351785, 761.86262376, areas, 19.51659915, True))
     # with open("regular_borssele_test.dat", "a") as regular_file:
     #     for _ in range(10000):
     #         sample = [uniform(570.0,2500.0), uniform(570.0,2500.0), uniform(0.0, 1250.0), uniform(0.0, 180.0)]
