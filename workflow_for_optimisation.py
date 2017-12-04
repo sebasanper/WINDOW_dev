@@ -38,7 +38,7 @@ class Workflow:
         from site_conditions.terrain.terrain_models import depth
         from farm_energy.wake_model_mean_new.wake_1angle import energy_one_angle
         from farm_energy.wake_model_mean_new.wake_1angle_turbulence import max_turbulence_one_angle
-        from costs.investment_costs.BOS_cost.cable_cost.Hybrid import draw_cables
+        # from costs.investment_costs.BOS_cost.cable_cost.Hybrid import draw_cables
         from farm_description import central_platform, read_cablelist, number_turbines_per_cable
         from turbine_description import rated_current
         from site_conditions.wind_conditions.windrose import WeibullWindBins, MeanWind
@@ -85,7 +85,7 @@ class Workflow:
         if self.print_output is True: print( str(self.depth_central_platform) + " m\n")
 
         if self.print_output is True: print( "=== OPTIMISING INFIELD CABLE TOPOLOGY (COST)===")
-        if self.draw_infield is True: draw_cables(turbine_coordinates, central_platform, cable_list)
+        # if self.draw_infield is True: draw_cables(turbine_coordinates, central_platform, cable_list)
         if self.cable_topology_model != "ConstantCable":
             self.cable_topology_costs, self.cable_topology, self.infield_length = self.cable_topology_model(turbine_coordinates, central_platform)
         if self.cable_topology_model == "ConstantCable":

@@ -36,23 +36,23 @@ class LCOE(Group):
         indep2.add_output("layout", val=np.array([create_random() for _ in range(NT)]))
         indep2.add_output("areas", val=areas)
         indep2.add_output("radius", val=rotor_radius)
-        indep2.add_output("downwind_spacing", val=1900.0)#1330.0)
-        indep2.add_output("crosswind_spacing", val=1900.0)#.0)
-        indep2.add_output("odd_row_shift_spacing", val=0.0)
-        indep2.add_output("layout_angle", val=80.0)
+        # indep2.add_output("downwind_spacing", val=1900.0)#1330.0)
+        # indep2.add_output("crosswind_spacing", val=1900.0)#.0)
+        # indep2.add_output("odd_row_shift_spacing", val=0.0)
+        # indep2.add_output("layout_angle", val=80.0)
 
-        self.add_subsystem("regular_layout", RegularLayout())
+        # self.add_subsystem("regular_layout", RegularLayout())
         self.add_subsystem('constraint_distance', MinDistance())
         self.add_subsystem('constraint_boundary', WithinBoundaries())
         self.add_subsystem("analysis", Dev())
 
-        self.connect("indep2.areas", "regular_layout.area")
-        self.connect("indep2.downwind_spacing", "regular_layout.downwind_spacing")
-        self.connect("indep2.crosswind_spacing", "regular_layout.crosswind_spacing")
-        self.connect("indep2.odd_row_shift_spacing", "regular_layout.odd_row_shift_spacing")
-        self.connect("indep2.layout_angle", "regular_layout.layout_angle")
-        self.connect("regular_layout.regular_layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
-        # self.connect("indep2.layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
+        # self.connect("indep2.areas", "regular_layout.area")
+        # self.connect("indep2.downwind_spacing", "regular_layout.downwind_spacing")
+        # self.connect("indep2.crosswind_spacing", "regular_layout.crosswind_spacing")
+        # self.connect("indep2.odd_row_shift_spacing", "regular_layout.odd_row_shift_spacing")
+        # self.connect("indep2.layout_angle", "regular_layout.layout_angle")
+        # self.connect("regular_layout.regular_layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
+        self.connect("indep2.layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
         self.connect("indep2.radius", "constraint_distance.turbine_radius")
         self.connect("indep2.areas", "constraint_boundary.areas")
 
@@ -61,11 +61,11 @@ class Dev(ExplicitComponent):
         self.add_input("layout", shape=(NT, 2))
         self.add_output("lcoe", val=0.0)
 
-        self.declare_partials(of="lcoe", wrt="layout", method="fd")
+        self.declare_partials(of="lcoe", wrt="layout", method="fd", fd_step=100.0, step_size=100.0, step=100.0)
 
     def compute(self, inputs, outputs):
         layout = inputs["layout"]
-        lcoe = analysis_cheap(layout, nbins=4, artif_angle=30.0, a=1, c=4, d=4, e=0, f=2, j=1)
+        lcoe = analysis_cheap(layout, nbins=4, artif_angle=30.0, a=1, c=4, d=0, e=0, f=2, j=1)
         outputs['lcoe'] = lcoe
 
 if __name__ == '__main__':
@@ -92,10 +92,10 @@ if __name__ == '__main__':
 # [1212.3432058726044, 1857.2419373594398, 1196.7844285385258, areas, 131.4387661905908] result of Annealing = [ 6.65410628] LCOE
 
    # [ 963.76288446] [ 2418.24137673] [ 1033.51506808] [ 75.98448581] [ 6.59863725] LCOE REGULAR BEST
-    prob['indep2.downwind_spacing'] =  963.76288446#1330.0#, 1212.3432058726044
-    prob['indep2.crosswind_spacing'] = 2418.24137673#1710.0#1857.2419373594398
-    prob['indep2.odd_row_shift_spacing'] = 1033.51506808#600.0#1196.7844285385258
-    prob['indep2.layout_angle'] = 75.98448581#80.0#131.4387661905908
+    # prob['indep2.downwind_spacing'] =  963.76288446#1330.0#, 1212.3432058726044
+    # prob['indep2.crosswind_spacing'] = 2418.24137673#1710.0#1857.2419373594398
+    # prob['indep2.odd_row_shift_spacing'] = 1033.51506808#600.0#1196.7844285385258
+    # prob['indep2.layout_angle'] = 75.98448581#80.0#131.4387661905908
 
     def read_layout(layout_file):
         layout_file = open(layout_file, 'r')
