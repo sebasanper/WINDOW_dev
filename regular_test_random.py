@@ -78,9 +78,10 @@ def regular_layout(dx, dy, dh, areas, angle, print_layout):
             else:
                 extra = 1
     print count
-    if count < 74:
+    if count <= 74:
             to_add = 74 - count
             layout_final += [[0.0, 0.0] for _ in range(to_add)]
+            reduced = layout_final
     elif count > 74:
         if count % 2 == 0:
             to_remove1 = to_remove2 = (count - 74) / 2
@@ -105,7 +106,11 @@ if __name__ == '__main__':
 
 
    # [ 963.76288446] [ 2418.24137673] [ 1033.51506808] [ 75.98448581] 
-    print(regular_layout(963.76288446, 2418.24137673, 1033.51506808, areas, 75.98448581, True))
+
+
+   # 1589.47092779] [ 1597.54552192] [ 129.35847029] [ 99.53599745
+   # [ 969.34641881] [ 2428.05402564] [ 1033.85393252] [ 46.63310252]
+    print(regular_layout(1330.0, 1710.0, 0.0, areas, 150.0, True))
     # with open("regular_borssele_test.dat", "a") as regular_file:
     #     for _ in range(10000):
     #         sample = [uniform(570.0,2500.0), uniform(570.0,2500.0), uniform(0.0, 1250.0), uniform(0.0, 180.0)]

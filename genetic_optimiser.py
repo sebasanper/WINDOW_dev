@@ -9,9 +9,9 @@ from openmdao.api import Problem
 from workflow_cheap import LCOE
 from farm_description import NT, n_quadrilaterals, areas, separation_equation_y
 
-result = open('gen7_best_layout_aep.dat', 'w', 1)
-result2 = open('gen7_fitness_aep.dat', 'w', 1)
-average = open('gen7_average_fitness_aep.dat', 'w', 1)
+result = open('gen7_best_layout_aep2.dat', 'w', 1)
+result2 = open('gen7_fitness_aep2.dat', 'w', 1)
+average = open('gen7_average_fitness_aep2.dat', 'w', 1)
 start_time = time.time()
 
 #  gen1 with     n_iter = 8000    n_ind = 100    mutation_rate = 0.01    selection_percentage = 0.3  random_selection = 0.05 100-13.24%=86.76% eff.
@@ -124,7 +124,7 @@ def genetic():
         for item in parents_index:
             if mutation_rate > random():
                 place = randint(0, len(pop[item]) - 1)
-                pop[item][place] = gen_turbine(min_x, max_x, min_y, max_y)
+                pop[item][place] = gen_turbine()
 
         pops = []
         for item in parents_index:

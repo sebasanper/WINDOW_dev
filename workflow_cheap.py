@@ -36,23 +36,23 @@ class LCOE(Group):
         indep2.add_output("layout", val=np.array([create_random() for _ in range(NT)]))
         indep2.add_output("areas", val=areas)
         indep2.add_output("radius", val=rotor_radius)
-        # indep2.add_output("downwind_spacing", val=1900.0)#1330.0)
-        # indep2.add_output("crosswind_spacing", val=1900.0)#.0)
-        # indep2.add_output("odd_row_shift_spacing", val=0.0)
-        # indep2.add_output("layout_angle", val=80.0)
+        indep2.add_output("downwind_spacing", val=1900.0)#1330.0)
+        indep2.add_output("crosswind_spacing", val=1900.0)#.0)
+        indep2.add_output("odd_row_shift_spacing", val=0.0)
+        indep2.add_output("layout_angle", val=80.0)
 
-        # self.add_subsystem("regular_layout", RegularLayout())
+        self.add_subsystem("regular_layout", RegularLayout())
         self.add_subsystem('constraint_distance', MinDistance())
         self.add_subsystem('constraint_boundary', WithinBoundaries())
         self.add_subsystem("analysis", Dev())
 
-        # self.connect("indep2.areas", "regular_layout.area")
-        # self.connect("indep2.downwind_spacing", "regular_layout.downwind_spacing")
-        # self.connect("indep2.crosswind_spacing", "regular_layout.crosswind_spacing")
-        # self.connect("indep2.odd_row_shift_spacing", "regular_layout.odd_row_shift_spacing")
-        # self.connect("indep2.layout_angle", "regular_layout.layout_angle")
-        # self.connect("regular_layout.regular_layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
-        self.connect("indep2.layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
+        self.connect("indep2.areas", "regular_layout.area")
+        self.connect("indep2.downwind_spacing", "regular_layout.downwind_spacing")
+        self.connect("indep2.crosswind_spacing", "regular_layout.crosswind_spacing")
+        self.connect("indep2.odd_row_shift_spacing", "regular_layout.odd_row_shift_spacing")
+        self.connect("indep2.layout_angle", "regular_layout.layout_angle")
+        self.connect("regular_layout.regular_layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
+        # self.connect("indep2.layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
         self.connect("indep2.radius", "constraint_distance.turbine_radius")
         self.connect("indep2.areas", "constraint_boundary.areas")
 
@@ -92,10 +92,12 @@ if __name__ == '__main__':
 # [1212.3432058726044, 1857.2419373594398, 1196.7844285385258, areas, 131.4387661905908] result of Annealing = [ 6.65410628] LCOE
 
    # [ 963.76288446] [ 2418.24137673] [ 1033.51506808] [ 75.98448581] [ 6.59863725] LCOE REGULAR BEST
-    # prob['indep2.downwind_spacing'] =  963.76288446#1330.0#, 1212.3432058726044
-    # prob['indep2.crosswind_spacing'] = 2418.24137673#1710.0#1857.2419373594398
-    # prob['indep2.odd_row_shift_spacing'] = 1033.51506808#600.0#1196.7844285385258
-    # prob['indep2.layout_angle'] = 75.98448581#80.0#131.4387661905908
+
+   # 969.34641881] [ 2428.05402564] [ 1033.85393252] [ 46.63310252
+    prob['indep2.downwind_spacing'] =  1330.0#969.34641881#, 1212.3432058726044
+    prob['indep2.crosswind_spacing'] = 1710.0#2428.05402564#1857.2419373594398
+    prob['indep2.odd_row_shift_spacing'] = 0.0#1033.85393252#600.0#1196.7844285385258
+    prob['indep2.layout_angle'] = 160.0#346.63310252#131.4387661905908
 
     def read_layout(layout_file):
         layout_file = open(layout_file, 'r')
@@ -107,7 +109,7 @@ if __name__ == '__main__':
             i += 1
 
         return np.array(layout)
-    # prob['indep2.layout'] = read_layout('layout_opt_3.dat')
+    # prob['indep2.layout'] = read_layout('layout_draw.dat')
 
     prob.run_model()
     print(prob["analysis.layout"].tolist())

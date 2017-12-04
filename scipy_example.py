@@ -22,6 +22,7 @@ def objfunc(x):
     # prob['indep2.layout'] = layout
     prob.run_model()
     f = prob['analysis.lcoe'][0]
+    print f
     # g = [0.0] * 2
     # g[0] = prob['constraint_boundary.magnitude_violations'][0]
     # g[1] = prob['constraint_distance.magnitude_violations'][0]
@@ -30,7 +31,7 @@ def objfunc(x):
 
 bounds = [(570.0, 2500.0), (570.0, 2500.0), (0.0, 1250.0), (0.0, 180.0)]
 # bounds = [(484000.0, 504000.0) for _ in range(74)] + [(5.715e6, 5.74e6) for _ in range(74)]
-result = differential_evolution(objfunc, bounds, popsize=1)
+result = differential_evolution(objfunc, bounds, popsize=1, maxiter=50)
 # initial_guess = [1000.0, 1400.0, 0.0, 30.0]
 # minimizer_kwargs = {"method":"Nelder-Mead"}
 # result = basinhopping(objfunc, initial_guess, minimizer_kwargs=minimizer_kwargs)

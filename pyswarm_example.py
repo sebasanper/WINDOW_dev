@@ -29,6 +29,21 @@ def objfunc(x):
 
     return f
 
+def objfunc2(x):
+    prob['indep2.downwind_spacing'] = x[0]
+    prob['indep2.crosswind_spacing'] = x[1]
+    prob['indep2.odd_row_shift_spacing'] = x[2]
+    prob['indep2.layout_angle'] = x[3]
+    prob.run_model()
+    f = prob['analysis.lcoe'][0]
+    f += prob['constraint_boundary.n_constraint_violations'][0] * 5.0
+    print f
+    # g = [0.0] * 2
+    # g[0] = prob['constraint_boundary.magnitude_violations'][0]
+    # g[1] = prob['constraint_distance.magnitude_violations'][0]
+
+    return f
+
 def con1(x):	
     layout = [[x[i], x[74 + i]] for i in range(74)]
     prob['indep2.layout'] = layout
@@ -37,10 +52,10 @@ def con1(x):
     g2 = - prob['constraint_distance.magnitude_violations'][0]
     # g[1] = prob['constraint_distance.magnitude_violations'][0]
     return [g1, g2]
+# (570.0, 2500.0), (570.0, 2500.0), (0.0, 1250.0), (0.0, 180.0)]
+lb = [570.0, 570.0, 0.0, 0.0]
+ub = [2500.0, 2500.0, 1250.0, 180.0]
 
-lb = [484000.0 for _ in range(NT)] + [5.715e6 for _ in range(NT)]
-ub = [504000.0 for _ in range(NT)] + [5.74e6 for _ in range(NT)]
-
-xopt, fopt = pso(objfunc, lb, ub, f_ieqcons=con1)
+xopt, fopt = pso(objfunc2, lb, ub, f_ieqcons=None)
 print xopt
 print fopt
