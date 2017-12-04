@@ -69,6 +69,7 @@ class Dev(ExplicitComponent):
         outputs['lcoe'] = lcoe
 
 if __name__ == '__main__':
+    from joblib import Parallel, delayed
 #     def print_nice(string, value):
 #         header = '=' * 10 + " " + string + " " + '=' * 10 + '\n'
 #         header += str(value) + "\n"
@@ -96,24 +97,33 @@ if __name__ == '__main__':
     # prob['indep2.odd_row_shift_spacing'] = 761.86262376#600.0#1196.7844285385258
     # prob['indep2.layout_angle'] = 19.51659915#80.0#131.4387661905908
 
-    def read_layout(layout_file):
-        layout_file = open(layout_file, 'r')
-        layout = []
-        i = 0
-        for line in layout_file:
-            columns = line.split()
-            layout.append([float(columns[0]), float(columns[1])])
-            i += 1
+    # def read_layout(layout_file):
+    #     layout_file = open(layout_file, 'r')
+    #     layout = []
+    #     i = 0
+    #     for line in layout_file:
+    #         columns = line.split()
+    #         layout.append([float(columns[0]), float(columns[1])])
+    #         i += 1
 
-        return np.array(layout)
+    #     return np.array(layout)
     # prob['indep2.layout'] = read_layout('layout_opt_3.dat')
 
-    prob.run_model()
-    print(prob["analysis.layout"].tolist())
-    print(prob["analysis.lcoe"])
-    print(prob['constraint_distance.n_constraint_violations'])
-    print(prob['constraint_boundary.n_constraint_violations'])
-    print(prob['constraint_boundary.magnitude_violations'])
+    def randomly(n):
+        if n % 100 == 0:
+            print n, "iteration"
+        with open("random_irregular.dat", "a", 1) as out:
+            prob["indep2.layout"] = [create_random() for _ in range(NT)]
+            prob.run_model()
+            out.write("{} {} {}\n\n".format(prob["indep2.layout"], prob["analysis.lcoe"], prob['constraint_distance.n_constraint_violations']))
+            print(prob["analysis.lcoe"])
+
+    Parallel(n_jobs=-2)(delayed(randomly)(i) for i in range(10000))
+    # print(prob["analysis.layout"].tolist())
+    # print(prob["analysis.lcoe"])
+    # print(prob['constraint_distance.n_constraint_violations'])
+    # print(prob['constraint_boundary.n_constraint_violations'])
+    # print(prob['constraint_boundary.magnitude_violations'])
 
     # prob.check_totals(of=['lcoe.LCOE'], wrt=['indep2.layout'])
 
