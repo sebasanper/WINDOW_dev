@@ -21,6 +21,7 @@ def objfunc(x):
     prob['indep2.layout'] = layout
     prob.run_model()
     f = prob['analysis.lcoe'][0]
+    f += prob['constraint_boundary.n_constraint_violations'][0] * 5.0
     print f
     # g = [0.0] * 2
     # g[0] = prob['constraint_boundary.magnitude_violations'][0]

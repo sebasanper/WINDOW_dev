@@ -61,11 +61,11 @@ class Dev(ExplicitComponent):
         self.add_input("layout", shape=(NT, 2))
         self.add_output("lcoe", val=0.0)
 
-        self.declare_partials(of="lcoe", wrt="layout", method="fd")
+        self.declare_partials(of="lcoe", wrt="layout", method="fd", fd_step=100.0, step_size=100.0, step=100.0)
 
     def compute(self, inputs, outputs):
         layout = inputs["layout"]
-        lcoe = analysis_cheap(layout, nbins=4, artif_angle=30.0, a=1, c=4, d=4, e=0, f=2, j=1)
+        lcoe = analysis_cheap(layout, nbins=4, artif_angle=30.0, a=1, c=4, d=0, e=0, f=2, j=1)
         outputs['lcoe'] = lcoe
 
 if __name__ == '__main__':
@@ -92,10 +92,11 @@ if __name__ == '__main__':
 
 # [1212.3432058726044, 1857.2419373594398, 1196.7844285385258, areas, 131.4387661905908] result of Annealing = [ 6.65410628] LCOE
 
-    # prob['indep2.downwind_spacing'] = 831.66784899#1330.0#, 1212.3432058726044
-    # prob['indep2.crosswind_spacing'] = 949.17351785#1710.0#1857.2419373594398
-    # prob['indep2.odd_row_shift_spacing'] = 761.86262376#600.0#1196.7844285385258
-    # prob['indep2.layout_angle'] = 19.51659915#80.0#131.4387661905908
+   # [ 963.76288446] [ 2418.24137673] [ 1033.51506808] [ 75.98448581] [ 6.59863725] LCOE REGULAR BEST
+    # prob['indep2.downwind_spacing'] =  963.76288446#1330.0#, 1212.3432058726044
+    # prob['indep2.crosswind_spacing'] = 2418.24137673#1710.0#1857.2419373594398
+    # prob['indep2.odd_row_shift_spacing'] = 1033.51506808#600.0#1196.7844285385258
+    # prob['indep2.layout_angle'] = 75.98448581#80.0#131.4387661905908
 
     # def read_layout(layout_file):
     #     layout_file = open(layout_file, 'r')
