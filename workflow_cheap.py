@@ -51,8 +51,8 @@ class LCOE(Group):
         self.connect("indep2.crosswind_spacing", "regular_layout.crosswind_spacing")
         self.connect("indep2.odd_row_shift_spacing", "regular_layout.odd_row_shift_spacing")
         self.connect("indep2.layout_angle", "regular_layout.layout_angle")
-        self.connect("regular_layout.regular_layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
-        # self.connect("indep2.layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
+        # self.connect("regular_layout.regular_layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
+        self.connect("indep2.layout", ["constraint_boundary.layout", "analysis.layout", "constraint_distance.orig_layout"])
         self.connect("indep2.radius", "constraint_distance.turbine_radius")
         self.connect("indep2.areas", "constraint_boundary.areas")
 
@@ -65,7 +65,7 @@ class Dev(ExplicitComponent):
 
     def compute(self, inputs, outputs):
         layout = inputs["layout"]
-        lcoe = analysis_cheap(layout, nbins=4, artif_angle=30.0, a=1, c=4, d=0, e=0, f=2, j=1)
+        lcoe = analysis_cheap(layout, nbins=4, artif_angle=30.0, a=1, c=4, d=4, e=0, f=2, j=1)
         outputs['lcoe'] = lcoe
 
 if __name__ == '__main__':
@@ -109,7 +109,7 @@ if __name__ == '__main__':
             i += 1
 
         return np.array(layout)
-    # prob['indep2.layout'] = read_layout('layout_draw.dat')
+    prob['indep2.layout'] = read_layout('layout_draw2.dat')
 
     prob.run_model()
     print(prob["analysis.layout"].tolist())
