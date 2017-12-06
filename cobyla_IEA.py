@@ -84,6 +84,6 @@ for _ in range(NT):
 
 opts = {'disp':True, 'maxiter':10000}
 
-a = minimize(obj, x0=x1, method='COBYLA', constraints=const, options=opts)
+a = minimize(obj, x0=x1, method='COBYLA', constraints=const, options=opts, iprint=1)
 
 print a
