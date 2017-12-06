@@ -82,7 +82,7 @@ x1 = []
 for _ in range(NT):
     x1 += create_random()
 
-opts = {'disp':False, 'maxiter':10000, 'rhobeg':100.0}
+opts = {'disp':False, 'maxiter':10000, 'rhobeg':300.0}
 
 a = minimize(obj, x0=x1, method='COBYLA', constraints=const, options=opts)
 
