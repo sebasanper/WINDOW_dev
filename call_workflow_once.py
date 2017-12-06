@@ -73,7 +73,7 @@ def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
     power2.reset()
     thrust_coefficient2.reset()
     # print layout
-    # print workflow1.finance, "LCOE"
+    print workflow1.finance, "LCOE"
     return answer
 
 
