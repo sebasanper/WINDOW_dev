@@ -59,18 +59,18 @@ cons2.setup()
 def obj(x):
     prob['indep2.layout'] = [[x[i], x[i+1]] for i in range(0, NT * 2, 2)]
     prob.run_model()
-    ans = prob['analysis.lcoe']
+    ans = prob['analysis.lcoe'][0]
     return ans
 
 def con1(x):
     cons1['indep3.layout'] = [[x[i], x[i+1]] for i in range(0, NT * 2, 2)]
     cons1.run_model()
-    ans = cons1['mindistance.magnitude_violations']
+    ans = cons1['mindistance.magnitude_violations'][0]
 
 def con2(x):
     cons2['indep4.layout'] = [[x[i], x[i+1]] for i in range(0, NT * 2, 2)]
     cons2.run_model()
-    ans = cons2['inbounds.magnitude_violations']
+    ans = cons2['inbounds.magnitude_violations'][0]
 
 con1d = {'type':'ineq', 'fun':con1}
 
