@@ -60,6 +60,7 @@ def obj(x):
     prob['indep2.layout'] = [[x[i], x[i+1]] for i in range(0, NT * 2, 2)]
     prob.run_model()
     ans = prob['analysis.lcoe'][0]
+    print prob['indep2.layout']
     return ans
 
 def con1(x):
