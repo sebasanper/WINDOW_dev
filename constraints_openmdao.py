@@ -23,7 +23,7 @@ class MinDistance(ExplicitComponent):
         for t1 in range(len(layout)):
             for t2 in range(t1 + 1, len(layout)):
                 dist = self.distance(layout[t1], layout[t2])
-                viol = dist <= 2.0 * radius
+                viol = dist <= 6.0 * radius
                 if viol > 0:
                     count += viol
                     magnitude += self.distance(layout[t1], layout[t2])
