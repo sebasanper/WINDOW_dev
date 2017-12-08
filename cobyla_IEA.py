@@ -29,49 +29,53 @@ prob = Problem()
 prob.model = LCOE()
 prob.setup()
 
-class constraint1(Group):    
-    def setup(self):
-        indep3 = self.add_subsystem('indep3', IndepVarComp())
-        indep3.add_output("layout", val=np.array([create_random() for _ in range(NT)]))
-        indep3.add_output("radius", val=rotor_radius)
-        self.add_subsystem("mindistance", MinDistance())
-        self.connect("indep3.layout", "mindistance.orig_layout")
-        self.connect("indep3.radius", "mindistance.turbine_radius")
+# class constraint1(Group):    
+#     def setup(self):
+#         indep3 = self.add_subsystem('indep3', IndepVarComp())
+#         indep3.add_output("layout", val=np.array([create_random() for _ in range(NT)]))
+#         indep3.add_output("radius", val=rotor_radius)
+#         self.add_subsystem("mindistance", MinDistance())
+#         self.connect("indep3.layout", "mindistance.orig_layout")
+#         self.connect("indep3.radius", "mindistance.turbine_radius")
 
-class constraint2(Group):
-    def setup(self):
-        indep4 = self.add_subsystem('indep4', IndepVarComp())
-        indep4.add_output("layout", val=np.array([create_random() for _ in range(NT)]))
-        indep4.add_output("areas", val=areas)
-        self.add_subsystem("inbounds", WithinBoundaries())
-        self.connect("indep4.layout", "inbounds.layout")
-        self.connect("indep4.areas", "inbounds.areas")
+# class constraint2(Group):
+#     def setup(self):
+#         indep4 = self.add_subsystem('indep4', IndepVarComp())
+#         indep4.add_output("layout", val=np.array([create_random() for _ in range(NT)]))
+#         indep4.add_output("areas", val=areas)
+#         self.add_subsystem("inbounds", WithinBoundaries())
+#         self.connect("indep4.layout", "inbounds.layout")
+#         self.connect("indep4.areas", "inbounds.areas")
 
-cons1 = Problem()
-cons1.model = constraint1()
-cons1.setup()
+# cons1 = Problem()
+# cons1.model = constraint1()
+# cons1.setup()
 
-cons2 = Problem()
-cons2.model = constraint2()
-cons2.setup()
+# cons2 = Problem()
+# cons2.model = constraint2()
+# cons2.setup()
 
 
 def obj(x):
-    prob['indep2.layout'] = [[x[i], x[i+1]] for i in range(0, NT * 2, 2)]
+    prob['indep2.downwind_spacing'] = x[0]
+    prob['indep2.crosswind_spacing'] = x[1]
+    prob['indep2.odd_row_shift_spacing'] = x[2]
+    prob['indep2.layout_angle'] = x[3]
+    # prob['indep2.layout'] = [[x[i], x[i+1]] for i in range(0, NT * 2, 2)]
     prob.run_model()
     ans = prob['analysis.lcoe'][0]
     print prob['indep2.layout']
     return ans
 
-def con1(x):
-    cons1['indep3.layout'] = [[x[i], x[i+1]] for i in range(0, NT * 2, 2)]
-    cons1.run_model()
-    ans = cons1['mindistance.magnitude_violations'][0]
+# def con1(x):
+#     cons1['indep3.layout'] = [[x[i], x[i+1]] for i in range(0, NT * 2, 2)]
+#     cons1.run_model()
+#     ans = cons1['mindistance.magnitude_violations'][0]
 
-def con2(x):
-    cons2['indep4.layout'] = [[x[i], x[i+1]] for i in range(0, NT * 2, 2)]
-    cons2.run_model()
-    ans = cons2['inbounds.magnitude_violations'][0]
+# def con2(x):
+#     cons2['indep4.layout'] = [[x[i], x[i+1]] for i in range(0, NT * 2, 2)]
+#     cons2.run_model()
+#     ans = cons2['inbounds.magnitude_violations'][0]
 
 con1d = {'type':'ineq', 'fun':con1}
 
@@ -83,8 +87,8 @@ x1 = []
 for _ in range(NT):
     x1 += create_random()
 
-opts = {'disp':False, 'maxiter':10000, 'rhobeg':300.0}
+opts = {'disp':False, 'maxiter':10000, 'rhobeg':50.0}
 
-a = minimize(obj, x0=x1, method='COBYLA', constraints=const, options=opts)
+a = minimize(obj, x0=[uniform(800.0, 2500.0), uniform(800.0, 2500.0), uniform(0.0, 2500.0), uniform(0.0, 180.0)], method='COBYLA', options=opts)#, constraints=const)
 
 print a

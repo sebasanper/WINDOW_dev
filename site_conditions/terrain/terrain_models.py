@@ -79,6 +79,7 @@ class Rough:
     def depth(self, x, y):
         # print time() - start
         return self.bathymetry[self.closest_node([x, y], self.bathymetry[:,[0, 1]])][2]
+        # return 20.0
 
 
 def depth(layout, model_type):
