@@ -8,12 +8,12 @@ from random import uniform
 from transform_quadrilateral import AreaMapping
 import numpy as np
 
-squares = []
-for n in range(n_quadrilaterals):
-    square = [[1.0 / n_quadrilaterals * n, 0.0], [n * 1.0 / n_quadrilaterals, 1.0], [(n + 1) * 1.0 / n_quadrilaterals, 1.0], [(n + 1) * 1.0 / n_quadrilaterals, 0.0]]
-    squares.append(square)
-borssele_mapping1 = AreaMapping(areas[0], squares[0])
-borssele_mapping2 = AreaMapping(areas[1], squares[1])
+# squares = []
+# for n in range(n_quadrilaterals):
+#     square = [[1.0 / n_quadrilaterals * n, 0.0], [n * 1.0 / n_quadrilaterals, 1.0], [(n + 1) * 1.0 / n_quadrilaterals, 1.0], [(n + 1) * 1.0 / n_quadrilaterals, 0.0]]
+#     squares.append(square)
+# borssele_mapping1 = AreaMapping(areas[0], squares[0])
+# borssele_mapping2 = AreaMapping(areas[1], squares[1])
 
 def create_random():
     xt, yt = 2.0, 2.0
@@ -77,15 +77,15 @@ def obj(x):
 #     cons2.run_model()
 #     ans = cons2['inbounds.magnitude_violations'][0]
 
-con1d = {'type':'ineq', 'fun':con1}
+# con1d = {'type':'ineq', 'fun':con1}
 
-con2d = {'type':'ineq', 'fun':con2}
+# con2d = {'type':'ineq', 'fun':con2}
 
-const = (con1d, con2d)
+# const = (con1d, con2d)
 
-x1 = []
-for _ in range(NT):
-    x1 += create_random()
+# x1 = []
+# for _ in range(NT):
+#     x1 += create_random()
 
 opts = {'disp':False, 'maxiter':10000, 'rhobeg':50.0}
 
