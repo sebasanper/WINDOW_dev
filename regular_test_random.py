@@ -110,7 +110,9 @@ if __name__ == '__main__':
 
    # 1589.47092779] [ 1597.54552192] [ 129.35847029] [ 99.53599745
    # [ 969.34641881] [ 2428.05402564] [ 1033.85393252] [ 46.63310252]
-    print(regular_layout(969.34641881, 2428.05402564, 1033.85393252, areas, 46.63310252, True))
+    # print(regular_layout(969.34641881, 2428.05402564, 1033.85393252, areas, 46.63310252, True))
+    print(regular_layout(1391.22013673,  1852.79334031,   353.77828467, areas,   164.39541089, True))
+    # print(regular_layout(1273.70700573,  1834.37446286,    29.56929332,   areas,   225.0460898 , True))
     # with open("regular_borssele_test.dat", "a") as regular_file:
     #     for _ in range(10000):
     #         sample = [uniform(570.0,2500.0), uniform(570.0,2500.0), uniform(0.0, 1250.0), uniform(0.0, 180.0)]
