@@ -1,6 +1,7 @@
 from scipy.optimize import minimize
 from openmdao.api import Problem, Group, IndepVarComp
 from workflow_cheap import LCOE
+from workflow_cheap_regular import LCOE as LCOE_reg
 from constraints_openmdao import MinDistance, WithinBoundaries
 from farm_description import n_quadrilaterals, areas, separation_equation_y, NT
 from turbine_description import rotor_radius
@@ -11,7 +12,7 @@ import numpy as np
 def regular():
 
     prob = Problem()
-    prob.model = LCOE()
+    prob.model = LCOE_reg()
     prob.setup()
 
     def obj(x):
@@ -121,5 +122,5 @@ def irregular():
 
 
 if __name__ == '__main__':
-    # regular()
-    irregular()
+    regular()
+    # irregular()
