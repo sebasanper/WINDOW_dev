@@ -57,6 +57,7 @@ prob.setup()
 
 
 def obj(x):
+    print x
     prob['indep2.downwind_spacing'] = x[0]
     prob['indep2.crosswind_spacing'] = x[1]
     prob['indep2.odd_row_shift_spacing'] = x[2]
