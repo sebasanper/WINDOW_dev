@@ -121,6 +121,30 @@ def irregular():
     print a
 
 
+def greedy_distance():
+    squares = []
+    for n in range(fd.n_quadrilaterals):
+        square = [[1.0 / fd.n_quadrilaterals * n, 0.0], [n * 1.0 / fd.n_quadrilaterals, 1.0], [(n + 1) * 1.0 / fd.n_quadrilaterals, 1.0], [(n + 1) * 1.0 / fd.n_quadrilaterals, 0.0]]
+        squares.append(square)
+    borssele_mapping1 = trans.AreaMapping(fd.areas[0], squares[0])
+    borssele_mapping2 = trans.AreaMapping(fd.areas[1], squares[1])
+
+    def create_random():
+        xt, yt = 2.0, 2.0
+        while (xt < 0.0 or xt > 1.0) or (yt < 0.0 or yt > 1.0):
+            xb, yb = random.uniform(min(min([item[0] for item in fd.areas[0]]), min([item[0] for item in fd.areas[1]])), max(max([item[0] for item in fd.areas[0]]), max([item[0] for item in fd.areas[1]]))), random.uniform(min(min([item[1] for item in fd.areas[0]]), min([item[1] for item in fd.areas[1]])), max(max([item[1] for item in fd.areas[0]]), max([item[1] for item in fd.areas[1]])))
+            if yb > fd.separation_equation_y(xb):
+                xt, yt = borssele_mapping1.transform_to_rectangle(xb, yb)
+            else:
+                xt, yt = borssele_mapping2.transform_to_rectangle(xb, yb)
+        return [xb, yb]
+
+    for turb in range(74):
+        for _ in range(1000):
+            = create_random()
+
+
+
 if __name__ == '__main__':
     # regular()
     irregular()

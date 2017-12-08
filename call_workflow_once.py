@@ -68,7 +68,7 @@ def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
     workflow1.windrose.artificial_angle = artif_angle
     workflow1.windrose.real_angle = real_angle
     workflow1.print_output = False
-    workflow1.draw_infield = False
+    workflow1.draw_infield = True
     answer = workflow1.run(new_layout)
     power2.reset()
     thrust_coefficient2.reset()
@@ -170,10 +170,10 @@ if __name__ == '__main__':
     from joblib import Parallel, delayed
     # start = time()
     # layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
-    # print(call_workflow_layout(layout, 15, 30.0, a, c, d, e, f, j))
+    # print(call_workflow_layout(layout, 1, 30.0, 0, 0, 0, 0, 0, 0))
     # print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
     # print(time() - start, "seconds")
-    print(call_workflow_once(4, 30.0, 1, 4 ,1, 0, 3 ,1))
+    # print(call_workflow_once(4, 30.0, 1, 4 ,1, 0, 3 ,1))
 
     # [list(range(23)), list(range(6)), list(range(4)), list(range(6)), list(range(4)),
     #                        list(range(4)), list(range(4)), list(range(2))]
