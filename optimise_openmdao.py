@@ -18,8 +18,8 @@ model.add_design_var("indep2.crosswind_spacing", lower=570.0, upper=2500.0)
 model.add_design_var("indep2.odd_row_shift_spacing", lower=285.0, upper=570.0)
 model.add_design_var("indep2.layout_angle", lower=0.0, upper=180.0)
 model.add_objective('analysis.lcoe')
-# model.add_constraint('constraint_distance.magnitude_violations', upper=0.01)
-# model.add_constraint('constraint_boundary.magnitude_violations', upper=0.00001)
+model.add_constraint('constraint_distance.magnitude_violations', upper=0.01)
+model.add_constraint('constraint_boundary.magnitude_violations', upper=0.00001)
 
 prob.set_solver_print(level=5)
 
