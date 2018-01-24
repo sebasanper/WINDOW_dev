@@ -1,16 +1,16 @@
 import numpy as np
 
 from openmdao.api import Problem, ScipyOptimizer
-# from openmdao.api import pyOptSparseDriver
+from openmdao.api import pyOptSparseDriver
 from workflow_cheap import LCOE
 from farm_description import NT
 
 prob = Problem()
 model = prob.model = LCOE()
-# prob.driver = pyOptSparseDriver()
-prob.driver = ScipyOptimizer()
-prob.driver.options['optimizer'] = 'CG'#'SLSQP'#"Powell"#COBYLA, Powell works, COBYLA works, Nelder-Mead works but violates constraints, own PSO works, 
-prob.driver.options['maxiter'] = 50
+prob.driver = pyOptSparseDriver()
+# prob.driver = ScipyOptimizer()
+prob.driver.options['optimizer'] = 'ALPSO'#'SLSQP'#"Powell"#COBYLA, Powell works, COBYLA works, Nelder-Mead works but violates constraints, own PSO works, 
+# prob.driver.options['maxiter'] = 50
 
 model.add_design_var('indep2.layout', lower=np.array([[484000.0, 5.715e6] for _ in range(NT)]), upper=np.array([[504000.0, 5.74e6] for _ in range(NT)]))
 # model.add_design_var("indep2.downwind_spacing", lower=570.0, upper=2500.0)
