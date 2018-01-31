@@ -254,8 +254,9 @@ lay5 = [  498645.71675349,  5726869.81801822,   500573.92323912,
         5732993.01212165]
 
 if __name__ == '__main__':
-    lay_new = [[layout[i], layout[i+1]] for i in range(0, 148, 2)]
+    lay_new = [[lay5[i], lay5[i+1]] for i in range(0, 148, 2)]
 
-    with open("optim_678_diff.dat", "a") as out:
+    with open("optim_diff5.dat", "w") as out:
         for item in lay_new:
             out.write("{} {}\n".format(item[0], item[1]))
+ 
