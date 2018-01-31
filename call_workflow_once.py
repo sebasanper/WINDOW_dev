@@ -28,7 +28,7 @@ from Hybrid import draw_cables
 # a - 1
 wakemodels = [constantwake, Jensen, Larsen, Ainslie1D, Ainslie2D]
 # b - 2
-windrosemodels = ["site_conditions/wind_conditions/weibull_windrose_12identical.dat",
+windrosemodels = ["C:/Users/Sebastian/PycharmProjects/WINDOW_dev/site_conditions/wind_conditions/weibull_windrose_12identical.dat",
     "site_conditions/wind_conditions/weibull_windrose_12unique.dat"]#,
     # "site_conditions/wind_conditions/weibull_windrose_12sameWeibull.dat",
     # ]
@@ -39,9 +39,9 @@ cablemodels = ["ConstantCable", cable_optimiser, radial_cable, random_cable, dra
 # e - 5
 mergingmodels = [root_sum_square, maximum, multiplied, summed]
 # f - 6
-thrustmodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantThrust.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/NREL_5MW_C_T_new.txt", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_ct.dat", "ct_dtu10.dat"]
+thrustmodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantThrust.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/NREL_5MW_C_T_new.txt", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_ct.dat", "C:/Users/Sebastian/PycharmProjects/WINDOW_dev/ct_dtu10.dat"]
 # g - 7
-powermodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantPower.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_power.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_power.dat", "power_dtu10.dat"]#, "farm_energy/wake_model_mean_new/aero_power_ct_models/powercurve.dat"]
+powermodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantPower.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_power.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_power.dat", "C:/Users/Sebastian/PycharmProjects/WINDOW_dev/power_dtu10.dat"]#, "farm_energy/wake_model_mean_new/aero_power_ct_models/powercurve.dat"]
 # h - 8
 depthmodels = [Flat, Gaussian, Plane, Rough]
 # i - 9
@@ -67,7 +67,7 @@ def call_aep(layout, nbins, artif_angle, a, c, d, e, f, j):
     workflow1.windrose.nbins = nbins
     workflow1.windrose.artificial_angle = artif_angle
     workflow1.windrose.real_angle = real_angle
-    workflow1.print_output = True
+    workflow1.print_output = False
     workflow1.draw_infield = False
     answer = workflow1.run(new_layout)
     power2.reset()

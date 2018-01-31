@@ -73,7 +73,7 @@ class Workflow:
         self.max_turbulence_per_turbine = [0.0 for _ in range(len(turbine_coordinates))]
 
         if self.print_output is True: print( "=== CALCULATING ENERGY, TURBULENCE PER WIND DIRECTION ===")
-        print self.wind_speeds
+        # print self.wind_speeds
         for i in range(len(self.wind_directions)):
             # print " === Wind direction = " + str(self.wind_directions[i])
             # if self.print_output is True: print self.wind_speeds_probabilities[i]
@@ -105,7 +105,7 @@ class Workflow:
         if self.print_output is True: print( " --- Array efficiency---")
         self.array_efficiency = sum(self.array_efficiencies)
         if self.print_output is True: print (str(self.array_efficiency * 100.0) + " %\n")
-        print self.energies_per_angle
+        # print self.energies_per_angle
         if self.print_output is True: print (" --- Farm annual energy without losses---")
         self.farm_annual_energy = sum(self.energies_per_angle)
         if self.print_output is True: print( str(self.farm_annual_energy / 1000000.0) + " MWh\n")
@@ -117,7 +117,7 @@ class Workflow:
             self.turbulence = [0.25 for _ in range(self.number_turbines)]
         if self.print_output is True: print (str([self.turbulence[l] * 100.0 for l in range(len(self.turbulence))]) + " %\n")
 
-        print self.farm_annual_energy
+        # print self.farm_annual_energy
         return self.farm_annual_energy, self.turbulence
 
     def run(self, layout_coordinates):
