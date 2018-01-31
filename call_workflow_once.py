@@ -49,11 +49,9 @@ weibullmodels = [MeanWind, WeibullWindBins]
 # j - 10
 farm_support_cost_models = ["ConstantSupport", farm_support_cost]
 
-def call_aep(layout, nbins, artif_angle, a, c, d, e, f, j):
+def call_aep(power_curve_file, ct_curve_file, windrose_file, layout, nbins, artif_angle, a, c, d, e, f, j):
     # print("called")
     real_angle = 30.0
-    b = 0  # Fixed
-    g = f  # Turbine model
     h = 3  # Fixed
     i = 1  # Fixed
     new_layout = []
@@ -62,7 +60,7 @@ def call_aep(layout, nbins, artif_angle, a, c, d, e, f, j):
         if item[0] != -115110.0:
             new_layout.append(item)
     # print new_layout
-    workflow1 = aep_workflow(weibullmodels[i], windrosemodels[b], turbmodels[c], None, depthmodels[h], farm_support_cost_models[j], None, oandm, cablemodels[d], infield_efficiency, thrust_coefficient, thrustmodels[f], wakemodels[a], mergingmodels[e], power, powermodels[g], aep_average, other_costs, total_costs, LPC)
+    workflow1 = aep_workflow(weibullmodels[i], windrose_file, turbmodels[c], None, depthmodels[h], farm_support_cost_models[j], None, oandm, cablemodels[d], infield_efficiency, thrust_coefficient, ct_curve_file, wakemodels[a], mergingmodels[e], power, power_curve_file, aep_average, other_costs, total_costs, LPC)
 
     workflow1.windrose.nbins = nbins
     workflow1.windrose.artificial_angle = artif_angle
@@ -73,7 +71,7 @@ def call_aep(layout, nbins, artif_angle, a, c, d, e, f, j):
     power2.reset()
     thrust_coefficient2.reset()
     # print layout
-    print workflow1.turbulence, "turbulences"
+    # print workflow1.turbulence, "turbulences"
     return answer
 
 
