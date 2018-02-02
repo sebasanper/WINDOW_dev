@@ -60,7 +60,7 @@ def call_aep(power_curve_file, ct_curve_file, windrose_file, layout, nbins, arti
         if item[0] != -115110.0:
             new_layout.append(item)
     # print new_layout
-    workflow1 = aep_workflow(weibullmodels[i], windrose_file, turbmodels[c], None, depthmodels[h], farm_support_cost_models[j], None, oandm, cablemodels[d], infield_efficiency, thrust_coefficient, ct_curve_file, wakemodels[a], mergingmodels[e], power, power_curve_file, aep_average, other_costs, total_costs, LPC)
+    workflow1 = aep_workflow(weibullmodels[i], windrose_file, turbmodels[c], thrust_coefficient, ct_curve_file, wakemodels[a], mergingmodels[e], power, power_curve_file)
 
     workflow1.windrose.nbins = nbins
     workflow1.windrose.artificial_angle = artif_angle
