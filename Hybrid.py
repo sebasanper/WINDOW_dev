@@ -1022,24 +1022,32 @@ if __name__ == '__main__':
                 # print number, cable[2], rated_current
                 Cable_List.append([number, cable[2] + 365.0])
                 break
+    layout = []
+    with open("../iea_rwp/pso_9p9620.dat", "r") as inp:
+        for i, line in enumerate(inp):
+            cols = line.split()
+            # print cols
+            layout.append([i, float(cols[0]), float(cols[1])])
 
+    # squares = []
+    # for n in range(n_quadrilaterals):
+    #     square = [[1.0 / n_quadrilaterals * n, 0.0], [n * 1.0 / n_quadrilaterals, 1.0], [(n + 1) * 1.0 / n_quadrilaterals, 1.0], [(n + 1) * 1.0 / n_quadrilaterals, 0.0]]
+    #     squares.append(square)
+    # borssele_mapping1 = AreaMapping(areas[0], squares[0])
+    # borssele_mapping2 = AreaMapping(areas[1], squares[1])
 
-    squares = []
-    for n in range(n_quadrilaterals):
-        square = [[1.0 / n_quadrilaterals * n, 0.0], [n * 1.0 / n_quadrilaterals, 1.0], [(n + 1) * 1.0 / n_quadrilaterals, 1.0], [(n + 1) * 1.0 / n_quadrilaterals, 0.0]]
-        squares.append(square)
-    borssele_mapping1 = AreaMapping(areas[0], squares[0])
-    borssele_mapping2 = AreaMapping(areas[1], squares[1])
+    # def create_random(i):
+    #     xt, yt = 2.0, 2.0
+    #     while (xt < 0.0 or xt > 1.0) or (yt < 0.0 or yt > 1.0):
+    #         xb, yb = uniform(min(min([item[0] for item in areas[0]]), min([item[0] for item in areas[1]])), max(max([item[0] for item in areas[0]]), max([item[0] for item in areas[1]]))), uniform(min(min([item[1] for item in areas[0]]), min([item[1] for item in areas[1]])), max(max([item[1] for item in areas[0]]), max([item[1] for item in areas[1]])))
+    #         if yb > separation_equation_y(xb):
+    #             xt, yt = borssele_mapping1.transform_to_rectangle(xb, yb)
+    #         else:
+    #             xt, yt = borssele_mapping2.transform_to_rectangle(xb, yb)
+    #     return [i, xb, yb]
 
-    def create_random(i):
-        xt, yt = 2.0, 2.0
-        while (xt < 0.0 or xt > 1.0) or (yt < 0.0 or yt > 1.0):
-            xb, yb = uniform(min(min([item[0] for item in areas[0]]), min([item[0] for item in areas[1]])), max(max([item[0] for item in areas[0]]), max([item[0] for item in areas[1]]))), uniform(min(min([item[1] for item in areas[0]]), min([item[1] for item in areas[1]])), max(max([item[1] for item in areas[0]]), max([item[1] for item in areas[1]])))
-            if yb > separation_equation_y(xb):
-                xt, yt = borssele_mapping1.transform_to_rectangle(xb, yb)
-            else:
-                xt, yt = borssele_mapping2.transform_to_rectangle(xb, yb)
-        return [i, xb, yb]
+    # WT_List = [create_random(i) for i in range(NT)]
 
-    WT_List = [create_random(i) for i in range(NT)]
-    print draw_cables(WT_List, central_platform, Cable_List)
+    WT_List = layout
+
+    print draw_cables(WT_List, central_platform)
