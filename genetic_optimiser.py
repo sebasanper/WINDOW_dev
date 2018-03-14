@@ -9,9 +9,9 @@ from openmdao.api import Problem
 from workflow_cheap import LCOE
 from farm_description import NT, n_quadrilaterals, areas, separation_equation_y
 
-result = open('gen7_best_layout_aep2.dat', 'w', 1)
-result2 = open('gen7_fitness_aep2.dat', 'w', 1)
-average = open('gen7_average_fitness_aep2.dat', 'w', 1)
+result = open('gen9_linux_best_layout_aep.dat', 'a', 1)
+result2 = open('gen9_linux_fitness_aep.dat', 'a', 1)
+average = open('gen9_linux_average_fitness_aep.dat', 'a', 1)
 start_time = time.time()
 
 #  gen1 with     n_iter = 8000    n_ind = 100    mutation_rate = 0.01    selection_percentage = 0.3  random_selection = 0.05 100-13.24%=86.76% eff.
@@ -27,6 +27,7 @@ prob.model = LCOE()
 prob.setup()
 
 def objfunc(x):
+    print x
     prob['indep2.layout'] = x
     prob.run_model()
     f = prob['analysis.lcoe'][0]
@@ -94,11 +95,11 @@ def genetic():
         #     result.write('{0:d}\t{1:d}\n'.format(int(pop[0][x][0]), int(pop[0][x][1])))
         # result.write('\n')
         # Calls the Wake Model
-        fit = Parallel(n_jobs=-1)(delayed(objfunc)(pop[i]) for i in range(n_ind))  # Parallel evaluation of fitness of all individuals
+        fit = Parallel(n_jobs=-2)(delayed(objfunc)(pop[i]) for i in range(n_ind))  # Parallel evaluation of fitness of all individuals
         # fit = [objfunc(pop[i]) for i in range(n_ind)]
         aver = grade_gen(fit, float(n_ind))
 
-        average.write('{}\n'.format(aver))
+        average.write('{}\n'.format(aver[0]))
 
         for i in range(n_ind):
             fit[i] = [fit[i], i]

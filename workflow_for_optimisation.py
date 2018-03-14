@@ -139,58 +139,58 @@ class Workflow:
 
         if self.print_output is True: print (" --- Farm annual energy without losses---")
         self.farm_annual_energy = sum(self.energies_per_angle)
-        if self.print_output is True: print( str(self.farm_annual_energy / 1000000.0) + " MWh\n")
+        # if self.print_output is True: print( str(self.farm_annual_energy / 1000000.0) + " MWh\n")
 
-        if self.print_output is True: print (" --- Infield cable system efficiency ---")
-        if self.cable_topology_model != "ConstantCable":
-            self.cable_efficiency = sum(self.cable_efficiencies_per_angle) / len(self.cable_efficiencies_per_angle)  # TODO Check if average is the way to go instead of weighted average with probability of direction.
-        if self.cable_topology_model == "ConstantCable":
-            self.cable_efficiency = 0.99
-        if self.print_output is True: print (str(self.cable_efficiency * 100.0) + " %\n")
+        # if self.print_output is True: print (" --- Infield cable system efficiency ---")
+        # if self.cable_topology_model != "ConstantCable":
+        #     self.cable_efficiency = sum(self.cable_efficiencies_per_angle) / len(self.cable_efficiencies_per_angle)  # TODO Check if average is the way to go instead of weighted average with probability of direction.
+        # if self.cable_topology_model == "ConstantCable":
+        #     self.cable_efficiency = 0.99
+        # if self.print_output is True: print (str(self.cable_efficiency * 100.0) + " %\n")
 
-        if self.print_output is True: print (" --- Maximum wind turbulence intensity ---")
-        if self.wake_turbulence_model != "ConstantTurbulence":
-            self.turbulence = self.max_turbulence_per_turbine
-        elif self.wake_turbulence_model == "ConstantTurbulence":
-            self.turbulence = [0.25 for _ in range(self.number_turbines)]
-        if self.print_output is True: print (str([self.turbulence[l] * 100.0 for l in range(len(self.turbulence))]) + " %\n")
+        # if self.print_output is True: print (" --- Maximum wind turbulence intensity ---")
+        # if self.wake_turbulence_model != "ConstantTurbulence":
+        #     self.turbulence = self.max_turbulence_per_turbine
+        # elif self.wake_turbulence_model == "ConstantTurbulence":
+        #     self.turbulence = [0.25 for _ in range(self.number_turbines)]
+        # if self.print_output is True: print (str([self.turbulence[l] * 100.0 for l in range(len(self.turbulence))]) + " %\n")
 
-        # --------- COSTS ----------------------------------------
+        # # --------- COSTS ----------------------------------------
 
-        if self.print_output is True: print (" --- Other investment and decommissioning costs ---")
-        self.investment, self.decommissioning_cost = self.more_costs(self.depth_central_platform, self.number_turbines, self.infield_length)
-        if self.print_output is True: print( "Other investment costs")
-        if self.print_output is True: print (str(self.investment) + " EUR\n")
-        if self.print_output is True: print ("Decommissioning costs")
-        if self.print_output is True: print (str(self.decommissioning_cost) + " EUR\n")
+        # if self.print_output is True: print (" --- Other investment and decommissioning costs ---")
+        # self.investment, self.decommissioning_cost = self.more_costs(self.depth_central_platform, self.number_turbines, self.infield_length)
+        # if self.print_output is True: print( "Other investment costs")
+        # if self.print_output is True: print (str(self.investment) + " EUR\n")
+        # if self.print_output is True: print ("Decommissioning costs")
+        # if self.print_output is True: print (str(self.decommissioning_cost) + " EUR\n")
 
-        if self.print_output is True: print (" --- Support structure investment costs ---")
-        if self.support_design_model != "ConstantSupport":
-            self.support_costs = self.support_design_model(self.water_depths, self.turbulence)
-        elif self.support_design_model == "ConstantSupport":
-            self.support_costs = 72376799.0
-        if self.print_output is True: print( str(self.support_costs) + " EUR\n")
+        # if self.print_output is True: print (" --- Support structure investment costs ---")
+        # if self.support_design_model != "ConstantSupport":
+        #     self.support_costs = self.support_design_model(self.water_depths, self.turbulence)
+        # elif self.support_design_model == "ConstantSupport":
+        #     self.support_costs = 72376799.0
+        # if self.print_output is True: print( str(self.support_costs) + " EUR\n")
 
-        self.aeroloads = 0.0
-        self.hydroloads = 0.0
+        # self.aeroloads = 0.0
+        # self.hydroloads = 0.0
 
-        if self.print_output is True: print( " --- O&M costs---")
-        self.om_costs, self.availability = self.OandM_model(self.farm_annual_energy, self.aeroloads, self.hydroloads, turbine_coordinates)
-        # self.om_costs *= 20.0  # Number of years
-        if self.print_output is True: print (self.om_costs)
-        if self.print_output is True: print (str(self.om_costs) + " EUR\n")
+        # if self.print_output is True: print( " --- O&M costs---")
+        # self.om_costs, self.availability = self.OandM_model(self.farm_annual_energy, self.aeroloads, self.hydroloads, turbine_coordinates)
+        # # self.om_costs *= 20.0  # Number of years
+        # if self.print_output is True: print (self.om_costs)
+        # if self.print_output is True: print (str(self.om_costs) + " EUR\n")
 
-        if self.print_output is True: print (" --- Total energy production ---")
-        self.aep = self.aep_model(self.farm_annual_energy, self.availability, self.cable_efficiency)
-        if self.print_output is True: print( str(self.aep / 1000000.0) + " MWh\n")
+        # if self.print_output is True: print (" --- Total energy production ---")
+        # self.aep = self.aep_model(self.farm_annual_energy, self.availability, self.cable_efficiency)
+        # if self.print_output is True: print( str(self.aep / 1000000.0) + " MWh\n")
 
-        if self.print_output is True: print (" --- Total investment costs ---")
-        self.total_costs = self.support_costs + self.cable_topology_costs + self.investment
-        if self.print_output is True: print (str(self.total_costs) + " EUR\n")
+        # if self.print_output is True: print (" --- Total investment costs ---")
+        # self.total_costs = self.support_costs + self.cable_topology_costs + self.investment
+        # if self.print_output is True: print (str(self.total_costs) + " EUR\n")
 
-        if self.print_output is True: print( " --- LCOE ---")
-        self.finance = self.finance_model(self.investment + self.cable_topology_costs + self.support_costs, self.om_costs, self.decommissioning_cost, self.aep, 0.95)
-        if self.print_output is True: print( str(self.finance) + " cents/kWh\n")
+        # if self.print_output is True: print( " --- LCOE ---")
+        # self.finance = self.finance_model(self.investment + self.cable_topology_costs + self.support_costs, self.om_costs, self.decommissioning_cost, self.aep, 0.95)
+        # if self.print_output is True: print( str(self.finance) + " cents/kWh\n")
 
         return self.finance
         # return - self.farm_annual_energy
