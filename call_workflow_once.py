@@ -147,7 +147,7 @@ def results_median_workflow(nbins, artif_angle, a, c, d, e, f, j):
     n_power_calls = []
     n_thrust_calls = []
 
-    for _ in range(5):
+    for _ in range(2):
         results = call_workflow_once(nbins, artif_angle, a, c, d, e, f, j)
         time = results[1]
         power_calls = results[2]
