@@ -17,6 +17,7 @@ MEuro = "M%s" % Euro
 
 
 def draw_cables(WT_List, central_platform_locations, Cable_List):
+    print "cable"
     Crossing_penalty = 0.0
     NT = len(WT_List)
     Area = []

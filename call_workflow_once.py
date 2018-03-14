@@ -1,5 +1,6 @@
 from workflow import Workflow
 from workflow_for_optimisation import Workflow as Workflow_for_opt
+from aep_workflow import Workflow as aep_workflow
 from joblib import Parallel, delayed
 
 from site_conditions.wind_conditions.windrose import MeanWind, WeibullWindBins
@@ -27,10 +28,10 @@ from Hybrid import draw_cables
 # a - 1
 wakemodels = [constantwake, Jensen, Larsen, Ainslie1D, Ainslie2D]
 # b - 2
-windrosemodels = [
+windrosemodels = ["C:/Users/Sebastian/PycharmProjects/WINDOW_dev/site_conditions/wind_conditions/weibull_windrose_12identical.dat",
     "site_conditions/wind_conditions/weibull_windrose_12unique.dat"]#,
     # "site_conditions/wind_conditions/weibull_windrose_12sameWeibull.dat",
-    # "site_conditions/wind_conditions/weibull_windrose_12identical.dat"]
+    # ]
 # c - 3
 turbmodels = ["ConstantTurbulence", frandsen2, danish_recommendation, frandsen, larsen_turbulence, Quarton]
 # d - 4
@@ -38,15 +39,40 @@ cablemodels = ["ConstantCable", cable_optimiser, radial_cable, random_cable, dra
 # e - 5
 mergingmodels = [root_sum_square, maximum, multiplied, summed]
 # f - 6
-thrustmodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantThrust.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/NREL_5MW_C_T_new.txt", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_ct.dat"]
+thrustmodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantThrust.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_ct.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/NREL_5MW_C_T_new.txt", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_ct.dat", "C:/Users/Sebastian/PycharmProjects/WINDOW_dev/ct_dtu10.dat"]
 # g - 7
-powermodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantPower.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_power.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_power.dat"]#, "farm_energy/wake_model_mean_new/aero_power_ct_models/powercurve.dat"]
+powermodels = ["farm_energy/wake_model_mean_new/aero_power_ct_models/ConstantPower.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/windsim_power.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/nrel_cp.dat", "farm_energy/wake_model_mean_new/aero_power_ct_models/FASTstatistics_power.dat", "C:/Users/Sebastian/PycharmProjects/WINDOW_dev/power_dtu10.dat"]#, "farm_energy/wake_model_mean_new/aero_power_ct_models/powercurve.dat"]
 # h - 8
 depthmodels = [Flat, Gaussian, Plane, Rough]
 # i - 9
 weibullmodels = [MeanWind, WeibullWindBins]
 # j - 10
 farm_support_cost_models = ["ConstantSupport", farm_support_cost]
+
+def call_aep(power_curve_file, ct_curve_file, windrose_file, layout, nbins, artif_angle, a, c, d, e, f, j):
+    # print("called")
+    real_angle = 30.0
+    h = 3  # Fixed
+    i = 1  # Fixed
+    new_layout = []
+    for item in layout:
+        # print item
+        if item[0] != -115110.0:
+            new_layout.append(item)
+    # print new_layout
+    workflow1 = aep_workflow(weibullmodels[i], windrose_file, turbmodels[c], thrust_coefficient, ct_curve_file, wakemodels[a], mergingmodels[e], power, power_curve_file)
+
+    workflow1.windrose.nbins = nbins
+    workflow1.windrose.artificial_angle = artif_angle
+    workflow1.windrose.real_angle = real_angle
+    workflow1.print_output = False
+    workflow1.draw_infield = False
+    answer = workflow1.run(new_layout)
+    power2.reset()
+    thrust_coefficient2.reset()
+    # print layout
+    # print workflow1.turbulence, "turbulences"
+    return answer
 
 
 def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
@@ -63,21 +89,18 @@ def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
             new_layout.append(item)
     # print new_layout
     workflow1 = Workflow_for_opt(weibullmodels[i], windrosemodels[b], turbmodels[c], None, depthmodels[h], farm_support_cost_models[j], None, oandm, cablemodels[d], infield_efficiency, thrust_coefficient, thrustmodels[f], wakemodels[a], mergingmodels[e], power, powermodels[g], aep_average, other_costs, total_costs, LPC)
-    # layout_input_file = "horns_rev_5MW_layout.dat"
-    # nbins = randint(2, 25)
-    # real_angle = choice([30.0, 60.0, 90.0, 120.0, 180.0])
-    # artif_angle = 400.0
 
     workflow1.windrose.nbins = nbins
     workflow1.windrose.artificial_angle = artif_angle
     workflow1.windrose.real_angle = real_angle
-    # workflow1.print_output = True
-    # workflow1.draw_infield = True
-    workflow1.run(new_layout)
+    workflow1.print_output = True
+    workflow1.draw_infield = False
+    answer = workflow1.run(new_layout)
     power2.reset()
     thrust_coefficient2.reset()
-    print workflow1.finance
-    return workflow1.finance
+    # print layout
+    print workflow1.finance, "LCOE"
+    return answer
 
 
 def call_workflow_once(nbins, artif_angle, a, c, d, e, f, j):
@@ -172,11 +195,18 @@ if __name__ == '__main__':
     from time import time
     from joblib import Parallel, delayed
     # start = time()
-    # layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
-    # print(call_workflow_layout(layout, 15, 30.0, a, c, d, e, f, j))
+    layout = [[0.0, 0.0], [882.0, 0.0], [1764.0, 0.0], [0.0, 882.0], [882.0, 882.0], [1764.0, 882.0], [0.0, 1764.0], [882.0, 1764.0], [1764.0, 1764.0]]
+    a=1
+    c=2
+    d=0
+    e=0
+    f=4
+    j=0
+    print layout
+    print(call_aep(layout, 15, 30.0, a, c, d, e, f, j), "AEP")
     # print(results_median_workflow(15, 30.0, a, c, d, e, f, j))
     # print(time() - start, "seconds")
-    print(call_workflow_once(4, 30.0, 1, 4 ,1, 0, 3 ,1))
+    # print(call_workflow_once(4, 30.0, 1, 4 ,1, 0, 3 ,1))
 
     # [list(range(23)), list(range(6)), list(range(4)), list(range(6)), list(range(4)),
     #                        list(range(4)), list(range(4)), list(range(2))]

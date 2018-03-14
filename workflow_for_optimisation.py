@@ -89,7 +89,7 @@ class Workflow:
         if self.cable_topology_model != "ConstantCable":
             self.cable_topology_costs, self.cable_topology, self.infield_length = self.cable_topology_model(turbine_coordinates, central_platform)
         if self.cable_topology_model == "ConstantCable":
-            self.cable_topology_costs = 9960476.0
+            self.cable_topology_costs = 99960476.0
             self.infield_length = 15276.0
         # print self.cable_topology
         if self.print_output is True: print( str(self.cable_topology_costs) + " EUR\n" + str(self.infield_length))
@@ -193,6 +193,7 @@ class Workflow:
         if self.print_output is True: print( str(self.finance) + " cents/kWh\n")
 
         return self.finance
+        # return - self.farm_annual_energy
 
     def run(self, layout_coordinates):
 
