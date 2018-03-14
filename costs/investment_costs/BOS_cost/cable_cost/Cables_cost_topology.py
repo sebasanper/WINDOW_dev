@@ -1,14 +1,14 @@
 # -----------------------------------------Input Parameters------------------------------------------------------------------
-from turbine_description import rated_current
 
+from math import hypot
+from copy import deepcopy
+from heapq import heappush, heappop, heapify
+# from time import time
+from farm_description import central_platform as central_platform_locations, number_turbines_per_cable, read_cablelist
+from turbine_description import rated_current
 
 def cable_design(WT_List):
 
-    from math import hypot
-    from copy import deepcopy
-    from heapq import heappush, heappop, heapify
-    # from time import time
-    from farm_description import central_platform as central_platform_locations, number_turbines_per_cable, read_cablelist
 
     NT = len(WT_List)
     # List of cable types: [Capacity,Cost] in increasing order (maximum 3 cable types)
@@ -846,6 +846,8 @@ def cable_design(WT_List):
             x = central_platform_location[0]
             y = central_platform_location[1]
         else:
+            print turbineID, turbineID - 1
+            print turbines[turbineID - 1]
             turbine = turbines[turbineID - 1]
             x = turbine[1]
             y = turbine[2]

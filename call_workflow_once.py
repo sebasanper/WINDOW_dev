@@ -22,7 +22,7 @@ from farm_energy.wake_model_mean_new.aero_power_ct_models.aero_models import pow
 from random import randint, choice
 import numpy as np
 from statistics import mode, stdev
-
+from Hybrid import draw_cables
 
 # a - 1
 wakemodels = [constantwake, Jensen, Larsen, Ainslie1D, Ainslie2D]
@@ -34,7 +34,7 @@ windrosemodels = [
 # c - 3
 turbmodels = ["ConstantTurbulence", frandsen2, danish_recommendation, frandsen, larsen_turbulence, Quarton]
 # d - 4
-cablemodels = ["ConstantCable", cable_optimiser, radial_cable, random_cable]
+cablemodels = ["ConstantCable", cable_optimiser, radial_cable, random_cable, draw_cables]
 # e - 5
 mergingmodels = [root_sum_square, maximum, multiplied, summed]
 # f - 6
@@ -56,7 +56,12 @@ def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
     g = f  # Turbine model
     h = 3  # Fixed
     i = 1  # Fixed
-
+    new_layout = []
+    for item in layout:
+        # print item
+        if item[0] != 0.0:
+            new_layout.append(item)
+    # print new_layout
     workflow1 = Workflow_for_opt(weibullmodels[i], windrosemodels[b], turbmodels[c], None, depthmodels[h], farm_support_cost_models[j], None, oandm, cablemodels[d], infield_efficiency, thrust_coefficient, thrustmodels[f], wakemodels[a], mergingmodels[e], power, powermodels[g], aep_average, other_costs, total_costs, LPC)
     # layout_input_file = "horns_rev_5MW_layout.dat"
     # nbins = randint(2, 25)
@@ -67,9 +72,11 @@ def call_workflow_layout(layout, nbins, artif_angle, a, c, d, e, f, j):
     workflow1.windrose.artificial_angle = artif_angle
     workflow1.windrose.real_angle = real_angle
     # workflow1.print_output = True
-    workflow1.run(layout)
+    # workflow1.draw_infield = True
+    workflow1.run(new_layout)
     power2.reset()
     thrust_coefficient2.reset()
+    print workflow1.finance
     return workflow1.finance
 
 

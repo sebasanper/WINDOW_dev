@@ -79,7 +79,7 @@ class Workflow:
         self.water_depths = depth(turbine_coordinates, self.depth_model(self.minx, self.maxx, self.miny, self.maxy))
         if self.print_output is True: print( str(self.water_depths) + "\n")
 
-        central_platform_coordinates = [[0, central_platform[0][0], central_platform[0][1]]]
+        central_platform_coordinates = [[i, central_platform[i][0], central_platform[i][1]] for i in range(len(central_platform))]
         if self.print_output is True: print( "=== CALCULATING DEPTH AT CENTRAL PLATFORM ===")
         self.depth_central_platform = depth(central_platform_coordinates, self.depth_model(self.minx, self.maxx, self.miny, self.maxy))[0]
         if self.print_output is True: print( str(self.depth_central_platform) + " m\n")
@@ -87,7 +87,7 @@ class Workflow:
         if self.print_output is True: print( "=== OPTIMISING INFIELD CABLE TOPOLOGY (COST)===")
         if self.draw_infield is True: draw_cables(turbine_coordinates, central_platform, cable_list)
         if self.cable_topology_model != "ConstantCable":
-            self.cable_topology_costs, self.cable_topology, self.infield_length = self.cable_topology_model(turbine_coordinates)
+            self.cable_topology_costs, self.cable_topology, self.infield_length = self.cable_topology_model(turbine_coordinates, central_platform)
         if self.cable_topology_model == "ConstantCable":
             self.cable_topology_costs = 9960476.0
             self.infield_length = 15276.0
@@ -203,7 +203,7 @@ class Workflow:
         from farm_energy.wake_model_mean_new.jensen import determine_if_in_wake, wake_radius, wake_deficit
         from farm_energy.wake_model_mean_new.larsen import deff, wake_deficit_larsen, wake_radius, x0, rnb, r95, c1, determine_if_in_wake_larsen, wake_speed
         from farm_energy.wake_model_mean_new.wake_turbulence_models import frandsen2, Quarton, danish_recommendation, frandsen, larsen_turbulence
-        self.coordinates = [[i, layout_coordinates[i][0], layout_coordinates[i][1]] for i in range(9)]
+        self.coordinates = [[i, layout_coordinates[i][0], layout_coordinates[i][1]] for i in range(len(layout_coordinates))]
         start_time = time()
         answer = self.connect(self.coordinates)
         self.runtime = time() - start_time
