@@ -21,7 +21,7 @@ def draw_cables(WT_List, central_platform_locations, Cable_List):
     Crossing_penalty = 0.0
     NT = len(WT_List)
     Area = []
-    Transmission = []
+    Transmission = [[[498000.0, 5731000.0], [463000.0, 5918000.0]]]
     name = 'sebastian'
     # ---------------------------------------Main--------------------------
 
@@ -1009,7 +1009,7 @@ if __name__ == '__main__':
                 Cable_List.append([number, cable[2] + 365.0])
                 break
     layout = []
-    with open("../../../../../iea_rwp/reg_mdao.dat", "r") as inp:
+    with open("../../../../../IEA_RWP/manual_layout.dat", "r") as inp:
         for i, line in enumerate(inp):
             cols = line.split()
             # print cols
