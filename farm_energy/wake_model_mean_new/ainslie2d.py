@@ -1,14 +1,19 @@
 from numpy import exp
-from farm_energy.wake_model_mean_new.thomas_algorithm import thomas
-from farm_energy.wake_model_mean_new.ainslie_common import b, E
+# from farm_energy.wake_model_mean_new.thomas_algorithm import thomas
+# from farm_energy.wake_model_mean_new.ainslie_common import b, E
 from time import time
-from memoize import Memoize
-from turbine_description import rotor_radius
+# from memoize import Memoize
+# from turbine_description import rotor_radius
 # b = Memoize(b)
 # E = Memoize(E)
+
+rotor_radius = 40.0
 rotor_diameter = 2.0 * rotor_radius
 
+from thomas_algorithm import thomas
+from ainslie_common import b, E
 
+# Ainslie works in dimensionless space scaled with rotor diameter.
 def ainslie_full(ct, u0, distance_parallel, distance_perpendicular, i0):
     # centreline = open('centreline.dat', 'w')
     # velocity = open('velocity.dat', 'w')
@@ -121,4 +126,9 @@ if __name__ == '__main__':
     # print larsen(8.5, 0.79, 560.0, 0.0, 0.08)
     # print ainslie_full(0.28025, -30.7274355682, 2.30063219336, 23.625, 0.11, 0.0537295322098)
     # print ainslie_full(0.537295322098, 10.0, 14.0125, 0.3, 0.11)
-    pass
+
+    with open("ainslie2d.dat", "w") as out:
+        for y in range(1, 240):
+            print y
+            for x in range(1, 160):
+                out.write("{} {} {}\n".format(x, y, ainslie_full(0.79, 10.0, x*10.0/80.0, y/80.0, 0.08)))

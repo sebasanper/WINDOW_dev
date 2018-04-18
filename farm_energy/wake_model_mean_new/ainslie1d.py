@@ -1,10 +1,15 @@
 from numpy import exp
-from farm_energy.wake_model_mean_new.ainslie_common import b, E
-from turbine_description import rotor_radius
-from memoize import Memoize
+# from farm_energy.wake_model_mean_new.ainslie_common import b, E
+# from turbine_description import rotor_radius
+# from memoize import Memoize
+
+rotor_radius = 40.0
 D = rotor_radius * 2.0
 
 
+from ainslie_common import b, E
+
+# Ainslie works in dimensionless space scaled with rotor diameter.
 def ainslie(Ct, u0, distance_parallel, distance_perpendicular, I0):
     # centreline = open('centreline.dat', 'w')
     # velocity = open('velocity.dat', 'w')
@@ -54,10 +59,9 @@ def ainslie(Ct, u0, distance_parallel, distance_perpendicular, I0):
     # return 1.0 - U / U0
 
 if __name__ == '__main__':
-    pass
-    # from ainslie2d import ainslie_full
-    # from jensen import wake_deficit
-    # from larsen import wake_deficit as larsen
-    # for i in range(1, 560):
-    #     print ainslie(0.79, 8.5, i/80.0, 0.0, 0.08), ainslie_full(0.79, 8.5, i/80.0, 0.0, 0.08), larsen(8.5, 0.79, i, 0.0, 0.08), wake_deficit(0.79, i, 0.04, 40.0)
 
+    with open("ainslie1d_2.dat", "w") as out:
+        for y in range(240):
+            print y
+            for x in range(160):
+                out.write("{} {} {}\n".format(x, y, ainslie(0.79, 10.0, x*10.0/80.0, y/80.0, 0.08)))

@@ -1,10 +1,10 @@
-from farm_energy.wake_model_mean_new.area import *
+# from farm_energy.wake_model_mean_new.area import *
 from numpy import deg2rad, tan, sqrt, cos, sin
-
-from turbine_description import rotor_radius
-from memoize import Memoize
+from area import *
+# from turbine_description import rotor_radius
+# from memoize import Memoize
 jensen_k = 0.04
-
+rotor_radius = 40.0
 
 def determine_if_in_wake(x_upstream, y_upstream, x_downstream, y_downstream, wind_direction, radius=rotor_radius, k=jensen_k):  # According to Jensen Model only
     # Eq. of centreline is Y = tan (d) (X - Xt) + Yt
@@ -38,22 +38,28 @@ def determine_if_in_wake(x_upstream, y_upstream, x_downstream, y_downstream, win
         return 0.0, distance_to_turbine
 
 
-determine_if_in_wake = Memoize(determine_if_in_wake)
+# determine_if_in_wake = Memoize(determine_if_in_wake)
 
 
 def wake_deficit(Ct, x, k=jensen_k, r0=rotor_radius):
     return (1.0 - sqrt(1.0 - Ct)) / (1.0 + (k * x) / r0) ** 2.0
 
 
-wake_deficit = Memoize(wake_deficit)
+# wake_deficit = Memoize(wake_deficit)
 
 
 def wake_radius(x, r0=rotor_radius, k=jensen_k):
     return r0 + k * x
 
 
-wake_radius = Memoize(wake_radius)
+# wake_radius = Memoize(wake_radius)
 
 if __name__ == '__main__':
-    pass
-    # print determine_if_in_wake(0, 0, 500, 0, 150.0, 64.0)
+
+    with open("jensen.dat", "w") as out:
+        for x in range(1600):
+            for y in range(240):
+                if y <= wake_radius(x, 40.0, 0.04):
+                    out.write("{} {} {}\n".format(x, y, 10.0 * (1.0 - wake_deficit(0.79, x, 0.04, 40.0))))
+                else:
+                    out.write("{} {} {}\n".format(x, y, 10.0))

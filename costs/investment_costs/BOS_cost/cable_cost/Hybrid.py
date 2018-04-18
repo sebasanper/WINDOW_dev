@@ -21,7 +21,7 @@ def draw_cables(WT_List, central_platform_locations, Cable_List):
     Crossing_penalty = 0.0
     NT = len(WT_List)
     Area = []
-    Transmission = [[[498000.0, 5731000.0], [463000.0, 5918000.0]]]
+    Transmission = [[[498000.0, 5731000.0], [498000.0, 5731000.0]]]# [463000.0, 5918000.0]]]
     name = 'sebastian'
     # ---------------------------------------Main--------------------------
 
@@ -106,6 +106,7 @@ def draw_cables(WT_List, central_platform_locations, Cable_List):
             for route in Routingi[key]:
                 if edge_crossings_area([route[0], route[1]], Wind_turbinesi[key], substationi[key], Area)[0] is True:
                     crossings += edge_crossings_area([route[0], route[1]], Wind_turbinesi[key], substationi[key], Area)[1]
+        print cable_length
         # print Routesi[1]
         # print Routesi
         # print('Cable length = {0} km'.format(round(cable_length / 1000, 3)))
@@ -501,7 +502,7 @@ def draw_cables(WT_List, central_platform_locations, Cable_List):
                             for z in xrange(0, len(route) - 1):
                                 Routing_green_temp.append([route[z], route[z + 1]])
                         arc1 = [lines[indexl][0], 0]
-                        new = new + Crossing_penalty * (
+                        new = Crossing_penalty * (
                         Crossingsi_finder[arc[0], arc[1]] - Crossingsi_finder[arc1[0], arc1[1]])
                         Savingsi, Savingsi_finder = add_task(Savingsi, Savingsi_finder, (arc[0], arc[1]), new)
                         Savingsi, Savingsi_finder, max_saving = pop_task(Savingsi, Savingsi_finder)
@@ -979,10 +980,10 @@ def draw_cables(WT_List, central_platform_locations, Cable_List):
 
 if __name__ == '__main__':
     # ---------------------------------
-    central_platform = [[498000.0, 5731000.0]]
+    central_platform = [[3000.0, 3000.0], [0.0, 0.0], [3000.0, 0.0], [0.0, 3000.0]]
     import numpy as np
     from time import time, clock
-    number_turbines_per_cable = [2, 4, 7]
+    number_turbines_per_cable = [2, 4, 7]# [2, 4, 7]
     from math import sqrt
 
     voltage = 66000.0
@@ -1009,7 +1010,7 @@ if __name__ == '__main__':
                 Cable_List.append([number, cable[2] + 365.0])
                 break
     layout = []
-    with open("../../../../../IEA_RWP/manual_layout.dat", "r") as inp:
+    with open("../../../../../guideline/baseline/square/substation_layout_74.dat", "r") as inp:
         for i, line in enumerate(inp):
             cols = line.split()
             # print cols
